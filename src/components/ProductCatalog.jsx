@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CATEGORIES, PRODUCTS, FABRIC_TYPES, STORE_DETAILS } from '../data/products';
+import { CATEGORIES, PRODUCTS, FABRIC_TYPES, getWhatsAppUrl } from '../data/products';
 import { Search, ShoppingBag, MessageCircle, Info, Check, Eye, Heart, Star, SlidersHorizontal, ArrowUpDown, BookOpen } from 'lucide-react';
 
 export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist, onOpenFabricGuide }) {
@@ -36,15 +36,11 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
     setSelectedSizes((prev) => ({ ...prev, [productId]: size }));
   };
 
-  const handleColorSelect = (productId, colorHex) => {
-    setSelectedColors((prev) => ({ ...prev, [productId]: colorHex }));
-  };
-
   const handleQuickInquire = (product) => {
     const sizeChosen = selectedSizes[product.id] || product.sizes[0];
     const message = `Hello Haryana Handloom Camp!\n\nI am interested in inquiring about:\n*Product:* ${product.name}\n*Loom Price:* ₹${product.price}\n*Size:* ${sizeChosen}\n*Material:* ${product.material}\n\nPlease let me know if this is currently available in store.`;
-    const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/${STORE_DETAILS.whatsapp}?text=${encoded}`, '_blank');
+    const targetUrl = getWhatsAppUrl(0, message);
+    window.open(targetUrl, '_blank');
   };
 
   return (

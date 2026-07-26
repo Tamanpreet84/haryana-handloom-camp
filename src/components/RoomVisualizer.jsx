@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Sparkles, Palette, Layers, CheckCircle2, MessageCircle, Sun, Moon, Sunset, DollarSign } from 'lucide-react';
-import { STORE_DETAILS } from '../data/products';
+import { Sparkles, Palette, Layers, CheckCircle2, MessageCircle, Sun, Moon, Sunset } from 'lucide-react';
+import { getWhatsAppUrl } from '../data/products';
 
 export default function RoomVisualizer() {
   const [bedsheetTheme, setBedsheetTheme] = useState('indigo');
@@ -31,7 +31,8 @@ export default function RoomVisualizer() {
 
   const handleShareStyling = () => {
     const text = `Hello Haryana Handloom Camp!\n\nI customized a custom room makeover look on your website visualizer:\n\n• *Bedsheet:* ${themes[bedsheetTheme].name} (₹${themes[bedsheetTheme].price})\n• *Cushion Covers:* ${cushionThemes[cushionTheme].name} (₹${cushionThemes[cushionTheme].price})\n• *Curtains:* ${curtainThemes[curtainTheme].name} (₹${curtainThemes[curtainTheme].price})\n\n*Total Estimated Package:* ₹${totalBundlePrice}\n\nCould you please confirm if this set is ready for pickup/delivery in Nandyal?`;
-    window.open(`https://wa.me/${STORE_DETAILS.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+    const targetUrl = getWhatsAppUrl(0, text);
+    window.open(targetUrl, '_blank');
   };
 
   // Lighting overlay styling
