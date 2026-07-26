@@ -48,7 +48,85 @@ export const getWhatsAppUrl = (phoneIndex = 0, messageText = '') => {
 };
 
 export const PRODUCTS = [
-  // 1. Bed Sheets
+  // 1. Curtains - Exact Uploaded Photos
+  {
+    id: 'cur-01',
+    category: 'curtains',
+    name: 'Ethnic Paisley Cream & Red Border Eyelet Curtains (Set of 2)',
+    subtitle: 'Traditional Indian Block Border Motif',
+    tag: 'Store Original',
+    material: '100% Pure Cotton',
+    threadCount: 'Heavy 350 GSM',
+    price: 999,
+    mrp: 1699,
+    discount: '41% OFF',
+    rating: 4.9,
+    reviewsCount: 156,
+    sizes: ['Window (5 ft)', 'Door (7 ft)', 'Long Door (9 ft)'],
+    colors: ['#fffbeb', '#991b1b', '#0f766e'],
+    image: '/images/curtains/curtain-ethnic-cream.png',
+    description: 'Elegant cream backdrop with vibrant crimson, teal, and mustard yellow ethnic paisley border prints. Brass eyelet grommets for smooth sliding.',
+    features: ['100% Cotton Weave', 'Rust-Free Grommets', 'Ethnic Paisley Border', 'Machine Washable']
+  },
+  {
+    id: 'cur-02',
+    category: 'curtains',
+    name: 'Emerald Green & Gold Royalty Damask Jacquard Curtains (Set of 2)',
+    subtitle: 'Rich Royal Palace Gradient Pattern',
+    tag: 'Best Seller',
+    material: 'Polyester Jacquard',
+    threadCount: 'Heavy 400 GSM',
+    price: 1299,
+    mrp: 2199,
+    discount: '41% OFF',
+    rating: 5.0,
+    reviewsCount: 182,
+    sizes: ['Door (7 ft)', 'Long Door (9 ft)', 'Custom (11 ft)'],
+    colors: ['#042f2e', '#e6c265', '#334155'],
+    image: '/images/curtains/curtain-emerald-jacquard.png',
+    description: 'Deep emerald green velvet top panel with rich metallic gold damask jacquard weaving down to cream and grey heritage borders.',
+    features: ['85% Light Darkening', 'High-Density Jacquard', 'Wrinkle Resistant', 'Thermal Shield']
+  },
+  {
+    id: 'cur-03',
+    category: 'curtains',
+    name: 'Royal Blue Solid Velvet Room Darkening Curtains (Set of 2)',
+    subtitle: 'Includes Matching Cushion Covers & Tie-Backs',
+    tag: '100% Blackout',
+    material: 'Dutch Velvet & Zari',
+    threadCount: 'Extra Heavy 450 GSM',
+    price: 1149,
+    mrp: 1899,
+    discount: '39% OFF',
+    rating: 4.9,
+    reviewsCount: 140,
+    sizes: ['Window (5 ft)', 'Door (7 ft)', 'Long Door (9 ft)'],
+    colors: ['#1e3a8a', '#0f172a'],
+    image: '/images/curtains/curtain-royal-blue-solid.png',
+    description: 'Ultra-dense solid royal blue eyelet blackout curtain. Provides 100% room darkening, noise dampening, and comes with matching tie-backs.',
+    features: ['100% Sun Block', 'Noise Dampening', 'Silky Velvet Touch', 'Matching Cushion Set']
+  },
+  {
+    id: 'cur-04',
+    category: 'curtains',
+    name: 'Maroon Scroll & Tree Branch Linen Sheer Curtains (Set of 2)',
+    subtitle: 'Delicate Botanical Branch Artwork',
+    tag: 'Trending',
+    material: 'Polyester Jacquard',
+    threadCount: 'Soft Textured Weave',
+    price: 899,
+    mrp: 1499,
+    discount: '40% OFF',
+    rating: 4.8,
+    reviewsCount: 112,
+    sizes: ['Door (7 ft)', 'Long Door (9 ft)'],
+    colors: ['#881337', '#fef08a', '#475569'],
+    image: '/images/curtains/curtain-maroon-tree-branch.png',
+    description: 'Sophisticated off-white linen texture framed with rich maroon scroll borders and delicate botanical branch line artwork.',
+    features: ['Light Filtering', 'Airy Linen Look', 'Pre-shrunk Fabric', 'Easy Care']
+  },
+
+  // 2. Bed Sheets
   {
     id: 'bs-01',
     category: 'bed-sheets',
@@ -87,46 +165,8 @@ export const PRODUCTS = [
     description: 'Vibrant Indian ethnic elephant motifs framed with ornate borders for timeless bedroom luxury.',
     features: ['Handloom Print', 'Pre-shrunk Cotton', 'Soft Handfeel']
   },
-  {
-    id: 'bs-03',
-    category: 'bed-sheets',
-    name: 'Elastic Fitted Deep Pocket Cotton Bedsheet Set',
-    subtitle: '360-Degree Snug Elastic Edges',
-    tag: 'Easy Fit',
-    material: '100% Pure Cotton',
-    threadCount: '400 TC',
-    price: 949,
-    mrp: 1499,
-    discount: '36% OFF',
-    rating: 4.7,
-    reviewsCount: 86,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#0284c7', '#059669', '#7c3aed'],
-    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80',
-    description: 'Wrinkle-free glace cotton with deep elastic pockets accommodating up to 10-inch mattresses.',
-    features: ['360 Elastic Pocket', 'No Tuck-In Hassle', 'Silky Touch']
-  },
-  {
-    id: 'bs-04',
-    category: 'bed-sheets',
-    name: '5-Star Hotel Satin Striped White King Bedsheet',
-    subtitle: 'Hotel Luxury Satin Weave',
-    tag: 'Luxury Grade',
-    material: '100% Pure Cotton',
-    threadCount: '500 TC',
-    price: 1299,
-    mrp: 2199,
-    discount: '40% OFF',
-    rating: 4.9,
-    reviewsCount: 160,
-    sizes: ['King (108x108")', 'Super King (110x120")'],
-    colors: ['#ffffff', '#cbd5e1', '#fef08a'],
-    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80',
-    description: 'Crisp white satin striped weave engineered for luxury hotel comfort and cooling breathability.',
-    features: ['500 Thread Count', 'Satin Striped Finish', 'Hypoallergenic']
-  },
 
-  // 2. Cushion Covers
+  // 3. Cushion Covers
   {
     id: 'cc-01',
     category: 'cushion-covers',
@@ -165,84 +205,6 @@ export const PRODUCTS = [
     description: 'Earthy handwoven textures with corner tassels for living room sofas and chairs.',
     features: ['Tufted Tassels', 'Handwoven Texture', 'Durable Weave']
   },
-  {
-    id: 'cc-03',
-    category: 'cushion-covers',
-    name: 'Silk Jacquard Traditional Mandala Art Cushion Covers (Set of 5)',
-    subtitle: 'High Definition Digital Print',
-    tag: 'Artisan Art',
-    material: 'Dutch Velvet & Zari',
-    threadCount: 'Artisan Finish',
-    price: 699,
-    mrp: 1299,
-    discount: '46% OFF',
-    rating: 4.8,
-    reviewsCount: 68,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#0f766e', '#b45309', '#581c87'],
-    image: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80',
-    description: 'Traditional mandala motifs woven on silk jacquard fabric with piped borders.',
-    features: ['HD Digital Print', 'Piped Borders', 'Fade-Proof Colors']
-  },
-
-  // 3. Curtains
-  {
-    id: 'cur-01',
-    category: 'curtains',
-    name: 'Heavy Self Jacquard Floral Room Darkening Curtains (Set of 2)',
-    subtitle: 'Brass Eyelet Grommets Included',
-    tag: 'Best Seller',
-    material: 'Polyester Jacquard',
-    threadCount: 'Heavy 350 GSM',
-    price: 1199,
-    mrp: 1999,
-    discount: '40% OFF',
-    rating: 4.9,
-    reviewsCount: 148,
-    sizes: ['Window (5 ft)', 'Door (7 ft)', 'Long Door (9 ft)'],
-    colors: ['#e6c265', '#1e293b', '#475569'],
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
-    description: 'Self-patterned gold jacquard weave providing 85% room darkening and thermal heat control.',
-    features: ['85% Blackout', 'Rust-Free Eyelets', 'Wrinkle Resistant']
-  },
-  {
-    id: 'cur-02',
-    category: 'curtains',
-    name: 'Sheer Linen Daylight Diffusing Window Panels (Set of 2)',
-    subtitle: 'Soft Daylight Filtering',
-    tag: 'Elegant Choice',
-    material: '100% Pure Cotton',
-    threadCount: 'Soft Sheer Weave',
-    price: 799,
-    mrp: 1299,
-    discount: '38% OFF',
-    rating: 4.7,
-    reviewsCount: 92,
-    sizes: ['Door (7 ft)', 'Long Door (9 ft)'],
-    colors: ['#ffffff', '#fef08a', '#e2e8f0'],
-    image: 'https://images.unsplash.com/photo-1540518614846-7ede433c517a?auto=format&fit=crop&w=800&q=80',
-    description: 'Airy linen sheer panels filtering natural sunlight while keeping indoor privacy.',
-    features: ['Light Diffusing', 'Fluid Drape', 'Easy Wash']
-  },
-  {
-    id: 'cur-03',
-    category: 'curtains',
-    name: 'Thermal Velvet 100% Blackout Drapes (Set of 2)',
-    subtitle: 'Complete Sun & Noise Block',
-    tag: '100% Blackout',
-    material: 'Dutch Velvet & Zari',
-    threadCount: 'Extra Heavy 450 GSM',
-    price: 1499,
-    mrp: 2499,
-    discount: '40% OFF',
-    rating: 4.9,
-    reviewsCount: 110,
-    sizes: ['Door (7 ft)', 'Long Door (9 ft)'],
-    colors: ['#0f172a', '#450a0a', '#064e3b'],
-    image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80',
-    description: 'Dense velvet drapes blocking 100% light, reducing outside noise, and insulating room temperature.',
-    features: ['100% Light Block', 'Noise Reduction', 'Thermal Shield']
-  },
 
   // 4. Comforters
   {
@@ -264,27 +226,8 @@ export const PRODUCTS = [
     description: 'Feather-soft microfiber comforter designed for year-round AC room comfort.',
     features: ['Dual Color Reversible', 'Diamond Box Stitching', 'Feather Soft']
   },
-  {
-    id: 'com-02',
-    category: 'comforters',
-    name: 'Heavy Winter Plush Sherpa Fleece Quilted Duvet',
-    subtitle: '400 GSM Ultra Thermal Warmth',
-    tag: 'Winter Essential',
-    material: 'Microfiber Down',
-    threadCount: '400 GSM Ultra Thermal',
-    price: 2199,
-    mrp: 3499,
-    discount: '37% OFF',
-    rating: 4.9,
-    reviewsCount: 102,
-    sizes: ['Double / King (90x100")'],
-    colors: ['#78350f', '#1e1b4b', '#1c1917'],
-    image: 'https://images.unsplash.com/photo-1629949009765-40fc74c954c9?auto=format&fit=crop&w=800&q=80',
-    description: 'Double-sided quilted sherpa duvet delivering maximum warmth retention.',
-    features: ['Sherpa Warmth', 'Corner Loops', 'Breathable Shell']
-  },
 
-  // 5. Blankets
+  // 5. Mink Blankets
   {
     id: 'blk-01',
     category: 'blankets',
@@ -304,27 +247,8 @@ export const PRODUCTS = [
     description: 'Luxurious double ply Korean mink blanket featuring 3D embossed floral patterns.',
     features: ['Double Ply Layer', '3D Embossed Floral', 'Shrink Resistant']
   },
-  {
-    id: 'blk-02',
-    category: 'blankets',
-    name: 'Velvet Touch Single Ply Soft Mink Blanket',
-    subtitle: '2.5 KG Soft Weight for AC Rooms',
-    tag: 'Value Pack',
-    material: 'Korean Mink Plush',
-    threadCount: '2.5 KG Soft Weight',
-    price: 1099,
-    mrp: 1799,
-    discount: '38% OFF',
-    rating: 4.8,
-    reviewsCount: 120,
-    sizes: ['Single Bed (150x220 cm)', 'Double Bed (200x240 cm)'],
-    colors: ['#0f766e', '#b45309', '#312e81'],
-    image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80',
-    description: 'Single-ply velvety mink blanket designed for AC room temperature and light winter.',
-    features: ['Velvet Soft Finish', 'Non-Shedding', 'Machine Washable']
-  },
 
-  // 6. Polar Blankets
+  // 6. Polar Fleeces
   {
     id: 'pb-01',
     category: 'polar-blankets',
@@ -343,25 +267,6 @@ export const PRODUCTS = [
     image: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=800&q=80',
     description: 'Lightweight polar fleece blanket ideal for travel, sofa snuggles, and AC rooms.',
     features: ['Lint-Free Fleece', 'Lightweight Warmth', 'Quick Dry']
-  },
-  {
-    id: 'pb-02',
-    category: 'polar-blankets',
-    name: 'Super Soft Brushed Coral Fleece Sofa Throw Blanket',
-    subtitle: '320 GSM Plush Coral Accent Throw',
-    tag: 'Soft Touch',
-    material: 'Korean Mink Plush',
-    threadCount: '320 GSM Coral Weave',
-    price: 649,
-    mrp: 1099,
-    discount: '40% OFF',
-    rating: 4.7,
-    reviewsCount: 84,
-    sizes: ['Single (60x90")', 'Double (80x90")'],
-    colors: ['#be123c', '#4338ca', '#15803d'],
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
-    description: 'Extra soft coral fleece throw blanket with satin hem stitching.',
-    features: ['Brushed Softness', 'No Pills', 'Fade Resistant']
   },
 
   // 7. Shawls
@@ -384,25 +289,6 @@ export const PRODUCTS = [
     description: 'Timeless Kashmiri style woven shawl with rich traditional paisley borders.',
     features: ['Pure Warm Wool', 'Jacquard Border', 'Soft Handfeel']
   },
-  {
-    id: 'sh-02',
-    category: 'shawls',
-    name: 'Jacquard Floral Pashmina Reversible Wrap Shawl',
-    subtitle: 'Dual Side Festive Wrap',
-    tag: 'Unisex Style',
-    material: 'Merino Wool Blend',
-    threadCount: 'Pure Soft Touch',
-    price: 899,
-    mrp: 1599,
-    discount: '43% OFF',
-    rating: 4.8,
-    reviewsCount: 70,
-    sizes: ['Free Size (100x200 cm)'],
-    colors: ['#1e293b', '#b45309', '#047857'],
-    image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?auto=format&fit=crop&w=800&q=80',
-    description: 'Lightweight pashmina-style shawl designed with elegant royal borders.',
-    features: ['Dual Side Pattern', 'Wrinkle Free', 'Gentle Wash']
-  },
 
   // 8. Pillows
   {
@@ -423,25 +309,6 @@ export const PRODUCTS = [
     image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80',
     description: 'Resilient microfiber bounce pillows engineered for spine alignment and plush support.',
     features: ['Non-Allergic', 'Fluff Restorable', 'Neck Support']
-  },
-  {
-    id: 'pil-02',
-    category: 'pillows',
-    name: 'Orthopedic Cooling Gel Memory Foam Cervical Pillow',
-    subtitle: 'Contoured Neck Pain Relief Design',
-    tag: 'Health Care',
-    material: 'Microfiber Down',
-    threadCount: 'High Density Foam',
-    price: 1099,
-    mrp: 1899,
-    discount: '42% OFF',
-    rating: 4.9,
-    reviewsCount: 118,
-    sizes: ['Contour (20x14x4 inches)'],
-    colors: ['#e0f2fe'],
-    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80',
-    description: 'Contoured memory foam pillow relieving neck pressure points for restorative sleep.',
-    features: ['Slow Rebound Foam', 'Cooling Gel Infused', 'Removable Cover']
   }
 ];
 
@@ -462,7 +329,7 @@ export const REVIEWS = [
     rating: 5,
     date: '1 month ago',
     comment: 'Customized our full house curtains and velvet cushion covers through Haryana Handloom Camp. Store uncle guided us patiently with color matching. Highly recommended!',
-    product: 'Heavy Jacquard Blackout Curtains'
+    product: 'Emerald Green & Gold Royalty Damask Curtains'
   },
   {
     id: 3,

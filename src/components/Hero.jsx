@@ -81,7 +81,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* 8 Poster Categories Interactive Grid with STRICT Matching Photos */}
+            {/* 8 Poster Categories Interactive Grid with Exact Store Images */}
             <div>
               <h3 className="text-center font-serif font-bold text-lg text-white mb-4 tracking-wide">
                 EXPLORE STORE CATEGORIES
@@ -91,12 +91,12 @@ export default function Hero() {
                 {[
                   { name: 'BED SHEETS', img: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=400&q=80', desc: 'Single, Double & King' },
                   { name: 'CUSHION COVERS', img: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=400&q=80', desc: 'Embroidered Velvet' },
-                  { name: 'CURTAINS', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80', desc: '85% - 100% Blackout' },
+                  { name: 'CURTAINS', img: '/images/curtains/curtain-emerald-jacquard.png', desc: '85% - 100% Blackout' },
                   { name: 'COMFORTERS', img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=400&q=80', desc: 'Microfiber & Duvets' },
                   { name: 'MINK BLANKETS', img: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80', desc: 'Korean 3D Embossed' },
                   { name: 'POLAR BLANKETS', img: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=400&q=80', desc: 'Light AC Fleeces' },
                   { name: 'SHAWLS & WRAPS', img: 'https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=400&q=80', desc: 'Kashmiri Pure Wool' },
-                  { name: 'PILLOWS & FORM', img: 'https://images.unsplash.com/photo-1629949009765-40fc74c954c9?auto=format&fit=crop&w=400&q=80', desc: 'Ergonomic Bounce' },
+                  { name: 'PILLOWS & FORM', img: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=400&q=80', desc: 'Ergonomic Bounce' },
                 ].map((item) => (
                   <a
                     key={item.name}
