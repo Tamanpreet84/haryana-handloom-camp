@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CATEGORIES, PRODUCTS, FABRIC_TYPES, getWhatsAppUrl } from '../data/products';
-import { Search, ShoppingBag, MessageCircle, Info, Check, Eye, Heart, Star, SlidersHorizontal, ArrowUpDown, BookOpen } from 'lucide-react';
+import { Search, ShoppingBag, MessageCircle, Info, Check, Eye, Heart, Star, SlidersHorizontal, ArrowUpDown, BookOpen, Palette, Sparkles } from 'lucide-react';
 
 export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist, onOpenFabricGuide }) {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -10,7 +10,6 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
   const [sortBy, setSortBy] = useState('popular'); // popular, price-low, price-high, rating
   const [activeModalProduct, setActiveModalProduct] = useState(null);
   const [selectedSizes, setSelectedSizes] = useState({});
-  const [selectedColors, setSelectedColors] = useState({});
 
   const filteredProducts = PRODUCTS.filter((product) => {
     const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
@@ -43,6 +42,12 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
     window.open(targetUrl, '_blank');
   };
 
+  const handleInquireMoreVarieties = (product) => {
+    const message = `Hello Haryana Handloom Camp!\n\nI am interested in seeing MORE COLOURS and MORE VARIETIES for:\n*Category / Product:* ${product.name}\n\nCould you please send photos of all available color options & patterns in store?`;
+    const targetUrl = getWhatsAppUrl(0, message);
+    window.open(targetUrl, '_blank');
+  };
+
   return (
     <section id="categories" className="py-16 relative">
       <div className="container mx-auto px-4">
@@ -61,10 +66,10 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
               </button>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-white">
-              Explore Our <span className="gold-text">Premium Furnishings</span>
+              Explore Our <span className="gold-text">Store Collection</span>
             </h2>
             <p className="text-slate-300 text-sm mt-1">
-              Direct loom pricing with fast color guarantees & custom sizes.
+              Direct loom pricing with fast color guarantees & 20+ varieties per category in store.
             </p>
           </div>
 
@@ -73,7 +78,7 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
-              placeholder="Search bedsheets, mink blankets, curtains..."
+              placeholder="Search bedsheets, curtains, mink blankets..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 rounded-full bg-[#0b1833] border border-[#e6c265]/30 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-[#e6c265]"
@@ -178,7 +183,7 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                 </div>
 
                 {/* Product Image */}
-                <div className="relative h-56 overflow-hidden bg-slate-900">
+                <div className="relative h-64 overflow-hidden bg-slate-900">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -237,6 +242,33 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                     <p className="text-xs text-slate-300 mt-2 line-clamp-2 font-sans">
                       {product.description}
                     </p>
+                  </div>
+
+                  {/* Color Swatches & More Varieties Button */}
+                  <div className="space-y-2 pt-1 border-t border-white/10">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-slate-400 font-semibold uppercase">Color Swatches:</span>
+                      {product.colors && (
+                        <div className="flex items-center gap-1">
+                          {product.colors.map((c, i) => (
+                            <span
+                              key={i}
+                              className="w-3.5 h-3.5 rounded-full border border-white/30"
+                              style={{ backgroundColor: c }}
+                            ></span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Prominent "More Colours / Varieties" Button */}
+                    <button
+                      onClick={() => handleInquireMoreVarieties(product)}
+                      className="w-full py-1.5 px-3 rounded-lg bg-[#070d1a] border border-[#e6c265]/40 hover:bg-[#e6c265] hover:text-[#091326] text-[#f7e6a1] text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors shadow-sm"
+                    >
+                      <Palette className="w-3.5 h-3.5 text-[#e6c265]" />
+                      <span>{product.moreVarietiesCount || '20'}+ More Colours & Patterns</span>
+                    </button>
                   </div>
 
                   {/* Size Options Pill */}
@@ -343,9 +375,9 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                   <div className="space-y-1">
                     <label className="text-[10px] text-slate-400 font-bold uppercase">Color Swatches:</label>
                     <div className="flex gap-2">
-                      {activeModalProduct.colors.map((c) => (
+                      {activeModalProduct.colors.map((c, i) => (
                         <div
-                          key={c}
+                          key={i}
                           className="w-6 h-6 rounded-full border-2 border-white/40 cursor-pointer hover:scale-110 transition-transform"
                           style={{ backgroundColor: c }}
                         ></div>
@@ -383,12 +415,12 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
               </button>
               <button
                 onClick={() => {
-                  handleQuickInquire(activeModalProduct);
+                  handleInquireMoreVarieties(activeModalProduct);
                   setActiveModalProduct(null);
                 }}
                 className="btn-outline-gold text-xs"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400" /> WhatsApp Now
+                <Palette className="w-4 h-4 text-[#e6c265]" /> See 20+ Varieties
               </button>
             </div>
           </div>

@@ -48,7 +48,109 @@ export const getWhatsAppUrl = (phoneIndex = 0, messageText = '') => {
 };
 
 export const PRODUCTS = [
-  // 1. Curtains - Exact Uploaded Photos
+  // 1. Bed Sheets - Exact Uploaded Photos
+  {
+    id: 'bs-01',
+    category: 'bed-sheets',
+    name: 'Light Blue & White Jaipuri Block Floral Bedsheet',
+    subtitle: 'Includes 2 Matching Pillow Covers',
+    tag: 'Best Seller',
+    material: '100% Pure Cotton',
+    threadCount: '300 TC',
+    price: 849,
+    mrp: 1399,
+    discount: '39% OFF',
+    rating: 4.9,
+    reviewsCount: 168,
+    sizes: ['Single (60x90")', 'Double (90x100")', 'King (108x108")'],
+    colors: ['#38bdf8', '#60a5fa', '#3b82f6', '#1d4ed8'],
+    moreVarietiesCount: 24,
+    image: '/images/bedsheets/bs-light-blue-block.png',
+    description: 'Fresh light blue Jaipuri block floral lattice print on 100% pure breathable cotton. Includes matching pillowcases with fast-color guarantee.',
+    features: ['300 Thread Count', 'Color-Fast Dye', 'Breathable Pure Cotton', '2 Pillow Covers Included']
+  },
+  {
+    id: 'bs-02',
+    category: 'bed-sheets',
+    name: 'Teal Green Mandala Medallion Print Bedsheet Set',
+    subtitle: 'Traditional Heritage Circular Artwork',
+    tag: 'Store Original',
+    material: '100% Pure Cotton',
+    threadCount: '350 TC',
+    price: 999,
+    mrp: 1599,
+    discount: '37% OFF',
+    rating: 5.0,
+    reviewsCount: 142,
+    sizes: ['Double (90x100")', 'King (108x108")'],
+    colors: ['#0d9488', '#0f766e', '#115e59', '#042f2e'],
+    moreVarietiesCount: 18,
+    image: '/images/bedsheets/bs-teal-mandala.png',
+    description: 'Vibrant teal green background with intricate central white mandala medallion artwork. Super soft feel for royal bedroom comfort.',
+    features: ['350 Thread Count', 'Pre-shrunk Fabric', 'Ethnic Mandala Centerpiece', 'Machine Washable']
+  },
+  {
+    id: 'bs-03',
+    category: 'bed-sheets',
+    name: 'Beige & Crimson Ginkgo Leaf Modern Bedsheet',
+    subtitle: 'Contemporary Botanic Line Work',
+    tag: 'Trending',
+    material: '100% Pure Cotton',
+    threadCount: '300 TC',
+    price: 899,
+    mrp: 1499,
+    discount: '40% OFF',
+    rating: 4.8,
+    reviewsCount: 110,
+    sizes: ['Single (60x90")', 'Double (90x100")', 'King (108x108")'],
+    colors: ['#f59e0b', '#dc2626', '#991b1b', '#78350f'],
+    moreVarietiesCount: 15,
+    image: '/images/bedsheets/bs-beige-crimson-leaf.png',
+    description: 'Elegant warm beige backdrop with striking crimson and silver-grey ginkgo leaf motifs. Ideal for modern master bedrooms.',
+    features: ['Botanic Line Art', 'Wrinkle Resistant', 'Soft Touch Weave', 'High Fastness Dye']
+  },
+  {
+    id: 'bs-04',
+    category: 'bed-sheets',
+    name: 'Deep Maroon & White Royal Floral Bedsheet Set',
+    subtitle: 'Opulent Rich Dark Red Tapestry',
+    tag: 'Luxury Edition',
+    material: '100% Pure Cotton',
+    threadCount: '400 TC',
+    price: 1099,
+    mrp: 1799,
+    discount: '38% OFF',
+    rating: 4.9,
+    reviewsCount: 125,
+    sizes: ['Double (90x100")', 'King (108x108")', 'Super King (110x120")'],
+    colors: ['#881337', '#701a75', '#4c0519', '#9f1239'],
+    moreVarietiesCount: 20,
+    image: '/images/bedsheets/bs-maroon-floral.png',
+    description: 'Rich dark maroon tapestry with crisp white floral lattice border prints and matching designer pillow covers.',
+    features: ['400 Thread Count', 'Deep Color Lock', 'Pillow Case Pair', 'Extra Soft Finish']
+  },
+  {
+    id: 'bs-05',
+    category: 'bed-sheets',
+    name: 'Navy Blue & White Dual-Tone Blossom Bedsheet Set',
+    subtitle: 'Half & Half Contrast Floral Design',
+    tag: 'Customer Favorite',
+    material: '100% Pure Cotton',
+    threadCount: '350 TC',
+    price: 949,
+    mrp: 1549,
+    discount: '38% OFF',
+    rating: 4.9,
+    reviewsCount: 156,
+    sizes: ['Double (90x100")', 'King (108x108")'],
+    colors: ['#1e3a8a', '#1e293b', '#0f172a', '#3b82f6'],
+    moreVarietiesCount: 22,
+    image: '/images/bedsheets/bs-navy-white-dual.png',
+    description: 'Unique dual-tone navy blue and white contrast bedsheet featuring delicate cherry blossom motifs across the bed.',
+    features: ['Dual-Tone Layout', 'Soft Glace Cotton', 'Color Fast Guarantee', 'Easy Care']
+  },
+
+  // 2. Curtains - Exact Uploaded Store Photos
   {
     id: 'cur-01',
     category: 'curtains',
@@ -64,6 +166,7 @@ export const PRODUCTS = [
     reviewsCount: 156,
     sizes: ['Window (5 ft)', 'Door (7 ft)', 'Long Door (9 ft)'],
     colors: ['#fffbeb', '#991b1b', '#0f766e'],
+    moreVarietiesCount: 16,
     image: '/images/curtains/curtain-ethnic-cream.png',
     description: 'Elegant cream backdrop with vibrant crimson, teal, and mustard yellow ethnic paisley border prints. Brass eyelet grommets for smooth sliding.',
     features: ['100% Cotton Weave', 'Rust-Free Grommets', 'Ethnic Paisley Border', 'Machine Washable']
@@ -83,6 +186,7 @@ export const PRODUCTS = [
     reviewsCount: 182,
     sizes: ['Door (7 ft)', 'Long Door (9 ft)', 'Custom (11 ft)'],
     colors: ['#042f2e', '#e6c265', '#334155'],
+    moreVarietiesCount: 14,
     image: '/images/curtains/curtain-emerald-jacquard.png',
     description: 'Deep emerald green velvet top panel with rich metallic gold damask jacquard weaving down to cream and grey heritage borders.',
     features: ['85% Light Darkening', 'High-Density Jacquard', 'Wrinkle Resistant', 'Thermal Shield']
@@ -102,6 +206,7 @@ export const PRODUCTS = [
     reviewsCount: 140,
     sizes: ['Window (5 ft)', 'Door (7 ft)', 'Long Door (9 ft)'],
     colors: ['#1e3a8a', '#0f172a'],
+    moreVarietiesCount: 12,
     image: '/images/curtains/curtain-royal-blue-solid.png',
     description: 'Ultra-dense solid royal blue eyelet blackout curtain. Provides 100% room darkening, noise dampening, and comes with matching tie-backs.',
     features: ['100% Sun Block', 'Noise Dampening', 'Silky Velvet Touch', 'Matching Cushion Set']
@@ -121,49 +226,10 @@ export const PRODUCTS = [
     reviewsCount: 112,
     sizes: ['Door (7 ft)', 'Long Door (9 ft)'],
     colors: ['#881337', '#fef08a', '#475569'],
+    moreVarietiesCount: 15,
     image: '/images/curtains/curtain-maroon-tree-branch.png',
     description: 'Sophisticated off-white linen texture framed with rich maroon scroll borders and delicate botanical branch line artwork.',
     features: ['Light Filtering', 'Airy Linen Look', 'Pre-shrunk Fabric', 'Easy Care']
-  },
-
-  // 2. Bed Sheets
-  {
-    id: 'bs-01',
-    category: 'bed-sheets',
-    name: 'Pure Cotton Sanganeri Jaipuri Block Print Bedsheet',
-    subtitle: 'Includes 2 Matching Pillow Covers',
-    tag: 'Best Seller',
-    material: '100% Pure Cotton',
-    threadCount: '300 TC',
-    price: 849,
-    mrp: 1399,
-    discount: '39% OFF',
-    rating: 4.9,
-    reviewsCount: 134,
-    sizes: ['Single (60x90")', 'Double (90x100")', 'King (108x108")'],
-    colors: ['#1e3a8a', '#881337', '#065f46'],
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80',
-    description: 'Traditional Sanganeri Indigo block print on breathable pure cotton. Guaranteed color fastness with high thread count softness.',
-    features: ['300 Thread Count', 'Color-Fast Dye', 'Breathable Weave', 'Machine Washable']
-  },
-  {
-    id: 'bs-02',
-    category: 'bed-sheets',
-    name: 'Ethnic Heritage Elephant Motif Double Bedsheet Set',
-    subtitle: 'Handcrafted Heritage Print',
-    tag: 'Handcrafted',
-    material: '100% Pure Cotton',
-    threadCount: '250 TC',
-    price: 1099,
-    mrp: 1799,
-    discount: '38% OFF',
-    rating: 4.8,
-    reviewsCount: 98,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#d97706', '#991b1b', '#1e293b'],
-    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80',
-    description: 'Vibrant Indian ethnic elephant motifs framed with ornate borders for timeless bedroom luxury.',
-    features: ['Handloom Print', 'Pre-shrunk Cotton', 'Soft Handfeel']
   },
 
   // 3. Cushion Covers
@@ -182,6 +248,7 @@ export const PRODUCTS = [
     reviewsCount: 115,
     sizes: ['16x16 inches', '18x18 inches'],
     colors: ['#172554', '#881337', '#042f2e'],
+    moreVarietiesCount: 25,
     image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80',
     description: 'Plush Dutch velvet with gold zari thread embroidery and concealed zipper closures.',
     features: ['Heavy Zari Work', 'Concealed Zipper', 'Plush Texture']
@@ -201,6 +268,7 @@ export const PRODUCTS = [
     reviewsCount: 80,
     sizes: ['16x16 inches', '20x20 inches'],
     colors: ['#d97706', '#78350f', '#3f6212'],
+    moreVarietiesCount: 18,
     image: 'https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=800&q=80',
     description: 'Earthy handwoven textures with corner tassels for living room sofas and chairs.',
     features: ['Tufted Tassels', 'Handwoven Texture', 'Durable Weave']
@@ -222,6 +290,7 @@ export const PRODUCTS = [
     reviewsCount: 172,
     sizes: ['Single (60x90")', 'Double / King (90x100")'],
     colors: ['#1e3a8a', '#475569', '#991b1b'],
+    moreVarietiesCount: 10,
     image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80',
     description: 'Feather-soft microfiber comforter designed for year-round AC room comfort.',
     features: ['Dual Color Reversible', 'Diamond Box Stitching', 'Feather Soft']
@@ -243,6 +312,7 @@ export const PRODUCTS = [
     reviewsCount: 215,
     sizes: ['Double Bed (200x240 cm)'],
     colors: ['#881337', '#1e3a8a', '#451a03'],
+    moreVarietiesCount: 30,
     image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
     description: 'Luxurious double ply Korean mink blanket featuring 3D embossed floral patterns.',
     features: ['Double Ply Layer', '3D Embossed Floral', 'Shrink Resistant']
@@ -264,6 +334,7 @@ export const PRODUCTS = [
     reviewsCount: 150,
     sizes: ['Single (54x90")', 'Double (80x90")'],
     colors: ['#0284c7', '#d97706', '#059669'],
+    moreVarietiesCount: 16,
     image: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=800&q=80',
     description: 'Lightweight polar fleece blanket ideal for travel, sofa snuggles, and AC rooms.',
     features: ['Lint-Free Fleece', 'Lightweight Warmth', 'Quick Dry']
@@ -285,6 +356,7 @@ export const PRODUCTS = [
     reviewsCount: 92,
     sizes: ['Free Size (100x200 cm)'],
     colors: ['#7c2d12', '#1e1b4b', '#450a0a'],
+    moreVarietiesCount: 14,
     image: 'https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=800&q=80',
     description: 'Timeless Kashmiri style woven shawl with rich traditional paisley borders.',
     features: ['Pure Warm Wool', 'Jacquard Border', 'Soft Handfeel']
@@ -306,6 +378,7 @@ export const PRODUCTS = [
     reviewsCount: 198,
     sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
     colors: ['#ffffff'],
+    moreVarietiesCount: 8,
     image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80',
     description: 'Resilient microfiber bounce pillows engineered for spine alignment and plush support.',
     features: ['Non-Allergic', 'Fluff Restorable', 'Neck Support']
@@ -320,7 +393,7 @@ export const REVIEWS = [
     rating: 5,
     date: '2 weeks ago',
     comment: 'Best handloom shop in Nandyal! Purchased 4 pure cotton king bedsheets and mink blankets for winter. Thread quality and color fastness are superb after washing.',
-    product: 'Pure Cotton Sanganeri Jaipuri Bedsheet'
+    product: 'Light Blue Jaipuri Block Print Bedsheet'
   },
   {
     id: 2,
