@@ -48,7 +48,109 @@ export const getWhatsAppUrl = (phoneIndex = 0, messageText = '') => {
 };
 
 export const PRODUCTS = [
-  // 1. Pillows - Exact Uploaded Store Photos
+  // 1. Mink Blankets - Exact Uploaded Store Photos
+  {
+    id: 'blk-01',
+    category: 'blankets',
+    name: 'Crimson Red & Pink 3D Embossed Korean Mink Blanket',
+    subtitle: 'Ultra Plush Velvet Touch Single Ply',
+    tag: 'Store Original',
+    material: 'Korean Mink Plush',
+    threadCount: '3.5 KG Super Soft',
+    price: 1299,
+    mrp: 2199,
+    discount: '41% OFF',
+    rating: 4.9,
+    reviewsCount: 190,
+    sizes: ['Single Bed (150x220 cm)', 'Double Bed (200x240 cm)'],
+    colors: ['#881337', '#be123c', '#991b1b', '#fda4af'],
+    moreVarietiesCount: 25,
+    image: '/images/blankets/blk-crimson-floral-3d.png',
+    description: 'Vibrant crimson red and pink single ply Korean mink blanket featuring raised 3D floral wheel embossing and silky velvet binding borders.',
+    features: ['3D Embossed Floral Wheel', 'Velvet Touch Plush', 'Light Winter & AC Room', 'Shrink Resistant']
+  },
+  {
+    id: 'blk-02',
+    category: 'blankets',
+    name: 'Camel Brown Geometric Criss-Cross Single Mink Blanket',
+    subtitle: 'Modern Diamond Lattice & Rose Border',
+    tag: 'Best Seller',
+    material: 'Korean Mink Plush',
+    threadCount: '3.0 KG Mid-Weight',
+    price: 1099,
+    mrp: 1799,
+    discount: '39% OFF',
+    rating: 4.8,
+    reviewsCount: 165,
+    sizes: ['Single Bed (150x220 cm)', 'Double Bed (200x240 cm)'],
+    colors: ['#b45309', '#78350f', '#fef3c7', '#d97706'],
+    moreVarietiesCount: 20,
+    image: '/images/blankets/blk-camel-geometric.png',
+    description: 'Sophisticated warm camel brown mink blanket designed with a bold dark brown criss-cross lattice body and elegant floral side borders.',
+    features: ['Geometric Lattice Design', 'Silky Smooth Pile', 'Pre-shrunk Micro-Plush', 'Easy Machine Wash']
+  },
+  {
+    id: 'blk-03',
+    category: 'blankets',
+    name: 'Rich Brown & Coral Rose Leopard Border Heavy Double Mink Blanket',
+    subtitle: 'Double Ply Super Thermal Winter Blanket',
+    tag: 'Luxury Grade',
+    material: 'Korean Mink Plush',
+    threadCount: '4.8 KG Heavy Weight',
+    price: 1899,
+    mrp: 3199,
+    discount: '40% OFF',
+    rating: 5.0,
+    reviewsCount: 240,
+    sizes: ['Double Bed (200x240 cm)', 'King Size (220x250 cm)'],
+    colors: ['#451a03', '#ea580c', '#78350f', '#9a3412'],
+    moreVarietiesCount: 30,
+    image: '/images/blankets/blk-brown-rose-leopard.png',
+    description: 'Heavyweight double ply mink blanket featuring opulent coral rose center blooms framed with chic leopard print borders for maximum winter warmth.',
+    features: ['Double Ply Layer', 'Leopard Print Frame', 'Sub-Zero Winter Protection', 'Heavy Duty Finish']
+  },
+  {
+    id: 'blk-04',
+    category: 'blankets',
+    name: 'Maroon & Golden Orange Royal Damask 5.5 KG Heavyweight Mink Blanket',
+    subtitle: '5.5 KG Double Ply Royal Palace Collection',
+    tag: 'Winter Special',
+    material: 'Korean Mink Plush',
+    threadCount: '5.5 KG Ultra Heavy Weight',
+    price: 2199,
+    mrp: 3599,
+    discount: '39% OFF',
+    rating: 5.0,
+    reviewsCount: 215,
+    sizes: ['Double Bed (200x240 cm)', 'Super King (240x260 cm)'],
+    colors: ['#450a0a', '#c2410c', '#78350f', '#f59e0b'],
+    moreVarietiesCount: 28,
+    image: '/images/blankets/blk-maroon-damask-5.5kg.png',
+    description: 'Our heaviest 5.5 KG double ply mink blanket. Rich dark maroon background with glowing golden orange floral damask tapestries.',
+    features: ['5.5 KG Ultra Heavyweight', 'Double Ply Thermal Shield', 'Royal Damask Embroidery', 'Color Lock Tech']
+  },
+  {
+    id: 'blk-05',
+    category: 'blankets',
+    name: 'Pastel Blue & Pink Dreamcatcher Embossed Soft Mink AC Blanket',
+    subtitle: 'Lightweight All-Season Dreamcatcher Artwork',
+    tag: 'Trending',
+    material: 'Korean Mink Plush',
+    threadCount: '2.8 KG Light Weight',
+    price: 1399,
+    mrp: 2299,
+    discount: '39% OFF',
+    rating: 4.9,
+    reviewsCount: 142,
+    sizes: ['Double Bed (200x240 cm)'],
+    colors: ['#38bdf8', '#f472b6', '#bae6fd', '#fbcfe8'],
+    moreVarietiesCount: 18,
+    image: '/images/blankets/blk-pastel-dreamcatcher.png',
+    description: 'Aesthetic pastel sky blue and blush pink ombre mink blanket embossed with dreamy feather dreamcatcher artwork for year-round AC room comfort.',
+    features: ['Ombre Pastel Colors', 'Dreamcatcher Art', 'AC Room Comfort', 'Feather Soft Velvet']
+  },
+
+  // 2. Pillows - Exact Uploaded Store Photos
   {
     id: 'pil-01',
     category: 'pillows',
@@ -110,7 +212,7 @@ export const PRODUCTS = [
     features: ['Navy Blue Piped Cord Border', 'High Shape Retention', 'Pair of 2 Pillows', 'Spine Support Alignment']
   },
 
-  // 2. Cushion Covers - Exact Uploaded Store Photos
+  // 3. Cushion Covers - Exact Uploaded Store Photos
   {
     id: 'cc-01',
     category: 'cushion-covers',
@@ -131,28 +233,8 @@ export const PRODUCTS = [
     description: 'Plush royal crimson Dutch velvet featuring metallic gold zari thread embroidery, ornate lace border, and heavy concealed zipper closures.',
     features: ['Heavy Zari Lace Embroidery', 'Concealed Zipper Closure', 'Plush Dutch Velvet', 'Set of 5 Covers']
   },
-  {
-    id: 'cc-02',
-    category: 'cushion-covers',
-    name: 'Vibrant Ethnic Owl & Elephant Digital Print Cushion Covers (Set of 5)',
-    subtitle: 'Playful Multi-Color Folk Art Motif',
-    tag: 'Best Seller',
-    material: '100% Pure Cotton',
-    threadCount: 'HD Digital Print',
-    price: 599,
-    mrp: 1099,
-    discount: '45% OFF',
-    rating: 4.9,
-    reviewsCount: 162,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#d97706', '#0284c7', '#dc2626', '#16a34a'],
-    moreVarietiesCount: 30,
-    image: '/images/cushion-covers/cc-vibrant-ethnic-digital.png',
-    description: 'Eye-catching folk art owl and elephant motifs in rich vibrant jewel tones. Perfect for brightening up living room couches and seating.',
-    features: ['HD Digital Print', 'Fade-Proof Colors', 'Soft Cotton Blend', 'Set of 5 Covers']
-  },
 
-  // 3. Comforters - Exact Uploaded Store Photos
+  // 4. Comforters - Exact Uploaded Store Photos
   {
     id: 'com-01',
     category: 'comforters',
@@ -173,28 +255,8 @@ export const PRODUCTS = [
     description: 'Luxurious Cashmere Touch King comforter set featuring soothing olive green leaves, white floral blossoms, beige striped borders, ruffled pillowcase, and matching storage case.',
     features: ['Cashmere Soft Touch', '350 GSM Microfiber Fill', 'Matching Ruffled Pillowcase', 'Zippered Bag Packaging']
   },
-  {
-    id: 'com-02',
-    category: 'comforters',
-    name: 'Cashmere King Size Sky Blue Blossom Comforter Set',
-    subtitle: 'Includes Ruffle Pillowcase & Zipper Travel Case',
-    tag: 'Best Seller',
-    material: 'Microfiber Down',
-    threadCount: '350 GSM Cashmere Touch',
-    price: 1599,
-    mrp: 2599,
-    discount: '38% OFF',
-    rating: 4.9,
-    reviewsCount: 194,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#38bdf8', '#0284c7', '#0369a1', '#e0f2fe'],
-    moreVarietiesCount: 18,
-    image: '/images/comforters/com-cashmere-sky-blue.jpg',
-    description: 'Refreshing sky blue background adorned with white cherry blossom prints, striped ruffled pillow cover, and heavy quilt stitch lines for year-round cooling comfort.',
-    features: ['350 GSM Thermal Insulation', 'Dust-Mite Resistant', 'Complete Packaged Set', 'Feather Soft Comfort']
-  },
 
-  // 4. Bed Sheets - Exact Uploaded Photos
+  // 5. Bed Sheets - Exact Uploaded Photos
   {
     id: 'bs-01',
     category: 'bed-sheets',
@@ -216,7 +278,7 @@ export const PRODUCTS = [
     features: ['300 Thread Count', 'Color-Fast Dye', 'Breathable Pure Cotton', '2 Pillow Covers Included']
   },
 
-  // 5. Curtains - Exact Uploaded Store Photos
+  // 6. Curtains - Exact Uploaded Store Photos
   {
     id: 'cur-01',
     category: 'curtains',
@@ -236,28 +298,6 @@ export const PRODUCTS = [
     image: '/images/curtains/curtain-ethnic-cream.png',
     description: 'Elegant cream backdrop with vibrant crimson, teal, and mustard yellow ethnic paisley border prints. Brass eyelet grommets for smooth sliding.',
     features: ['100% Cotton Weave', 'Rust-Free Grommets', 'Ethnic Paisley Border', 'Machine Washable']
-  },
-
-  // 6. Mink Blankets
-  {
-    id: 'blk-01',
-    category: 'blankets',
-    name: 'Korean 3D Embossed Floral Heavyweight Mink Blanket',
-    subtitle: '5.5 KG Double Ply Super Warm',
-    tag: 'Winter Special',
-    material: 'Korean Mink Plush',
-    threadCount: '5.5 KG Heavy Weight',
-    price: 1899,
-    mrp: 3199,
-    discount: '40% OFF',
-    rating: 4.9,
-    reviewsCount: 215,
-    sizes: ['Double Bed (200x240 cm)'],
-    colors: ['#881337', '#1e3a8a', '#451a03'],
-    moreVarietiesCount: 30,
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
-    description: 'Luxurious double ply Korean mink blanket featuring 3D embossed floral patterns.',
-    features: ['Double Ply Layer', '3D Embossed Floral', 'Shrink Resistant']
   },
 
   // 7. Polar Fleeces
@@ -313,7 +353,7 @@ export const REVIEWS = [
     rating: 5,
     date: '2 weeks ago',
     comment: 'Best handloom shop in Nandyal! Purchased 4 pure cotton king bedsheets and mink blankets for winter. Thread quality and color fastness are superb after washing.',
-    product: 'Pure White Microfiber Bounce Pillow'
+    product: 'Rich Brown & Coral Rose Heavy Mink Blanket'
   },
   {
     id: 2,
@@ -331,7 +371,7 @@ export const REVIEWS = [
     rating: 5,
     date: '3 weeks ago',
     comment: 'Direct loom prices are genuine! Bought Korean 3D mink blanket and comforters. Very soft and warm for AC rooms.',
-    product: 'Korean 3D Embossed Mink Blanket'
+    product: 'Maroon & Golden Orange 5.5 KG Mink Blanket'
   }
 ];
 
