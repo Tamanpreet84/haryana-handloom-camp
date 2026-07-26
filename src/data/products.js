@@ -48,7 +48,109 @@ export const getWhatsAppUrl = (phoneIndex = 0, messageText = '') => {
 };
 
 export const PRODUCTS = [
-  // 1. Comforters - Exact Uploaded Store Photos
+  // 1. Cushion Covers - Exact Uploaded Store Photos
+  {
+    id: 'cc-01',
+    category: 'cushion-covers',
+    name: 'Royal Crimson Velvet Zari Border Cushion Covers (Set of 5)',
+    subtitle: 'Intricate Gold Zari Central Medallion & Border',
+    tag: 'Store Original',
+    material: 'Dutch Velvet & Zari',
+    threadCount: 'Premium Heavy Velvet',
+    price: 699,
+    mrp: 1299,
+    discount: '46% OFF',
+    rating: 5.0,
+    reviewsCount: 184,
+    sizes: ['16x16 inches', '18x18 inches'],
+    colors: ['#881337', '#172554', '#042f2e', '#e6c265'],
+    moreVarietiesCount: 25,
+    image: '/images/cushion-covers/cc-crimson-velvet-zari.png',
+    description: 'Plush royal crimson Dutch velvet featuring metallic gold zari thread embroidery, ornate lace border, and heavy concealed zipper closures.',
+    features: ['Heavy Zari Lace Embroidery', 'Concealed Zipper Closure', 'Plush Dutch Velvet', 'Set of 5 Covers']
+  },
+  {
+    id: 'cc-02',
+    category: 'cushion-covers',
+    name: 'Vibrant Ethnic Owl & Elephant Digital Print Cushion Covers (Set of 5)',
+    subtitle: 'Playful Multi-Color Folk Art Motif',
+    tag: 'Best Seller',
+    material: '100% Pure Cotton',
+    threadCount: 'HD Digital Print',
+    price: 599,
+    mrp: 1099,
+    discount: '45% OFF',
+    rating: 4.9,
+    reviewsCount: 162,
+    sizes: ['16x16 inches', '18x18 inches'],
+    colors: ['#d97706', '#0284c7', '#dc2626', '#16a34a'],
+    moreVarietiesCount: 30,
+    image: '/images/cushion-covers/cc-vibrant-ethnic-digital.png',
+    description: 'Eye-catching folk art owl and elephant motifs in rich vibrant jewel tones. Perfect for brightening up living room couches and seating.',
+    features: ['HD Digital Print', 'Fade-Proof Colors', 'Soft Cotton Blend', 'Set of 5 Covers']
+  },
+  {
+    id: 'cc-03',
+    category: 'cushion-covers',
+    name: 'Black Velvet 3D Hand-Appliqué Floral Stem Cushion Covers (Set of 5)',
+    subtitle: 'Textured Ribbed Base with 3D Pop-Out Flowers',
+    tag: 'Luxury Edition',
+    material: 'Dutch Velvet & Zari',
+    threadCount: 'Hand-Appliqué Work',
+    price: 749,
+    mrp: 1399,
+    discount: '46% OFF',
+    rating: 4.9,
+    reviewsCount: 128,
+    sizes: ['16x16 inches', '18x18 inches'],
+    colors: ['#0f172a', '#e6c265', '#be123c'],
+    moreVarietiesCount: 20,
+    image: '/images/cushion-covers/cc-black-velvet-3d-stem.png',
+    description: 'Black ribbed velvet base embellished with handcrafted 3D cloth flower stems and velvet backing for luxury couch accents.',
+    features: ['Hand-Appliqué 3D Flowers', 'Textured Ribbed Velvet', 'Concealed Zipper', 'Set of 5 Covers']
+  },
+  {
+    id: 'cc-04',
+    category: 'cushion-covers',
+    name: 'Off-White Punch Needle Tufted Woolen Floral Cushion Covers (Set of 5)',
+    subtitle: 'Tactile Woolen Loop Embroidery',
+    tag: 'Trending',
+    material: 'Organic Jute Blend',
+    threadCount: 'Hand Tufted Loop',
+    price: 649,
+    mrp: 1199,
+    discount: '45% OFF',
+    rating: 4.8,
+    reviewsCount: 110,
+    sizes: ['16x16 inches', '20x20 inches'],
+    colors: ['#fef3c7', '#ca8a04', '#0d9488', '#dc2626'],
+    moreVarietiesCount: 16,
+    image: '/images/cushion-covers/cc-offwhite-punch-tufted.png',
+    description: 'Cozy off-white canvas featuring vibrant punch needle tufted woolen flowers in mustard yellow, teal green, and poppy red.',
+    features: ['Punch Needle Tufted', 'Organic Texture', 'Heavy Cotton Canvas', 'Set of 5 Covers']
+  },
+  {
+    id: 'cc-05',
+    category: 'cushion-covers',
+    name: 'Quilted Beige Meadow Floral Embroidered Cushion Covers (Set of 5)',
+    subtitle: 'Diamond Quilted Fabric with Wildflower Embroidery',
+    tag: 'Customer Favorite',
+    material: 'Dutch Velvet & Zari',
+    threadCount: 'Quilted Embroidered',
+    price: 799,
+    mrp: 1499,
+    discount: '46% OFF',
+    rating: 5.0,
+    reviewsCount: 145,
+    sizes: ['16x16 inches', '18x18 inches'],
+    colors: ['#f59e0b', '#0284c7', '#059669'],
+    moreVarietiesCount: 22,
+    image: '/images/cushion-covers/cc-quilted-beige-meadow.png',
+    description: 'Diamond quilted cream-beige backdrop embellished with colorful multi-hued wildflower stem embroidery along the bottom border.',
+    features: ['Diamond Quilted Stitching', 'Botanical Wildflower Work', 'Piped Edge Seams', 'Set of 5 Covers']
+  },
+
+  // 2. Comforters - Exact Uploaded Store Photos
   {
     id: 'com-01',
     category: 'comforters',
@@ -89,68 +191,8 @@ export const PRODUCTS = [
     description: 'Refreshing sky blue background adorned with white cherry blossom prints, striped ruffled pillow cover, and heavy quilt stitch lines for year-round cooling comfort.',
     features: ['350 GSM Thermal Insulation', 'Dust-Mite Resistant', 'Complete Packaged Set', 'Feather Soft Comfort']
   },
-  {
-    id: 'com-03',
-    category: 'comforters',
-    name: 'Cashmere King Size Vintage Rose Pink Floral Comforter Set',
-    subtitle: 'Includes Ruffle Pillowcase & Zipper Travel Case',
-    tag: 'Trending',
-    material: 'Microfiber Down',
-    threadCount: '350 GSM Cashmere Touch',
-    price: 1599,
-    mrp: 2599,
-    discount: '38% OFF',
-    rating: 4.9,
-    reviewsCount: 145,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#be123c', '#fb7185', '#e7e5e4', '#9f1239'],
-    moreVarietiesCount: 12,
-    image: '/images/comforters/com-cashmere-rose-pink.jpg',
-    description: 'Charming vintage beige base with romantic dusty rose pink floral blooms, ruffled pillow sham, and premium box quilting.',
-    features: ['Romantic Vintage Print', 'Hypoallergenic Filling', 'Machine Washable', 'Full Packaged Box']
-  },
-  {
-    id: 'com-04',
-    category: 'comforters',
-    name: 'Black & Gold Metallic Feather Reversible AC Comforter',
-    subtitle: 'Dual-Sided Charcoal Gold Foil Art',
-    tag: 'Luxury Edition',
-    material: 'Microfiber Down',
-    threadCount: '300 GSM All-Season Fill',
-    price: 1399,
-    mrp: 2299,
-    discount: '39% OFF',
-    rating: 4.8,
-    reviewsCount: 160,
-    sizes: ['Single (60x90")', 'Double / King (90x100")'],
-    colors: ['#0f172a', '#e6c265', '#334155'],
-    moreVarietiesCount: 20,
-    image: '/images/comforters/com-black-gold-feather.png',
-    description: 'Opulent black and metallic gold foil feather print reversible quilt. Ultra-sleek modern design perfect for air conditioned master bedrooms.',
-    features: ['Metallic Gold Foil Print', 'Reversible Dual Tone', 'All-Season AC Comfort', 'Wrinkle Free']
-  },
-  {
-    id: 'com-05',
-    category: 'comforters',
-    name: 'Powder Blue Ribbed Textured Plush Winter Duvet Comforter',
-    subtitle: 'Heavyweight Winter Ribbed Quilt',
-    tag: 'Winter Essential',
-    material: 'Microfiber Down',
-    threadCount: '400 GSM Ultra Thermal',
-    price: 1799,
-    mrp: 2899,
-    discount: '38% OFF',
-    rating: 5.0,
-    reviewsCount: 132,
-    sizes: ['Double / King (90x100")'],
-    colors: ['#7dd3fc', '#0284c7', '#e0f2fe'],
-    moreVarietiesCount: 14,
-    image: '/images/comforters/com-powder-blue-ribbed.png',
-    description: 'Super plush powder blue ribbed textured duvet comforter engineered for extreme cold protection and cloud-like sleeping soft touch.',
-    features: ['400 GSM Winter Fill', 'Ribbed Micro-Plush Texture', 'Heavy Heat Retention', 'Corner Blanket Loops']
-  },
 
-  // 2. Bed Sheets - Exact Uploaded Photos
+  // 3. Bed Sheets - Exact Uploaded Photos
   {
     id: 'bs-01',
     category: 'bed-sheets',
@@ -171,28 +213,8 @@ export const PRODUCTS = [
     description: 'Fresh light blue Jaipuri block floral lattice print on 100% pure breathable cotton. Includes matching pillowcases with fast-color guarantee.',
     features: ['300 Thread Count', 'Color-Fast Dye', 'Breathable Pure Cotton', '2 Pillow Covers Included']
   },
-  {
-    id: 'bs-02',
-    category: 'bed-sheets',
-    name: 'Teal Green Mandala Medallion Print Bedsheet Set',
-    subtitle: 'Traditional Heritage Circular Artwork',
-    tag: 'Store Original',
-    material: '100% Pure Cotton',
-    threadCount: '350 TC',
-    price: 999,
-    mrp: 1599,
-    discount: '37% OFF',
-    rating: 5.0,
-    reviewsCount: 142,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#0d9488', '#0f766e', '#115e59', '#042f2e'],
-    moreVarietiesCount: 18,
-    image: '/images/bedsheets/bs-teal-mandala.png',
-    description: 'Vibrant teal green background with intricate central white mandala medallion artwork. Super soft feel for royal bedroom comfort.',
-    features: ['350 Thread Count', 'Pre-shrunk Fabric', 'Ethnic Mandala Centerpiece', 'Machine Washable']
-  },
 
-  // 3. Curtains - Exact Uploaded Store Photos
+  // 4. Curtains - Exact Uploaded Store Photos
   {
     id: 'cur-01',
     category: 'curtains',
@@ -212,48 +234,6 @@ export const PRODUCTS = [
     image: '/images/curtains/curtain-ethnic-cream.png',
     description: 'Elegant cream backdrop with vibrant crimson, teal, and mustard yellow ethnic paisley border prints. Brass eyelet grommets for smooth sliding.',
     features: ['100% Cotton Weave', 'Rust-Free Grommets', 'Ethnic Paisley Border', 'Machine Washable']
-  },
-  {
-    id: 'cur-02',
-    category: 'curtains',
-    name: 'Emerald Green & Gold Royalty Damask Jacquard Curtains (Set of 2)',
-    subtitle: 'Rich Royal Palace Gradient Pattern',
-    tag: 'Best Seller',
-    material: 'Polyester Jacquard',
-    threadCount: 'Heavy 400 GSM',
-    price: 1299,
-    mrp: 2199,
-    discount: '41% OFF',
-    rating: 5.0,
-    reviewsCount: 182,
-    sizes: ['Door (7 ft)', 'Long Door (9 ft)', 'Custom (11 ft)'],
-    colors: ['#042f2e', '#e6c265', '#334155'],
-    moreVarietiesCount: 14,
-    image: '/images/curtains/curtain-emerald-jacquard.png',
-    description: 'Deep emerald green velvet top panel with rich metallic gold damask jacquard weaving down to cream and grey heritage borders.',
-    features: ['85% Light Darkening', 'High-Density Jacquard', 'Wrinkle Resistant', 'Thermal Shield']
-  },
-
-  // 4. Cushion Covers
-  {
-    id: 'cc-01',
-    category: 'cushion-covers',
-    name: 'Embroidered Dutch Velvet Zari Floral Cushion Covers (Set of 5)',
-    subtitle: 'Rich Royal Blue & Gold Threadwork',
-    tag: 'Hot Seller',
-    material: 'Dutch Velvet & Zari',
-    threadCount: 'Premium Heavy',
-    price: 649,
-    mrp: 1199,
-    discount: '45% OFF',
-    rating: 4.9,
-    reviewsCount: 115,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#172554', '#881337', '#042f2e'],
-    moreVarietiesCount: 25,
-    image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80',
-    description: 'Plush Dutch velvet with gold zari thread embroidery and concealed zipper closures.',
-    features: ['Heavy Zari Work', 'Concealed Zipper', 'Plush Texture']
   },
 
   // 5. Mink Blankets
@@ -353,7 +333,7 @@ export const REVIEWS = [
     rating: 5,
     date: '2 weeks ago',
     comment: 'Best handloom shop in Nandyal! Purchased 4 pure cotton king bedsheets and mink blankets for winter. Thread quality and color fastness are superb after washing.',
-    product: 'Cashmere King Size Sky Blue Comforter Set'
+    product: 'Royal Crimson Velvet Zari Cushion Covers Set'
   },
   {
     id: 2,

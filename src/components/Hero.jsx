@@ -90,7 +90,7 @@ export default function Hero() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                 {[
                   { name: 'BED SHEETS', img: '/images/bedsheets/bs-light-blue-block.png', desc: 'Single, Double & King' },
-                  { name: 'CUSHION COVERS', img: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=400&q=80', desc: 'Embroidered Velvet' },
+                  { name: 'CUSHION COVERS', img: '/images/cushion-covers/cc-crimson-velvet-zari.png', desc: 'Embroidered Velvet' },
                   { name: 'CURTAINS', img: '/images/curtains/curtain-emerald-jacquard.png', desc: '85% - 100% Blackout' },
                   { name: 'COMFORTERS', img: '/images/comforters/com-cashmere-sky-blue.jpg', desc: 'Microfiber & Duvets' },
                   { name: 'MINK BLANKETS', img: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80', desc: 'Korean 3D Embossed' },
