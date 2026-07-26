@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Trash2, MessageCircle, Phone, ShoppingBag, Heart, CheckCircle2 } from 'lucide-react';
-import { STORE_DETAILS } from '../data/products';
+import { STORE_DETAILS, getWhatsAppUrl } from '../data/products';
 
 export default function InquiryDrawer({
   isOpen,
@@ -13,6 +13,7 @@ export default function InquiryDrawer({
   onMoveWishlistToCart
 }) {
   const [activeTab, setActiveTab] = useState('bag'); // bag, wishlist
+  const [selectedPhoneIndex, setSelectedPhoneIndex] = useState(0); // 0 = 9215211025, 1 = 9215511025
 
   if (!isOpen) return null;
 
@@ -30,12 +31,12 @@ export default function InquiryDrawer({
 
     const fullMessage = `Hello Haryana Handloom Camp!\n\nI would like to inquire about the following items from your website:\n\n${itemsText}\n\n*Total Estimated Order Value:* ₹${totalBagPrice}\n\nPlease let me know the current stock availability, store pickup timings, or delivery options for Nandyal.\n\nThank you!`;
 
-    const encoded = encodeURIComponent(fullMessage);
-    window.open(`https://wa.me/${STORE_DETAILS.whatsapp}?text=${encoded}`, '_blank');
+    const targetUrl = getWhatsAppUrl(selectedPhoneIndex, fullMessage);
+    window.open(targetUrl, '_blank');
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden bg-black/70 backdrop-blur-sm animate-fadeIn">
+    <div className="fixed inset-0 z-50 overflow-hidden bg-black/75 backdrop-blur-sm animate-fadeIn">
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
         <div className="w-screen max-w-md bg-[#091326] border-l-2 border-[#e6c265] text-white shadow-2xl flex flex-col justify-between">
           
@@ -197,8 +198,32 @@ export default function InquiryDrawer({
 
           {/* Footer Actions */}
           {activeTab === 'bag' && cartItems.length > 0 && (
-            <div className="p-5 bg-[#070d1a] border-t border-[#e6c265]/30 space-y-3">
-              <div className="flex items-center justify-between text-sm">
+            <div className="p-5 bg-[#070d1a] border-t border-[#e6c265]/30 space-y-4">
+              
+              {/* WhatsApp Representative Switcher */}
+              <div className="space-y-1.5">
+                <label className="text-[11px] text-[#e6c265] font-bold uppercase tracking-wider block">
+                  Select WhatsApp Store Line:
+                </label>
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  {STORE_DETAILS.phones.map((phoneObj, idx) => (
+                    <button
+                      key={phoneObj.number}
+                      onClick={() => setSelectedPhoneIndex(idx)}
+                      className={`p-2 rounded-xl border text-center font-bold transition-all ${
+                        selectedPhoneIndex === idx
+                          ? 'border-emerald-500 bg-emerald-950/60 text-emerald-400 shadow-md'
+                          : 'border-white/10 bg-[#0b1833] text-slate-300 hover:border-emerald-500/40'
+                      }`}
+                    >
+                      <span className="block text-[10px] text-slate-400 font-normal">Line {idx + 1}</span>
+                      <span>{phoneObj.number}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between text-sm pt-1 border-t border-white/10">
                 <span className="text-slate-300 font-semibold">Total Estimated Value:</span>
                 <span className="font-serif font-extrabold text-lg text-[#f7e6a1]">
                   ₹{totalBagPrice}
@@ -213,15 +238,25 @@ export default function InquiryDrawer({
                 <span>Send Order (₹{totalBagPrice}) via WhatsApp</span>
               </button>
 
-              <div className="text-center pt-1">
+              {/* Direct Call Options */}
+              <div className="flex justify-center gap-4 text-xs text-slate-300 pt-1">
                 <a
-                  href={`tel:+91${STORE_DETAILS.phones[0]}`}
-                  className="text-xs text-slate-300 hover:text-[#e6c265] inline-flex items-center gap-1 font-medium"
+                  href={`tel:+91${STORE_DETAILS.phones[0].number}`}
+                  className="hover:text-[#e6c265] inline-flex items-center gap-1 font-medium"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#e6c265]" />
-                  Or Call Us Directly: {STORE_DETAILS.phones[0]}
+                  Call 9215211025
+                </a>
+                <span className="text-white/20">|</span>
+                <a
+                  href={`tel:+91${STORE_DETAILS.phones[1].number}`}
+                  className="hover:text-[#e6c265] inline-flex items-center gap-1 font-medium"
+                >
+                  <Phone className="w-3.5 h-3.5 text-[#e6c265]" />
+                  Call 9215511025
                 </a>
               </div>
+
             </div>
           )}
 

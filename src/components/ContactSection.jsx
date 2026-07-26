@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, MessageCircle, Clock, Send, Store, CheckCircle, Sparkles } from 'lucide-react';
-import { STORE_DETAILS } from '../data/products';
+import { MapPin, Phone, MessageCircle, Clock, Send, Store, CheckCircle } from 'lucide-react';
+import { STORE_DETAILS, getWhatsAppUrl } from '../data/products';
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [selectedPhoneIndex, setSelectedPhoneIndex] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -16,7 +17,8 @@ export default function ContactSection() {
     if (!formData.name || !formData.phone) return;
 
     const text = `Store Inquiry from Website:\nName: ${formData.name}\nPhone: ${formData.phone}\nInterested In: ${formData.category}\nMessage: ${formData.message}`;
-    window.open(`https://wa.me/${STORE_DETAILS.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+    const targetUrl = getWhatsAppUrl(selectedPhoneIndex, text);
+    window.open(targetUrl, '_blank');
     setSubmitted(true);
   };
 
@@ -63,26 +65,26 @@ export default function ContactSection() {
                   <span className="font-bold text-slate-200 block text-sm mb-0.5">Store Address</span>
                   <p className="text-slate-300 font-sans leading-relaxed">{STORE_DETAILS.address}</p>
                   <span className="text-[11px] text-[#e6c265] font-medium mt-1 inline-block">
-                    Landmark: Near Sai Baba Mandir, Nandyal
+                    Landmark: Near Sai Baba Mandir, Nandyal (Pincode 518501)
                   </span>
                 </div>
               </div>
 
-              {/* Phone Numbers */}
+              {/* Both Phone Numbers */}
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#e6c265] shrink-0 mt-1" />
-                <div className="text-xs space-y-1">
-                  <span className="font-bold text-slate-200 block text-sm">Call Us Directly</span>
-                  <div className="flex flex-wrap gap-3 pt-1">
+                <div className="text-xs space-y-2 w-full">
+                  <span className="font-bold text-slate-200 block text-sm">Call Us Directly (2 Lines)</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <a
-                      href={`tel:+91${STORE_DETAILS.phones[0]}`}
-                      className="px-3 py-1.5 rounded-lg bg-[#162d5a] border border-[#e6c265]/40 text-[#f7e6a1] font-bold hover:bg-[#e6c265] hover:text-black transition-colors"
+                      href={`tel:+91${STORE_DETAILS.phones[0].number}`}
+                      className="px-3 py-2 rounded-xl bg-[#162d5a] border border-[#e6c265]/40 text-[#f7e6a1] font-bold hover:bg-[#e6c265] hover:text-black transition-colors text-center block"
                     >
                       📞 9215211025
                     </a>
                     <a
-                      href={`tel:+91${STORE_DETAILS.phones[1]}`}
-                      className="px-3 py-1.5 rounded-lg bg-[#162d5a] border border-[#e6c265]/40 text-[#f7e6a1] font-bold hover:bg-[#e6c265] hover:text-black transition-colors"
+                      href={`tel:+91${STORE_DETAILS.phones[1].number}`}
+                      className="px-3 py-2 rounded-xl bg-[#162d5a] border border-[#e6c265]/40 text-[#f7e6a1] font-bold hover:bg-[#e6c265] hover:text-black transition-colors text-center block"
                     >
                       📞 9215511025
                     </a>
@@ -96,11 +98,11 @@ export default function ContactSection() {
                 <div className="text-xs">
                   <span className="font-bold text-slate-200 block text-sm">Store Timings</span>
                   <p className="text-slate-300">{STORE_DETAILS.hours}</p>
-                  <p className="text-[11px] text-emerald-400 font-medium mt-0.5">Open All 7 Days</p>
+                  <p className="text-[11px] text-emerald-400 font-medium mt-0.5">Open All 7 Days a Week</p>
                 </div>
               </div>
 
-              {/* Google Maps Button */}
+              {/* Google Maps Navigation Button */}
               <div className="pt-2">
                 <a
                   href="https://maps.google.com/?q=Nk+road+nandyal+518501"
@@ -124,7 +126,7 @@ export default function ContactSection() {
               <div>
                 <h3 className="font-serif font-bold text-xl text-white">Send Direct Store Inquiry</h3>
                 <p className="text-xs text-slate-300 mt-1">
-                  Looking for custom curtain fitting or bulk bedsheet orders? Leave your details below and we will contact you immediately.
+                  Looking for custom curtain fitting or bulk bedsheet orders? Leave your details below and choose which store line to contact.
                 </p>
               </div>
 
@@ -185,6 +187,27 @@ export default function ContactSection() {
                     </select>
                   </div>
 
+                  {/* WhatsApp Store Number Selection */}
+                  <div>
+                    <label className="block text-xs font-semibold text-[#e6c265] mb-1 uppercase">Select WhatsApp Representative:</label>
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      {STORE_DETAILS.phones.map((p, idx) => (
+                        <button
+                          type="button"
+                          key={p.number}
+                          onClick={() => setSelectedPhoneIndex(idx)}
+                          className={`p-2 rounded-xl border text-center font-bold transition-all ${
+                            selectedPhoneIndex === idx
+                              ? 'border-emerald-500 bg-emerald-950/60 text-emerald-400'
+                              : 'border-white/10 bg-[#070d1a] text-slate-400'
+                          }`}
+                        >
+                          Line {idx + 1}: {p.number}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 mb-1">Message / Custom Requirements</label>
                     <textarea
@@ -201,7 +224,7 @@ export default function ContactSection() {
                     className="w-full btn-gold justify-center py-3 text-xs font-bold"
                   >
                     <Send className="w-4 h-4 text-emerald-950" />
-                    <span>Send Inquiry to Haryana Handloom Camp</span>
+                    <span>Send Inquiry to Line {selectedPhoneIndex + 1} ({STORE_DETAILS.phones[selectedPhoneIndex].number})</span>
                   </button>
                 </form>
               )}

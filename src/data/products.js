@@ -21,6 +21,31 @@ export const FABRIC_TYPES = [
   'Organic Jute Blend'
 ];
 
+export const STORE_DETAILS = {
+  name: 'HARYANA HANDLOOM CAMP',
+  tagline: 'Weave Comfort Into Your Life',
+  subtitle: 'PREMIUM HOME FURNISHING COLLECTION',
+  address: 'NK Road, Nandyal, Pincode 518501 (Near Sai Baba Mandir)',
+  city: 'Nandyal, Andhra Pradesh',
+  phones: [
+    { label: 'Store Phone 1', number: '9215211025', formatted: '+91 9215211025', wa: '919215211025' },
+    { label: 'Store Phone 2', number: '9215511025', formatted: '+91 9215511025', wa: '919215511025' }
+  ],
+  hours: 'Monday - Sunday: 9:30 AM - 9:30 PM (Open All 7 Days)',
+  highlights: [
+    { title: 'BEST QUALITY', desc: '100% Handloom & Premium Checked Fabrics', icon: 'Award' },
+    { title: 'LATEST DESIGNS', desc: 'Exclusive Indian Traditional & Modern Prints', icon: 'Sparkles' },
+    { title: 'AFFORDABLE PRICES', desc: 'Direct Loom Pricing with No Middlemen', icon: 'IndianRupee' },
+    { title: 'ALL SIZES AVAILABLE', desc: 'Single, Double, King & Custom Tailoring', icon: 'Layers' }
+  ]
+};
+
+export const getWhatsAppUrl = (phoneIndex = 0, messageText = '') => {
+  const target = STORE_DETAILS.phones[phoneIndex] || STORE_DETAILS.phones[0];
+  const encoded = encodeURIComponent(messageText);
+  return `https://wa.me/${target.wa}?text=${encoded}`;
+};
+
 export const PRODUCTS = [
   // Bed Sheets
   {
@@ -419,23 +444,6 @@ export const PRODUCTS = [
   }
 ];
 
-export const STORE_DETAILS = {
-  name: 'HARYANA HANDLOOM CAMP',
-  tagline: 'Weave Comfort Into Your Life',
-  subtitle: 'PREMIUM HOME FURNISHING COLLECTION',
-  address: 'NK Road, Nandyal, Pincode 518501 (Near Sai Baba Mandir)',
-  city: 'Nandyal, Andhra Pradesh',
-  phones: ['9215211025', '9215511025'],
-  whatsapp: '919215211025',
-  hours: 'Monday - Sunday: 9:30 AM - 9:30 PM',
-  highlights: [
-    { title: 'Best Quality', desc: '100% Handloom & Premium Checked Fabrics' },
-    { title: 'Latest Designs', desc: 'Exclusive Indian Traditional & Modern Prints' },
-    { title: 'Affordable Prices', desc: 'Direct Loom Pricing with No Middlemen' },
-    { title: 'All Sizes Available', desc: 'Single, Double, King & Custom Tailoring' }
-  ]
-};
-
 export const REVIEWS = [
   {
     id: 1,
@@ -477,7 +485,7 @@ export const FAQS = [
   },
   {
     q: 'How do I place an inquiry or order on WhatsApp?',
-    a: 'Simply click "Add to Bag" on any items you like, open your Inquiry Bag, and tap "Send Order via WhatsApp". A pre-formatted list will open directly in WhatsApp connected to our store representative (+91 9215211025).'
+    a: 'Simply click "Add to Bag" on any items you like, open your Inquiry Bag, choose your preferred store representative number (9215211025 or 9215511025), and tap "Send Order via WhatsApp".'
   },
   {
     q: 'What payment modes are accepted at your store?',
