@@ -6,7 +6,6 @@ export const CATEGORIES = [
   { id: 'comforters', name: 'Comforters', icon: 'Box' },
   { id: 'blankets', name: 'Mink Blankets', icon: 'Layers' },
   { id: 'polar-blankets', name: 'Polar Fleeces', icon: 'Snowflake' },
-  { id: 'shawls', name: 'Shawls & Wraps', icon: 'Shirt' },
   { id: 'pillows', name: 'Pillows & Form', icon: 'Disc' },
 ];
 
@@ -48,7 +47,69 @@ export const getWhatsAppUrl = (phoneIndex = 0, messageText = '') => {
 };
 
 export const PRODUCTS = [
-  // 1. Mink Blankets - Exact Uploaded Store Photos
+  // 1. Polar Fleeces - Exact Uploaded Store Photos
+  {
+    id: 'pb-01',
+    category: 'polar-blankets',
+    name: 'Royal Blue & White Checked Rose Print Polar Fleece Blanket',
+    subtitle: '280 GSM Compact & Super Soft Travel Fleece',
+    tag: 'Store Original',
+    material: 'Korean Mink Plush',
+    threadCount: '280 GSM Density',
+    price: 449,
+    mrp: 799,
+    discount: '43% OFF',
+    rating: 4.9,
+    reviewsCount: 175,
+    sizes: ['Single (54x90")', 'Double (80x90")'],
+    colors: ['#2563eb', '#1d4ed8', '#ffffff', '#dc2626'],
+    moreVarietiesCount: 20,
+    image: '/images/polar-fleeces/pb-blue-checked-rose.png',
+    description: 'Vibrant royal blue and white diamond checked background adorned with bright red rose prints and solid blue satin hem border. Super soft AC fleece.',
+    features: ['280 GSM Thermal Fleece', 'Lint-Free Coral Touch', 'Quick Dry & Light', 'Machine Washable']
+  },
+  {
+    id: 'pb-02',
+    category: 'polar-blankets',
+    name: 'Purple & Orange Floral Lattice Soft Polar Fleece Blanket',
+    subtitle: 'Plush All-Season AC Bedroom Blanket',
+    tag: 'Best Seller',
+    material: 'Korean Mink Plush',
+    threadCount: '300 GSM Soft Weave',
+    price: 499,
+    mrp: 899,
+    discount: '44% OFF',
+    rating: 4.8,
+    reviewsCount: 152,
+    sizes: ['Single (54x90")', 'Double (80x90")'],
+    colors: ['#7e22ce', '#ea580c', '#f59e0b', '#581c87'],
+    moreVarietiesCount: 18,
+    image: '/images/polar-fleeces/pb-purple-orange-floral.png',
+    description: 'Rich deep purple diamond lattice body covered with glowing orange marigold floral blooms and solid purple velvet binding.',
+    features: ['Plush Coral Texture', 'Vibrant Fast Colors', 'Feather Weight Warmth', 'Easy Travel Roll']
+  },
+  {
+    id: 'pb-03',
+    category: 'polar-blankets',
+    name: 'Navy Blue & Grey Heart Swirl Modern Polar Fleece Travel Blanket',
+    subtitle: 'Aesthetic Heart & Scroll Graphic Motif',
+    tag: 'Trending',
+    material: 'Korean Mink Plush',
+    threadCount: '320 GSM Coral Fleece',
+    price: 549,
+    mrp: 999,
+    discount: '45% OFF',
+    rating: 5.0,
+    reviewsCount: 138,
+    sizes: ['Single (60x90")', 'Double (80x90")'],
+    colors: ['#1e293b', '#64748b', '#0f172a', '#cbd5e1'],
+    moreVarietiesCount: 15,
+    image: '/images/polar-fleeces/pb-navy-grey-hearts.png',
+    description: 'Modern aesthetic navy blue, slate grey, and white heart swirl graphics with framed heart border hem. Ideal for sofa throw and train travel.',
+    features: ['Modern Graphic Pattern', 'Brushed Micro-Fleece', 'No Pilling or Fuzz', 'Wrinkle Free']
+  },
+
+  // 2. Mink Blankets - Exact Uploaded Store Photos
   {
     id: 'blk-01',
     category: 'blankets',
@@ -89,68 +150,8 @@ export const PRODUCTS = [
     description: 'Sophisticated warm camel brown mink blanket designed with a bold dark brown criss-cross lattice body and elegant floral side borders.',
     features: ['Geometric Lattice Design', 'Silky Smooth Pile', 'Pre-shrunk Micro-Plush', 'Easy Machine Wash']
   },
-  {
-    id: 'blk-03',
-    category: 'blankets',
-    name: 'Rich Brown & Coral Rose Leopard Border Heavy Double Mink Blanket',
-    subtitle: 'Double Ply Super Thermal Winter Blanket',
-    tag: 'Luxury Grade',
-    material: 'Korean Mink Plush',
-    threadCount: '4.8 KG Heavy Weight',
-    price: 1899,
-    mrp: 3199,
-    discount: '40% OFF',
-    rating: 5.0,
-    reviewsCount: 240,
-    sizes: ['Double Bed (200x240 cm)', 'King Size (220x250 cm)'],
-    colors: ['#451a03', '#ea580c', '#78350f', '#9a3412'],
-    moreVarietiesCount: 30,
-    image: '/images/blankets/blk-brown-rose-leopard.png',
-    description: 'Heavyweight double ply mink blanket featuring opulent coral rose center blooms framed with chic leopard print borders for maximum winter warmth.',
-    features: ['Double Ply Layer', 'Leopard Print Frame', 'Sub-Zero Winter Protection', 'Heavy Duty Finish']
-  },
-  {
-    id: 'blk-04',
-    category: 'blankets',
-    name: 'Maroon & Golden Orange Royal Damask 5.5 KG Heavyweight Mink Blanket',
-    subtitle: '5.5 KG Double Ply Royal Palace Collection',
-    tag: 'Winter Special',
-    material: 'Korean Mink Plush',
-    threadCount: '5.5 KG Ultra Heavy Weight',
-    price: 2199,
-    mrp: 3599,
-    discount: '39% OFF',
-    rating: 5.0,
-    reviewsCount: 215,
-    sizes: ['Double Bed (200x240 cm)', 'Super King (240x260 cm)'],
-    colors: ['#450a0a', '#c2410c', '#78350f', '#f59e0b'],
-    moreVarietiesCount: 28,
-    image: '/images/blankets/blk-maroon-damask-5.5kg.png',
-    description: 'Our heaviest 5.5 KG double ply mink blanket. Rich dark maroon background with glowing golden orange floral damask tapestries.',
-    features: ['5.5 KG Ultra Heavyweight', 'Double Ply Thermal Shield', 'Royal Damask Embroidery', 'Color Lock Tech']
-  },
-  {
-    id: 'blk-05',
-    category: 'blankets',
-    name: 'Pastel Blue & Pink Dreamcatcher Embossed Soft Mink AC Blanket',
-    subtitle: 'Lightweight All-Season Dreamcatcher Artwork',
-    tag: 'Trending',
-    material: 'Korean Mink Plush',
-    threadCount: '2.8 KG Light Weight',
-    price: 1399,
-    mrp: 2299,
-    discount: '39% OFF',
-    rating: 4.9,
-    reviewsCount: 142,
-    sizes: ['Double Bed (200x240 cm)'],
-    colors: ['#38bdf8', '#f472b6', '#bae6fd', '#fbcfe8'],
-    moreVarietiesCount: 18,
-    image: '/images/blankets/blk-pastel-dreamcatcher.png',
-    description: 'Aesthetic pastel sky blue and blush pink ombre mink blanket embossed with dreamy feather dreamcatcher artwork for year-round AC room comfort.',
-    features: ['Ombre Pastel Colors', 'Dreamcatcher Art', 'AC Room Comfort', 'Feather Soft Velvet']
-  },
 
-  // 2. Pillows - Exact Uploaded Store Photos
+  // 3. Pillows - Exact Uploaded Store Photos
   {
     id: 'pil-01',
     category: 'pillows',
@@ -171,48 +172,8 @@ export const PRODUCTS = [
     description: 'Resilient pure white bounce sleeping pillow stuffed with hypoallergenic conjugate microfiber down fill. Ensures optimal neck & spine support.',
     features: ['Conjugate Microfiber Fill', 'Anti-Allergic Shell', 'Restorable Fluff', '5-Star Hotel Softness']
   },
-  {
-    id: 'pil-02',
-    category: 'pillows',
-    name: 'Charcoal Grey & White Dual-Tone Hotel Pillow Set (Pair of 2)',
-    subtitle: 'Modern 2-Tone Hotel Luxury Contour Pillows',
-    tag: 'Best Seller',
-    material: 'Microfiber Down',
-    threadCount: 'Dual-Layer Fabric',
-    price: 799,
-    mrp: 1399,
-    discount: '43% OFF',
-    rating: 4.9,
-    reviewsCount: 185,
-    sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
-    colors: ['#4b5563', '#ffffff', '#1f2937'],
-    moreVarietiesCount: 12,
-    image: '/images/pillows/pil-charcoal-duotone-set.png',
-    description: 'Ultra-modern charcoal grey and crisp white half-and-half dual tone hotel pillow set. High density rebound fill for back & side sleepers.',
-    features: ['Dual-Tone Aesthetic', 'Pair of 2 Pillows', 'Medium Firm Support', 'Breathable Casing']
-  },
-  {
-    id: 'pil-03',
-    category: 'pillows',
-    name: 'Royal Navy Blue Piped Cord Bounce Sleeping Pillow Set (Pair of 2)',
-    subtitle: 'Reinforced Piped Seam Bordering',
-    tag: 'Luxury Grade',
-    material: 'Microfiber Down',
-    threadCount: 'High Density Bounce',
-    price: 899,
-    mrp: 1499,
-    discount: '40% OFF',
-    rating: 5.0,
-    reviewsCount: 164,
-    sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
-    colors: ['#1e3a8a', '#ffffff', '#0f172a'],
-    moreVarietiesCount: 15,
-    image: '/images/pillows/pil-navy-piped-pair.png',
-    description: 'Premium white hotel pillows framed with dark royal navy blue cording along the perimeter seams for extra structural bounce and shape retention.',
-    features: ['Navy Blue Piped Cord Border', 'High Shape Retention', 'Pair of 2 Pillows', 'Spine Support Alignment']
-  },
 
-  // 3. Cushion Covers - Exact Uploaded Store Photos
+  // 4. Cushion Covers - Exact Uploaded Store Photos
   {
     id: 'cc-01',
     category: 'cushion-covers',
@@ -234,7 +195,7 @@ export const PRODUCTS = [
     features: ['Heavy Zari Lace Embroidery', 'Concealed Zipper Closure', 'Plush Dutch Velvet', 'Set of 5 Covers']
   },
 
-  // 4. Comforters - Exact Uploaded Store Photos
+  // 5. Comforters - Exact Uploaded Store Photos
   {
     id: 'com-01',
     category: 'comforters',
@@ -256,7 +217,7 @@ export const PRODUCTS = [
     features: ['Cashmere Soft Touch', '350 GSM Microfiber Fill', 'Matching Ruffled Pillowcase', 'Zippered Bag Packaging']
   },
 
-  // 5. Bed Sheets - Exact Uploaded Photos
+  // 6. Bed Sheets - Exact Uploaded Photos
   {
     id: 'bs-01',
     category: 'bed-sheets',
@@ -278,7 +239,7 @@ export const PRODUCTS = [
     features: ['300 Thread Count', 'Color-Fast Dye', 'Breathable Pure Cotton', '2 Pillow Covers Included']
   },
 
-  // 6. Curtains - Exact Uploaded Store Photos
+  // 7. Curtains - Exact Uploaded Store Photos
   {
     id: 'cur-01',
     category: 'curtains',
@@ -298,50 +259,6 @@ export const PRODUCTS = [
     image: '/images/curtains/curtain-ethnic-cream.png',
     description: 'Elegant cream backdrop with vibrant crimson, teal, and mustard yellow ethnic paisley border prints. Brass eyelet grommets for smooth sliding.',
     features: ['100% Cotton Weave', 'Rust-Free Grommets', 'Ethnic Paisley Border', 'Machine Washable']
-  },
-
-  // 7. Polar Fleeces
-  {
-    id: 'pb-01',
-    category: 'polar-blankets',
-    name: 'Ultra Lightweight Thermal Travel Polar Fleece Blanket',
-    subtitle: '280 GSM Compact & Super Soft',
-    tag: 'Travel Favorite',
-    material: 'Korean Mink Plush',
-    threadCount: '280 GSM Density',
-    price: 449,
-    mrp: 799,
-    discount: '43% OFF',
-    rating: 4.8,
-    reviewsCount: 150,
-    sizes: ['Single (54x90")', 'Double (80x90")'],
-    colors: ['#0284c7', '#d97706', '#059669'],
-    moreVarietiesCount: 16,
-    image: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=800&q=80',
-    description: 'Lightweight polar fleece blanket ideal for travel, sofa snuggles, and AC rooms.',
-    features: ['Lint-Free Fleece', 'Lightweight Warmth', 'Quick Dry']
-  },
-
-  // 8. Shawls
-  {
-    id: 'sh-01',
-    category: 'shawls',
-    name: 'Handcrafted Kashmiri Pure Woolen Paisley Shawl',
-    subtitle: 'Intricate Woven Border Artwork',
-    tag: 'Artisan Crafted',
-    material: 'Merino Wool Blend',
-    threadCount: '100% Fine Weave',
-    price: 1199,
-    mrp: 2099,
-    discount: '42% OFF',
-    rating: 4.9,
-    reviewsCount: 92,
-    sizes: ['Free Size (100x200 cm)'],
-    colors: ['#7c2d12', '#1e1b4b', '#450a0a'],
-    moreVarietiesCount: 14,
-    image: 'https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=800&q=80',
-    description: 'Timeless Kashmiri style woven shawl with rich traditional paisley borders.',
-    features: ['Pure Warm Wool', 'Jacquard Border', 'Soft Handfeel']
   }
 ];
 
@@ -353,7 +270,7 @@ export const REVIEWS = [
     rating: 5,
     date: '2 weeks ago',
     comment: 'Best handloom shop in Nandyal! Purchased 4 pure cotton king bedsheets and mink blankets for winter. Thread quality and color fastness are superb after washing.',
-    product: 'Rich Brown & Coral Rose Heavy Mink Blanket'
+    product: 'Royal Blue Checked Rose Polar Fleece'
   },
   {
     id: 2,
@@ -371,7 +288,7 @@ export const REVIEWS = [
     rating: 5,
     date: '3 weeks ago',
     comment: 'Direct loom prices are genuine! Bought Korean 3D mink blanket and comforters. Very soft and warm for AC rooms.',
-    product: 'Maroon & Golden Orange 5.5 KG Mink Blanket'
+    product: 'Korean 3D Embossed Mink Blanket'
   }
 ];
 
