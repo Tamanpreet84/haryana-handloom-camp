@@ -48,7 +48,7 @@ export const getWhatsAppUrl = (phoneIndex = 0, messageText = '') => {
 };
 
 export const PRODUCTS = [
-  // Bed Sheets
+  // 1. Bed Sheets - Strict Bed Sheet Photos Only
   {
     id: 'bs-01',
     category: 'bed-sheets',
@@ -102,7 +102,7 @@ export const PRODUCTS = [
     reviewsCount: 82,
     sizes: ['Double (90x100")', 'King (108x108")'],
     colors: ['#0284c7', '#059669', '#7c3aed'],
-    image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80',
     description: 'Wrinkle-resistant super soft cotton with deep pockets to accommodate up to 10-inch mattresses without slipping.',
     features: ['360 Elastic Border', 'No Tuck-in Hassle', 'Silky Smooth Finish']
   },
@@ -121,12 +121,12 @@ export const PRODUCTS = [
     reviewsCount: 156,
     sizes: ['King (108x108")', 'Super King (110x120")'],
     colors: ['#ffffff', '#cbd5e1', '#fef08a'],
-    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80',
     description: 'Crisp white satin striped weave engineered for five-star hotel comfort and cooling breathability.',
     features: ['500 Thread Count', 'Satin Striped Finish', 'Hypoallergenic']
   },
 
-  // Cushion Covers
+  // 2. Cushion Covers - Strict Cushion Cover Photos Only
   {
     id: 'cc-01',
     category: 'cushion-covers',
@@ -185,7 +185,7 @@ export const PRODUCTS = [
     features: ['HD Digital Print', 'Piped Edge Borders', 'Fade-Proof Colors']
   },
 
-  // Curtains
+  // 3. Curtains - Strict Curtain Drapes Photos Only
   {
     id: 'cur-01',
     category: 'curtains',
@@ -244,7 +244,7 @@ export const PRODUCTS = [
     features: ['100% Light Block', 'Sound Dampening', 'Heavy Thermal Shield']
   },
 
-  // Comforters
+  // 4. Comforters - Strict Quilted Comforter Photos Only
   {
     id: 'com-01',
     category: 'comforters',
@@ -279,12 +279,12 @@ export const PRODUCTS = [
     reviewsCount: 95,
     sizes: ['Double / King (90x100")'],
     colors: ['#78350f', '#1e1b4b', '#1c1917'],
-    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1629949009765-40fc74c954c9?auto=format&fit=crop&w=800&q=80',
     description: 'Double-sided quilted duvet with fleece backing. Delivers intense winter heat retention without heavy bulk.',
     features: ['Sherpa Warmth', 'Corner Anchor Loops', 'Breathable Shell']
   },
 
-  // Mink Blankets
+  // 5. Mink Blankets - Strict Korean Mink Blanket Photos Only
   {
     id: 'blk-01',
     category: 'blankets',
@@ -319,12 +319,12 @@ export const PRODUCTS = [
     reviewsCount: 115,
     sizes: ['Single Bed (150x220 cm)', 'Double Bed (200x240 cm)'],
     colors: ['#0f766e', '#b45309', '#312e81'],
-    image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=800&q=80',
     description: 'Silky single-ply mink blanket designed for AC bedroom temperatures and mid-season chills.',
     features: ['Velvet Soft Finish', 'Non-Shedding Micro-Fibers', 'Washable']
   },
 
-  // Polar Fleeces
+  // 6. Polar Fleeces - Strict Polar Fleece Photos Only
   {
     id: 'pb-01',
     category: 'polar-blankets',
@@ -364,7 +364,7 @@ export const PRODUCTS = [
     features: ['Brushed Softness', 'No Pills or Fuzz', 'Fade Resistant']
   },
 
-  // Shawls
+  // 7. Shawls - Strict Shawl Photos Only
   {
     id: 'sh-01',
     category: 'shawls',
@@ -404,7 +404,7 @@ export const PRODUCTS = [
     features: ['Dual Side Pattern', 'Wrinkle Free', 'Gentle Wash']
   },
 
-  // Pillows
+  // 8. Pillows - Strict Bed Pillow Photos Only
   {
     id: 'pil-01',
     category: 'pillows',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageCircle, ShoppingBag, Menu, X, Sparkles, Heart, BookOpen, MapPin } from 'lucide-react';
+import { Phone, MessageCircle, ShoppingBag, Menu, X, Sparkles, BookOpen } from 'lucide-react';
 import { STORE_DETAILS, getWhatsAppUrl } from '../data/products';
 
 export default function Navbar({ cartCount, wishlistCount, onOpenCart, onOpenFabricGuide }) {
@@ -37,7 +37,7 @@ export default function Navbar({ cartCount, wishlistCount, onOpenCart, onOpenFab
 
       {/* Main Navbar */}
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Brand Logo - Styled directly based on Store Poster */}
+        {/* Brand Logo */}
         <a href="#" className="flex items-center gap-2.5 sm:gap-3 group">
           <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#f7e6a1] via-[#e6c265] to-[#b88d2d] p-0.5 shadow-[0_0_20px_rgba(230,194,101,0.4)] group-hover:scale-105 transition-transform">
             <div className="w-full h-full bg-[#091326] rounded-full flex flex-col items-center justify-center text-center">
@@ -56,12 +56,9 @@ export default function Navbar({ cartCount, wishlistCount, onOpenCart, onOpenFab
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-200">
+        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-200">
           <a href="#hero" className="hover:text-[#e6c265] transition-colors">Home</a>
           <a href="#categories" className="hover:text-[#e6c265] transition-colors">Collection</a>
-          <a href="#visualizer" className="hover:text-[#e6c265] transition-colors flex items-center gap-1">
-            <Sparkles className="w-3.5 h-3.5 text-[#e6c265]" /> Room Visualizer
-          </a>
           <a href="#reviews" className="hover:text-[#e6c265] transition-colors">Reviews</a>
           <a href="#faqs" className="hover:text-[#e6c265] transition-colors">FAQs</a>
           <a href="#contact" className="hover:text-[#e6c265] transition-colors">Store Info</a>
@@ -121,13 +118,6 @@ export default function Navbar({ cartCount, wishlistCount, onOpenCart, onOpenFab
             className="block text-slate-200 hover:text-[#e6c265] font-medium py-1.5"
           >
             Product Catalog (Bedsheets, Curtains, Blankets)
-          </a>
-          <a
-            href="#visualizer"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-[#e6c265] font-medium py-1.5 flex items-center gap-1.5"
-          >
-            <Sparkles className="w-4 h-4" /> Interactive Room Visualizer
           </a>
           <a
             href="#reviews"

@@ -1,11 +1,11 @@
 import React from 'react';
-import { ShieldCheck, Award, Sparkles, MessageCircle, Phone, ArrowRight, CheckCircle2, IndianRupee, Layers, Palette, MapPin } from 'lucide-react';
+import { Award, Sparkles, MessageCircle, Phone, ArrowRight, IndianRupee, Layers, MapPin } from 'lucide-react';
 import { STORE_DETAILS, getWhatsAppUrl } from '../data/products';
 
 export default function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden pt-6 pb-14 md:py-16">
-      {/* Background Decorative Radial Lighting */}
+      {/* Background Decorative Lighting */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#e6c265]/20 via-indigo-600/10 to-amber-500/10 blur-[150px] pointer-events-none rounded-full"></div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -81,7 +81,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* 8 Poster Categories Interactive Grid */}
+            {/* 8 Poster Categories Interactive Grid with STRICT Matching Photos */}
             <div>
               <h3 className="text-center font-serif font-bold text-lg text-white mb-4 tracking-wide">
                 EXPLORE STORE CATEGORIES
@@ -90,25 +90,25 @@ export default function Hero() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                 {[
                   { name: 'BED SHEETS', img: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=400&q=80', desc: 'Single, Double & King' },
-                  { name: 'CUSHION COVERS', img: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=400&q=80', desc: 'Embroidered Velvet' },
+                  { name: 'CUSHION COVERS', img: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=400&q=80', desc: 'Embroidered Velvet' },
                   { name: 'CURTAINS', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80', desc: '85% - 100% Blackout' },
-                  { name: 'COMFORTERS', img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=400&q=80', desc: 'Microfiber & Duvets' },
-                  { name: 'MINK BLANKETS', img: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=400&q=80', desc: 'Korean 3D Embossed' },
-                  { name: 'POLAR BLANKETS', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80', desc: 'Light AC Fleeces' },
+                  { name: 'COMFORTERS', img: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=400&q=80', desc: 'Microfiber & Duvets' },
+                  { name: 'MINK BLANKETS', img: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80', desc: 'Korean 3D Embossed' },
+                  { name: 'POLAR BLANKETS', img: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=400&q=80', desc: 'Light AC Fleeces' },
                   { name: 'SHAWLS & WRAPS', img: 'https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=400&q=80', desc: 'Kashmiri Pure Wool' },
-                  { name: 'PILLOWS & FORM', img: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=400&q=80', desc: 'Ergonomic Bounce' },
+                  { name: 'PILLOWS & FORM', img: 'https://images.unsplash.com/photo-1629949009765-40fc74c954c9?auto=format&fit=crop&w=400&q=80', desc: 'Ergonomic Bounce' },
                 ].map((item) => (
                   <a
                     key={item.name}
                     href="#categories"
-                    className="relative group overflow-hidden rounded-2xl border border-[#e6c265]/40 bg-[#070d1a] h-32 sm:h-36 block"
+                    className="relative group overflow-hidden rounded-2xl border border-[#e6c265]/40 bg-[#070d1a] h-32 sm:h-36 block shadow-lg"
                   >
                     <img
                       src={item.img}
                       alt={item.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-2.5">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent flex flex-col justify-end p-2.5">
                       <span className="font-serif font-bold text-xs sm:text-sm text-white group-hover:text-[#e6c265] transition-colors leading-tight">
                         {item.name}
                       </span>

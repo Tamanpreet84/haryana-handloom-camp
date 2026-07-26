@@ -1,5 +1,5 @@
 import React from 'react';
-import { STORE_DETAILS } from '../data/products';
+import { STORE_DETAILS, getWhatsAppUrl } from '../data/products';
 import { Phone, MapPin, MessageCircle, Heart } from 'lucide-react';
 
 export default function Footer() {
@@ -42,8 +42,9 @@ export default function Footer() {
             <h4 className="font-serif font-bold text-white text-sm mb-3 text-[#e6c265]">Quick Links</h4>
             <ul className="space-y-1.5 text-slate-300">
               <li><a href="#hero" className="hover:text-[#e6c265]">Home</a></li>
-              <li><a href="#visualizer" className="hover:text-[#e6c265]">Room Visualizer</a></li>
-              <li><a href="#usps" className="hover:text-[#e6c265]">Store Highlights</a></li>
+              <li><a href="#categories" className="hover:text-[#e6c265]">Product Catalog</a></li>
+              <li><a href="#reviews" className="hover:text-[#e6c265]">Customer Reviews</a></li>
+              <li><a href="#faqs" className="hover:text-[#e6c265]">Store FAQs</a></li>
               <li><a href="#contact" className="hover:text-[#e6c265]">Contact Us</a></li>
             </ul>
           </div>
@@ -61,7 +62,7 @@ export default function Footer() {
                 <span>9215211025 / 9215511025</span>
               </p>
               <a
-                href={`https://wa.me/${STORE_DETAILS.whatsapp}`}
+                href={getWhatsAppUrl(0, 'Hello! Inquiry for Haryana Handloom Camp Store.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-emerald-400 font-bold hover:underline pt-1"

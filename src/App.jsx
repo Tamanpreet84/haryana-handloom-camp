@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import FeaturesBanner from './components/FeaturesBanner';
 import ProductCatalog from './components/ProductCatalog';
-import RoomVisualizer from './components/RoomVisualizer';
 import ReviewsSection from './components/ReviewsSection';
 import FaqSection from './components/FaqSection';
 import ContactSection from './components/ContactSection';
@@ -79,7 +78,6 @@ export default function App() {
           onToggleWishlist={handleToggleWishlist}
           onOpenFabricGuide={() => setFabricGuideOpen(true)}
         />
-        <RoomVisualizer />
         <ReviewsSection />
         <FaqSection />
         <ContactSection />
