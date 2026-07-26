@@ -48,7 +48,69 @@ export const getWhatsAppUrl = (phoneIndex = 0, messageText = '') => {
 };
 
 export const PRODUCTS = [
-  // 1. Cushion Covers - Exact Uploaded Store Photos
+  // 1. Pillows - Exact Uploaded Store Photos
+  {
+    id: 'pil-01',
+    category: 'pillows',
+    name: 'Pure White Microfiber Bounce Hotel Quality Pillow',
+    subtitle: 'Ultra Soft Conjugate Fiber Fill',
+    tag: 'Store Original',
+    material: 'Microfiber Down',
+    threadCount: '100% Breathable Shell',
+    price: 399,
+    mrp: 799,
+    discount: '50% OFF',
+    rating: 5.0,
+    reviewsCount: 210,
+    sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
+    colors: ['#ffffff'],
+    moreVarietiesCount: 10,
+    image: '/images/pillows/pil-white-plush-bounce.png',
+    description: 'Resilient pure white bounce sleeping pillow stuffed with hypoallergenic conjugate microfiber down fill. Ensures optimal neck & spine support.',
+    features: ['Conjugate Microfiber Fill', 'Anti-Allergic Shell', 'Restorable Fluff', '5-Star Hotel Softness']
+  },
+  {
+    id: 'pil-02',
+    category: 'pillows',
+    name: 'Charcoal Grey & White Dual-Tone Hotel Pillow Set (Pair of 2)',
+    subtitle: 'Modern 2-Tone Hotel Luxury Contour Pillows',
+    tag: 'Best Seller',
+    material: 'Microfiber Down',
+    threadCount: 'Dual-Layer Fabric',
+    price: 799,
+    mrp: 1399,
+    discount: '43% OFF',
+    rating: 4.9,
+    reviewsCount: 185,
+    sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
+    colors: ['#4b5563', '#ffffff', '#1f2937'],
+    moreVarietiesCount: 12,
+    image: '/images/pillows/pil-charcoal-duotone-set.png',
+    description: 'Ultra-modern charcoal grey and crisp white half-and-half dual tone hotel pillow set. High density rebound fill for back & side sleepers.',
+    features: ['Dual-Tone Aesthetic', 'Pair of 2 Pillows', 'Medium Firm Support', 'Breathable Casing']
+  },
+  {
+    id: 'pil-03',
+    category: 'pillows',
+    name: 'Royal Navy Blue Piped Cord Bounce Sleeping Pillow Set (Pair of 2)',
+    subtitle: 'Reinforced Piped Seam Bordering',
+    tag: 'Luxury Grade',
+    material: 'Microfiber Down',
+    threadCount: 'High Density Bounce',
+    price: 899,
+    mrp: 1499,
+    discount: '40% OFF',
+    rating: 5.0,
+    reviewsCount: 164,
+    sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
+    colors: ['#1e3a8a', '#ffffff', '#0f172a'],
+    moreVarietiesCount: 15,
+    image: '/images/pillows/pil-navy-piped-pair.png',
+    description: 'Premium white hotel pillows framed with dark royal navy blue cording along the perimeter seams for extra structural bounce and shape retention.',
+    features: ['Navy Blue Piped Cord Border', 'High Shape Retention', 'Pair of 2 Pillows', 'Spine Support Alignment']
+  },
+
+  // 2. Cushion Covers - Exact Uploaded Store Photos
   {
     id: 'cc-01',
     category: 'cushion-covers',
@@ -89,68 +151,8 @@ export const PRODUCTS = [
     description: 'Eye-catching folk art owl and elephant motifs in rich vibrant jewel tones. Perfect for brightening up living room couches and seating.',
     features: ['HD Digital Print', 'Fade-Proof Colors', 'Soft Cotton Blend', 'Set of 5 Covers']
   },
-  {
-    id: 'cc-03',
-    category: 'cushion-covers',
-    name: 'Black Velvet 3D Hand-Appliqué Floral Stem Cushion Covers (Set of 5)',
-    subtitle: 'Textured Ribbed Base with 3D Pop-Out Flowers',
-    tag: 'Luxury Edition',
-    material: 'Dutch Velvet & Zari',
-    threadCount: 'Hand-Appliqué Work',
-    price: 749,
-    mrp: 1399,
-    discount: '46% OFF',
-    rating: 4.9,
-    reviewsCount: 128,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#0f172a', '#e6c265', '#be123c'],
-    moreVarietiesCount: 20,
-    image: '/images/cushion-covers/cc-black-velvet-3d-stem.png',
-    description: 'Black ribbed velvet base embellished with handcrafted 3D cloth flower stems and velvet backing for luxury couch accents.',
-    features: ['Hand-Appliqué 3D Flowers', 'Textured Ribbed Velvet', 'Concealed Zipper', 'Set of 5 Covers']
-  },
-  {
-    id: 'cc-04',
-    category: 'cushion-covers',
-    name: 'Off-White Punch Needle Tufted Woolen Floral Cushion Covers (Set of 5)',
-    subtitle: 'Tactile Woolen Loop Embroidery',
-    tag: 'Trending',
-    material: 'Organic Jute Blend',
-    threadCount: 'Hand Tufted Loop',
-    price: 649,
-    mrp: 1199,
-    discount: '45% OFF',
-    rating: 4.8,
-    reviewsCount: 110,
-    sizes: ['16x16 inches', '20x20 inches'],
-    colors: ['#fef3c7', '#ca8a04', '#0d9488', '#dc2626'],
-    moreVarietiesCount: 16,
-    image: '/images/cushion-covers/cc-offwhite-punch-tufted.png',
-    description: 'Cozy off-white canvas featuring vibrant punch needle tufted woolen flowers in mustard yellow, teal green, and poppy red.',
-    features: ['Punch Needle Tufted', 'Organic Texture', 'Heavy Cotton Canvas', 'Set of 5 Covers']
-  },
-  {
-    id: 'cc-05',
-    category: 'cushion-covers',
-    name: 'Quilted Beige Meadow Floral Embroidered Cushion Covers (Set of 5)',
-    subtitle: 'Diamond Quilted Fabric with Wildflower Embroidery',
-    tag: 'Customer Favorite',
-    material: 'Dutch Velvet & Zari',
-    threadCount: 'Quilted Embroidered',
-    price: 799,
-    mrp: 1499,
-    discount: '46% OFF',
-    rating: 5.0,
-    reviewsCount: 145,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#f59e0b', '#0284c7', '#059669'],
-    moreVarietiesCount: 22,
-    image: '/images/cushion-covers/cc-quilted-beige-meadow.png',
-    description: 'Diamond quilted cream-beige backdrop embellished with colorful multi-hued wildflower stem embroidery along the bottom border.',
-    features: ['Diamond Quilted Stitching', 'Botanical Wildflower Work', 'Piped Edge Seams', 'Set of 5 Covers']
-  },
 
-  // 2. Comforters - Exact Uploaded Store Photos
+  // 3. Comforters - Exact Uploaded Store Photos
   {
     id: 'com-01',
     category: 'comforters',
@@ -192,7 +194,7 @@ export const PRODUCTS = [
     features: ['350 GSM Thermal Insulation', 'Dust-Mite Resistant', 'Complete Packaged Set', 'Feather Soft Comfort']
   },
 
-  // 3. Bed Sheets - Exact Uploaded Photos
+  // 4. Bed Sheets - Exact Uploaded Photos
   {
     id: 'bs-01',
     category: 'bed-sheets',
@@ -214,7 +216,7 @@ export const PRODUCTS = [
     features: ['300 Thread Count', 'Color-Fast Dye', 'Breathable Pure Cotton', '2 Pillow Covers Included']
   },
 
-  // 4. Curtains - Exact Uploaded Store Photos
+  // 5. Curtains - Exact Uploaded Store Photos
   {
     id: 'cur-01',
     category: 'curtains',
@@ -236,7 +238,7 @@ export const PRODUCTS = [
     features: ['100% Cotton Weave', 'Rust-Free Grommets', 'Ethnic Paisley Border', 'Machine Washable']
   },
 
-  // 5. Mink Blankets
+  // 6. Mink Blankets
   {
     id: 'blk-01',
     category: 'blankets',
@@ -258,7 +260,7 @@ export const PRODUCTS = [
     features: ['Double Ply Layer', '3D Embossed Floral', 'Shrink Resistant']
   },
 
-  // 6. Polar Fleeces
+  // 7. Polar Fleeces
   {
     id: 'pb-01',
     category: 'polar-blankets',
@@ -280,7 +282,7 @@ export const PRODUCTS = [
     features: ['Lint-Free Fleece', 'Lightweight Warmth', 'Quick Dry']
   },
 
-  // 7. Shawls
+  // 8. Shawls
   {
     id: 'sh-01',
     category: 'shawls',
@@ -300,28 +302,6 @@ export const PRODUCTS = [
     image: 'https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=800&q=80',
     description: 'Timeless Kashmiri style woven shawl with rich traditional paisley borders.',
     features: ['Pure Warm Wool', 'Jacquard Border', 'Soft Handfeel']
-  },
-
-  // 8. Pillows
-  {
-    id: 'pil-01',
-    category: 'pillows',
-    name: 'Microfiber Bounce Hotel Quality Pillow Set (Pair of 2)',
-    subtitle: 'Medium-Firm Neck Support',
-    tag: 'Customer Favorite',
-    material: 'Microfiber Down',
-    threadCount: 'Conjugate Fiber Fill',
-    price: 699,
-    mrp: 1199,
-    discount: '41% OFF',
-    rating: 4.9,
-    reviewsCount: 198,
-    sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
-    colors: ['#ffffff'],
-    moreVarietiesCount: 8,
-    image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80',
-    description: 'Resilient microfiber bounce pillows engineered for spine alignment and plush support.',
-    features: ['Non-Allergic', 'Fluff Restorable', 'Neck Support']
   }
 ];
 
@@ -333,7 +313,7 @@ export const REVIEWS = [
     rating: 5,
     date: '2 weeks ago',
     comment: 'Best handloom shop in Nandyal! Purchased 4 pure cotton king bedsheets and mink blankets for winter. Thread quality and color fastness are superb after washing.',
-    product: 'Royal Crimson Velvet Zari Cushion Covers Set'
+    product: 'Pure White Microfiber Bounce Pillow'
   },
   {
     id: 2,

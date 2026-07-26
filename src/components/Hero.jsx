@@ -96,7 +96,7 @@ export default function Hero() {
                   { name: 'MINK BLANKETS', img: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=400&q=80', desc: 'Korean 3D Embossed' },
                   { name: 'POLAR BLANKETS', img: 'https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&w=400&q=80', desc: 'Light AC Fleeces' },
                   { name: 'SHAWLS & WRAPS', img: 'https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=400&q=80', desc: 'Kashmiri Pure Wool' },
-                  { name: 'PILLOWS & FORM', img: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=400&q=80', desc: 'Ergonomic Bounce' },
+                  { name: 'PILLOWS & FORM', img: '/images/pillows/pil-white-plush-bounce.png', desc: 'Ergonomic Bounce' },
                 ].map((item) => (
                   <a
                     key={item.name}
