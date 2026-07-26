@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Phone, MessageCircle, ShoppingBag, Menu, X, MapPin, Sparkles } from 'lucide-react';
+import { Phone, MessageCircle, ShoppingBag, Menu, X, Sparkles, Heart, BookOpen, Star } from 'lucide-react';
 import { STORE_DETAILS } from '../data/products';
 
-export default function Navbar({ cartCount, onOpenCart }) {
+export default function Navbar({ cartCount, wishlistCount, onOpenCart, onOpenFabricGuide }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-[#070e1c]/90 backdrop-blur-md border-b border-[#e6c265]/20 text-white">
-      {/* Top Banner */}
+      {/* Top Announcement Banner */}
       <div className="bg-gradient-to-r from-[#070d1a] via-[#162d5a] to-[#070d1a] py-1.5 px-4 border-b border-[#e6c265]/15 text-xs text-[#e6c265]">
         <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left font-medium">
           <div className="flex items-center justify-center gap-2">
@@ -15,12 +15,15 @@ export default function Navbar({ cartCount, onOpenCart }) {
             <span>📍 Visit Store: {STORE_DETAILS.address}</span>
           </div>
           <div className="flex items-center gap-4">
+            <button
+              onClick={onOpenFabricGuide}
+              className="hover:underline flex items-center gap-1 text-[#f7e6a1] hover:text-white"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-[#e6c265]" /> Fabric Guide
+            </button>
+            <span className="text-white/30">|</span>
             <a href={`tel:+91${STORE_DETAILS.phones[0]}`} className="hover:underline flex items-center gap-1 text-white/90 hover:text-[#e6c265]">
               <Phone className="w-3 h-3 text-[#e6c265]" /> {STORE_DETAILS.phones[0]}
-            </a>
-            <span className="text-white/30">|</span>
-            <a href={`tel:+91${STORE_DETAILS.phones[1]}`} className="hover:underline flex items-center gap-1 text-white/90 hover:text-[#e6c265]">
-              <Phone className="w-3 h-3 text-[#e6c265]" /> {STORE_DETAILS.phones[1]}
             </a>
           </div>
         </div>
@@ -46,14 +49,15 @@ export default function Navbar({ cartCount, onOpenCart }) {
         </a>
 
         {/* Desktop Nav Items */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-200">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-200">
           <a href="#hero" className="hover:text-[#e6c265] transition-colors">Home</a>
           <a href="#categories" className="hover:text-[#e6c265] transition-colors">Collection</a>
           <a href="#visualizer" className="hover:text-[#e6c265] transition-colors flex items-center gap-1">
             <Sparkles className="w-3.5 h-3.5 text-[#e6c265]" /> Room Visualizer
           </a>
-          <a href="#usps" className="hover:text-[#e6c265] transition-colors">Why Choose Us</a>
-          <a href="#contact" className="hover:text-[#e6c265] transition-colors">Contact & Store</a>
+          <a href="#reviews" className="hover:text-[#e6c265] transition-colors">Reviews</a>
+          <a href="#faqs" className="hover:text-[#e6c265] transition-colors">FAQs</a>
+          <a href="#contact" className="hover:text-[#e6c265] transition-colors">Contact</a>
         </nav>
 
         {/* Action Controls */}
@@ -68,16 +72,16 @@ export default function Navbar({ cartCount, onOpenCart }) {
             <span>WhatsApp Inquiry</span>
           </a>
 
-          {/* Cart / Wishlist Drawer Button */}
+          {/* Inquiry Bag & Wishlist Button */}
           <button
             onClick={onOpenCart}
             className="relative p-2.5 rounded-full bg-[#162d5a]/80 border border-[#e6c265]/40 text-[#e6c265] hover:bg-[#e6c265] hover:text-[#091326] transition-colors"
-            title="Inquiry Bag"
+            title="Inquiry Bag & Wishlist"
           >
             <ShoppingBag className="w-5 h-5" />
-            {cartCount > 0 && (
+            {(cartCount > 0 || wishlistCount > 0) && (
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#091326] animate-bounce">
-                {cartCount}
+                {cartCount + wishlistCount}
               </span>
             )}
           </button>
@@ -117,11 +121,18 @@ export default function Navbar({ cartCount, onOpenCart }) {
             <Sparkles className="w-4 h-4" /> Room Visualizer
           </a>
           <a
-            href="#usps"
+            href="#reviews"
             onClick={() => setMobileMenuOpen(false)}
             className="block text-slate-200 hover:text-[#e6c265] font-medium py-1"
           >
-            Why Choose Us
+            Customer Reviews
+          </a>
+          <a
+            href="#faqs"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-slate-200 hover:text-[#e6c265] font-medium py-1"
+          >
+            FAQs
           </a>
           <a
             href="#contact"
@@ -131,11 +142,20 @@ export default function Navbar({ cartCount, onOpenCart }) {
             Contact & Address
           </a>
           <div className="pt-2 border-t border-white/10 flex flex-col gap-2">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenFabricGuide();
+              }}
+              className="btn-outline-gold justify-center w-full py-2 text-xs"
+            >
+              <BookOpen className="w-4 h-4" /> Fabric Buying Guide
+            </button>
             <a
               href={`https://wa.me/${STORE_DETAILS.whatsapp}?text=Hello%20Haryana%20Handloom%20Camp!`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold text-center justify-center w-full py-2.5 text-sm"
+              className="btn-gold text-center justify-center w-full py-2.5 text-xs"
             >
               <MessageCircle className="w-4 h-4" /> WhatsApp Chat
             </a>
