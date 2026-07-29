@@ -6,29 +6,15 @@ const ShopContext = createContext();
 export const useShop = () => useContext(ShopContext);
 
 export function ShopProvider({ children }) {
-  // Theme state: 'light' | 'dark'
+  // Theme state: default to 'light'
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('hhc_theme') || 'light';
   });
 
-  // User Auth State
+  // User Auth State - Default to Guest (null) unless saved
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem('hhc_user');
-    return saved ? JSON.parse(saved) : {
-      id: 'usr-101',
-      name: 'Taman Preet',
-      email: 'taman@example.com',
-      phone: '9215211025',
-      role: 'admin', // 'user' or 'admin'
-      address: {
-        fullName: 'Taman Preet',
-        street: 'NK Road, Near Sai Baba Mandir',
-        city: 'Nandyal',
-        state: 'Andhra Pradesh',
-        pincode: '518501',
-        phone: '9215211025'
-      }
-    };
+    return saved ? JSON.parse(saved) : null;
   });
 
   // Persistent Cart
@@ -227,16 +213,17 @@ export function ShopProvider({ children }) {
     showToast(`Order ${orderId} status updated to "${newStatus}"`);
   };
 
-  // Auth Functions
+  // Auth Functions - Admin credentials checking
   const loginUser = (email, password) => {
+    const isAdmin = email.trim().toLowerCase() === 'admin@haryana.com' || email.includes('admin');
     const newUser = {
       id: 'usr-' + Date.now(),
-      name: email.split('@')[0].toUpperCase(),
+      name: isAdmin ? 'Store Administrator' : email.split('@')[0].toUpperCase(),
       email,
       phone: '9215211025',
-      role: email.includes('admin') ? 'admin' : 'user',
+      role: isAdmin ? 'admin' : 'user',
       address: {
-        fullName: email.split('@')[0],
+        fullName: isAdmin ? 'Store Administrator' : email.split('@')[0],
         street: 'NK Road, Near Sai Baba Mandir',
         city: 'Nandyal',
         state: 'Andhra Pradesh',
@@ -245,7 +232,7 @@ export function ShopProvider({ children }) {
       }
     };
     setUser(newUser);
-    showToast(`Welcome back, ${newUser.name}!`);
+    showToast(`Welcome ${isAdmin ? 'Admin' : 'back'}, ${newUser.name}!`);
     return newUser;
   };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Mail, Lock, User, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { X, Mail, Lock, User, ShieldCheck, ArrowRight, KeyRound } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 
 export default function AuthModal({ isOpen, onClose }) {
@@ -28,6 +28,20 @@ export default function AuthModal({ isOpen, onClose }) {
     onClose();
   };
 
+  const handleFillAdmin = () => {
+    setEmail('admin@haryana.com');
+    setPassword('admin123');
+    loginUser('admin@haryana.com', 'admin123');
+    onClose();
+  };
+
+  const handleFillUser = () => {
+    setEmail('user@example.com');
+    setPassword('user123');
+    loginUser('user@example.com', 'user123');
+    onClose();
+  };
+
   const handleGoogleSignIn = () => {
     loginUser('google.user@gmail.com', 'google123');
     onClose();
@@ -48,45 +62,44 @@ export default function AuthModal({ isOpen, onClose }) {
         {/* Header */}
         <div className="text-center space-y-1">
           <span className="text-[10px] font-extrabold text-[#D97706] uppercase tracking-widest block font-cinzel">
-            Haryana Handloom Account
+            Haryana Handloom Portal
           </span>
           <h3 className="font-serif font-bold text-2xl text-slate-900 dark:text-white">
-            {tab === 'login' && 'Welcome Back'}
+            {tab === 'login' && 'Sign In to Account'}
             {tab === 'signup' && 'Create Account'}
             {tab === 'forgot' && 'Reset Password'}
           </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-            {tab === 'login' && 'Sign in to access your orders & saved wishlist'}
+            {tab === 'login' && 'Sign in as Customer or Store Administrator'}
             {tab === 'signup' && 'Join Nandyal’s premier handloom community'}
             {tab === 'forgot' && 'Enter your email to receive password reset link'}
           </p>
         </div>
 
-        {/* Tab Switcher */}
-        {tab !== 'forgot' && (
-          <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold">
+        {/* Quick Demo Credentials Switcher Box */}
+        <div className="p-3 rounded-2xl bg-amber-50 dark:bg-slate-800 border border-amber-300 dark:border-slate-700 space-y-2">
+          <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900 dark:text-amber-300">
+            <KeyRound className="w-4 h-4 text-[#D97706]" />
+            <span>Quick Login Credentials:</span>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 text-[11px] font-bold">
             <button
-              onClick={() => setTab('login')}
-              className={`flex-1 py-2 rounded-lg transition-all ${
-                tab === 'login'
-                  ? 'bg-[#0F172A] text-white shadow-sm'
-                  : 'text-slate-600 dark:text-slate-300'
-              }`}
+              onClick={handleFillAdmin}
+              className="p-2 rounded-xl bg-slate-900 text-white hover:bg-amber-600 transition-colors text-center shadow-sm"
             >
-              Log In
+              👑 Login as Admin
+              <span className="block text-[9px] text-amber-300 font-normal">admin@haryana.com</span>
             </button>
             <button
-              onClick={() => setTab('signup')}
-              className={`flex-1 py-2 rounded-lg transition-all ${
-                tab === 'signup'
-                  ? 'bg-[#0F172A] text-white shadow-sm'
-                  : 'text-slate-600 dark:text-slate-300'
-              }`}
+              onClick={handleFillUser}
+              className="p-2 rounded-xl bg-white dark:bg-slate-700 border text-slate-900 dark:text-white hover:border-amber-500 transition-colors text-center shadow-sm"
             >
-              Sign Up
+              👤 Login as Customer
+              <span className="block text-[9px] text-slate-500 dark:text-slate-400 font-normal">user@example.com</span>
             </button>
           </div>
-        )}
+        </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -112,7 +125,7 @@ export default function AuthModal({ isOpen, onClose }) {
               <Mail className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
                 type="email"
-                placeholder="name@example.com"
+                placeholder="admin@haryana.com or name@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-[#D97706]"
@@ -154,7 +167,7 @@ export default function AuthModal({ isOpen, onClose }) {
             className="w-full btn-gold justify-center py-3 text-xs font-bold shadow-md"
           >
             <span>
-              {tab === 'login' && 'Sign In to Account'}
+              {tab === 'login' && 'Sign In'}
               {tab === 'signup' && 'Create Account'}
               {tab === 'forgot' && 'Send Reset Link'}
             </span>
@@ -162,13 +175,7 @@ export default function AuthModal({ isOpen, onClose }) {
           </button>
         </form>
 
-        {/* Divider */}
-        <div className="relative flex items-center justify-center">
-          <div className="border-t border-slate-200 dark:border-slate-800 w-full"></div>
-          <span className="bg-white dark:bg-slate-900 px-3 text-[10px] text-slate-400 font-bold uppercase">Or continue with</span>
-        </div>
-
-        {/* Google Sign In Button */}
+        {/* Google Sign In */}
         <button
           onClick={handleGoogleSignIn}
           className="w-full py-2.5 px-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold flex items-center justify-center gap-2 transition-colors shadow-sm"
@@ -181,15 +188,6 @@ export default function AuthModal({ isOpen, onClose }) {
           </svg>
           <span>Continue with Google</span>
         </button>
-
-        {tab === 'forgot' && (
-          <button
-            onClick={() => setTab('login')}
-            className="w-full text-center text-xs text-slate-500 hover:underline font-bold"
-          >
-            ← Back to Login
-          </button>
-        )}
 
       </div>
     </div>

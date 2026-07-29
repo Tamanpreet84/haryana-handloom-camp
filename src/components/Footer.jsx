@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { STORE_DETAILS, getWhatsAppUrl } from '../data/products';
-import { Phone, MapPin, MessageCircle, Heart } from 'lucide-react';
+import { Phone, MapPin, MessageCircle, Heart, Lock, ShieldCheck } from 'lucide-react';
 import Logo from './Logo';
+import AuthModal from './AuthModal';
+import { useShop } from '../context/ShopContext';
 
 export default function Footer() {
+  const { user } = useShop();
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+
   return (
     <footer className="bg-[#0F172A] border-t border-amber-500/30 text-slate-300 text-xs py-12 pb-24 md:pb-12">
       <div className="container mx-auto px-4 space-y-8">
@@ -20,14 +26,14 @@ export default function Footer() {
 
           {/* Categories */}
           <div>
-            <h4 className="font-cinzel font-bold text-white text-sm mb-3 text-amber-300">Our Categories</h4>
+            <h4 className="font-cinzel font-bold text-white text-sm mb-3 text-amber-300">Our Collections</h4>
             <ul className="space-y-2 text-slate-300 font-medium">
-              <li><a href="#categories" className="hover:text-amber-300">Bed Sheets</a></li>
-              <li><a href="#categories" className="hover:text-amber-300">Cushion Covers</a></li>
-              <li><a href="#categories" className="hover:text-amber-300">Curtains</a></li>
-              <li><a href="#categories" className="hover:text-amber-300">Comforters & Duvets</a></li>
-              <li><a href="#categories" className="hover:text-amber-300">Mink & Polar Blankets</a></li>
-              <li><a href="#categories" className="hover:text-amber-300">Pillows & Ergonomic Form</a></li>
+              <li><Link to="/catalog?cat=bed-sheets" className="hover:text-amber-300">Bed Sheets</Link></li>
+              <li><Link to="/catalog?cat=cushion-covers" className="hover:text-amber-300">Cushion Covers</Link></li>
+              <li><Link to="/catalog?cat=curtains" className="hover:text-amber-300">Curtains</Link></li>
+              <li><Link to="/catalog?cat=comforters" className="hover:text-amber-300">Comforters & Duvets</Link></li>
+              <li><Link to="/catalog?cat=blankets" className="hover:text-amber-300">Mink & Polar Blankets</Link></li>
+              <li><Link to="/catalog?cat=pillows" className="hover:text-amber-300">Pillows & Form</Link></li>
             </ul>
           </div>
 
@@ -35,11 +41,22 @@ export default function Footer() {
           <div>
             <h4 className="font-cinzel font-bold text-white text-sm mb-3 text-amber-300">Quick Links</h4>
             <ul className="space-y-2 text-slate-300 font-medium">
-              <li><a href="#hero" className="hover:text-amber-300">Home Overview</a></li>
-              <li><a href="#categories" className="hover:text-amber-300">Product Catalog</a></li>
-              <li><a href="#reviews" className="hover:text-amber-300">Customer Reviews</a></li>
-              <li><a href="#faqs" className="hover:text-amber-300">Store FAQs</a></li>
-              <li><a href="#contact" className="hover:text-amber-300">Contact & Map Location</a></li>
+              <li><Link to="/" className="hover:text-amber-300">Home Overview</Link></li>
+              <li><Link to="/catalog" className="hover:text-amber-300">Product Catalog</Link></li>
+              <li><Link to="/wishlist" className="hover:text-amber-300">Saved Wishlist</Link></li>
+              <li><Link to="/orders" className="hover:text-amber-300">My Order History</Link></li>
+              {user?.role === 'admin' ? (
+                <li><Link to="/admin" className="text-emerald-400 font-bold hover:underline">🛡️ Admin Dashboard</Link></li>
+              ) : (
+                <li>
+                  <button
+                    onClick={() => setAuthModalOpen(true)}
+                    className="text-amber-400 hover:underline flex items-center gap-1 font-bold"
+                  >
+                    <Lock className="w-3 h-3 text-amber-400" /> Admin / Staff Portal
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -78,6 +95,11 @@ export default function Footer() {
         </div>
 
       </div>
+
+      <AuthModal
+        isOpen={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+      />
     </footer>
   );
 }
