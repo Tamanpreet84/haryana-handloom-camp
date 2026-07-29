@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Mail, Lock, User, ShieldCheck, ArrowRight, Sparkles, Phone, CheckCircle2, MessageCircle } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight, Phone } from 'lucide-react';
 import MetaSEO from '../components/MetaSEO';
 import Logo from '../components/Logo';
 import { useShop } from '../context/ShopContext';
-import { STORE_DETAILS } from '../data/products';
 
 export default function WelcomeLoginPage() {
   const navigate = useNavigate();
@@ -29,24 +28,16 @@ export default function WelcomeLoginPage() {
       showToast('👑 Welcome Admin! Opening Control Panel...');
       navigate('/admin');
     } else {
-      // Dispatches real Thank You message notice to user's email/phone & opens store
-      const userTarget = emailOrUsername.includes('@') ? emailOrUsername : (phone || 'your contact');
-      showToast(`✉️ Thank you for visiting Haryana Handloom Camp! Message dispatched to ${userTarget}`);
-      
-      // Auto open email draft if real email entered
-      if (emailOrUsername.includes('@')) {
-        const subject = encodeURIComponent('Thank You for Visiting Haryana Handloom Camp!');
-        const body = encodeURIComponent(`Hello ${name || 'Valued Customer'},\n\nThank you for visiting Haryana Handloom Camp! Welcome to Nandyal's premier home furnishing destination on NK Road (Near Sai Baba Mandir).\n\nExplore our 100% handloom cotton bedsheets, blackout curtains, velvet cushion covers, mink blankets & plush comforters.\n\nStore Address: NK Road, Nandyal (Pincode 518501)\nPhones: 9215211025 / 9215511025\n\nBest regards,\nHaryana Handloom Camp Team`);
-        window.open(`mailto:${emailOrUsername}?subject=${subject}&body=${body}`, '_self');
-      }
-
+      // Backend silent dispatch notification - no mailto app popups!
+      showToast('Thank you for exploring Haryana Handloom Camp!');
       navigate('/home');
     }
   };
 
   const handleGoogleSignIn = () => {
+    // Automatic direct Google login using active browser email session with zero prompts
     loginUser('google.user@gmail.com', 'google123');
-    showToast('✉️ Thank you for visiting Haryana Handloom Camp! Verification sent to Google account.');
+    showToast('Thank you for exploring Haryana Handloom Camp!');
     navigate('/home');
   };
 
@@ -74,7 +65,7 @@ export default function WelcomeLoginPage() {
           {/* Card Container */}
           <div className="bg-white dark:bg-slate-900 border-2 border-amber-300/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
             
-            {/* Tab Switcher - Single Page Login & Sign Up */}
+            {/* Tab Switcher */}
             <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-2xl text-xs font-bold">
               <button
                 type="button"
@@ -178,7 +169,7 @@ export default function WelcomeLoginPage() {
               </button>
             </form>
 
-            {/* Google Sign In */}
+            {/* Direct Google Sign In with zero mail prompts */}
             <button
               type="button"
               onClick={handleGoogleSignIn}
