@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CATEGORIES, PRODUCTS, FABRIC_TYPES, getWhatsAppUrl } from '../data/products';
-import { Search, ShoppingBag, MessageCircle, Info, Check, Eye, Heart, Star, SlidersHorizontal, ArrowUpDown, BookOpen, Palette, Sparkles } from 'lucide-react';
+import { Search, ShoppingBag, MessageCircle, Info, Check, Eye, Heart, Star, SlidersHorizontal, ArrowUpDown, BookOpen, Palette, Sparkles, Award } from 'lucide-react';
+import VarietyModal from './VarietyModal';
 
 export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist, onOpenFabricGuide }) {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -9,6 +10,7 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
   const [priceFilter, setPriceFilter] = useState('all'); // all, under-1000, 1000-2000, above-2000
   const [sortBy, setSortBy] = useState('popular'); // popular, price-low, price-high, rating
   const [activeModalProduct, setActiveModalProduct] = useState(null);
+  const [varietyModalProduct, setVarietyModalProduct] = useState(null);
   const [selectedSizes, setSelectedSizes] = useState({});
 
   const filteredProducts = PRODUCTS.filter((product) => {
@@ -42,12 +44,6 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
     window.open(targetUrl, '_blank');
   };
 
-  const handleInquireMoreVarieties = (product) => {
-    const message = `Hello Haryana Handloom Camp!\n\nI am interested in seeing MORE COLOURS and MORE VARIETIES for:\n*Category / Product:* ${product.name}\n\nCould you please send photos of all available color options & patterns in store?`;
-    const targetUrl = getWhatsAppUrl(0, message);
-    window.open(targetUrl, '_blank');
-  };
-
   return (
     <section id="categories" className="py-12 sm:py-16 relative bg-[#F8F6F0]">
       <div className="container mx-auto px-4">
@@ -66,10 +62,10 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
               </button>
             </div>
             <h2 className="font-cinzel text-3xl sm:text-4xl font-extrabold text-[#0F172A]">
-              Explore Our <span className="gold-text">Store Collection</span>
+              Explore Store <span className="gold-text">Originals & Bestsellers</span>
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm mt-1 font-semibold">
-              Direct loom pricing with fast color guarantees & 20+ varieties per category in store.
+              Tap "View Colours & Varieties" to inspect all uploaded store photos, patterns & shades for each product!
             </p>
           </div>
 
@@ -183,7 +179,7 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                 </div>
 
                 {/* Product Image */}
-                <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-100">
+                <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-100 cursor-pointer" onClick={() => setVarietyModalProduct(product)}>
                   <img
                     src={product.image}
                     alt={product.name}
@@ -193,7 +189,10 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                   
                   {/* Quick Spec Button */}
                   <button
-                    onClick={() => setActiveModalProduct(product)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveModalProduct(product);
+                    }}
                     className="absolute bottom-3 right-3 p-2 rounded-full bg-white text-[#0F172A] hover:bg-[#0F172A] hover:text-white transition-colors border border-slate-200 shadow-md touch-target"
                     title="Quick Details"
                   >
@@ -244,7 +243,7 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                     </p>
                   </div>
 
-                  {/* Color Swatches & More Varieties Button */}
+                  {/* Color Swatches & Prominent Variety Button */}
                   <div className="space-y-2 pt-1 border-t border-slate-100">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] text-slate-500 font-bold uppercase">Color Swatches:</span>
@@ -261,13 +260,13 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                       )}
                     </div>
 
-                    {/* Prominent "More Colours / Varieties" Button */}
+                    {/* Prominent "View Colours & Varieties" Button */}
                     <button
-                      onClick={() => handleInquireMoreVarieties(product)}
-                      className="w-full py-2 px-3 rounded-xl bg-[#F3EFE6] border border-amber-300/80 hover:bg-[#0F172A] hover:text-white text-[#0F172A] text-[11px] font-extrabold flex items-center justify-center gap-1.5 transition-colors shadow-sm active:scale-98"
+                      onClick={() => setVarietyModalProduct(product)}
+                      className="w-full py-2.5 px-3 rounded-xl bg-[#F3EFE6] border border-amber-300/80 hover:bg-[#0F172A] hover:text-white text-[#0F172A] text-[11px] font-extrabold flex items-center justify-center gap-1.5 transition-colors shadow-sm active:scale-98 touch-target"
                     >
                       <Palette className="w-3.5 h-3.5 text-[#D97706]" />
-                      <span>{product.moreVarietiesCount || '20'}+ More Colours & Patterns</span>
+                      <span>View All Store Patterns & Colours</span>
                     </button>
                   </div>
 
@@ -415,17 +414,25 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
               </button>
               <button
                 onClick={() => {
-                  handleInquireMoreVarieties(activeModalProduct);
+                  setVarietyModalProduct(activeModalProduct);
                   setActiveModalProduct(null);
                 }}
                 className="btn-outline-gold text-xs"
               >
-                <Palette className="w-4 h-4 text-[#D97706]" /> See 20+ Varieties
+                <Palette className="w-4 h-4 text-[#D97706]" /> View All Store Patterns
               </button>
             </div>
           </div>
         </div>
       )}
+
+      {/* Category Variety Showcase Modal */}
+      <VarietyModal
+        isOpen={!!varietyModalProduct}
+        onClose={() => setVarietyModalProduct(null)}
+        selectedProduct={varietyModalProduct}
+        onAddToCart={onAddToCart}
+      />
     </section>
   );
 }
