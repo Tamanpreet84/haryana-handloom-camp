@@ -49,26 +49,26 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
   };
 
   return (
-    <section id="categories" className="py-16 relative">
+    <section id="categories" className="py-12 sm:py-16 relative bg-[#F8F6F0]">
       <div className="container mx-auto px-4">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#e6c265]">Handloom Collection</span>
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#B45309]">Handloom Collection</span>
               <button
                 onClick={onOpenFabricGuide}
-                className="inline-flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-full bg-[#162d5a] border border-[#e6c265]/40 text-[#f7e6a1] hover:bg-[#e6c265] hover:text-[#091326] transition-colors"
+                className="inline-flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-full bg-[#F3EFE6] border border-amber-300/80 text-[#0F172A] hover:bg-[#0F172A] hover:text-white transition-colors font-bold"
               >
-                <BookOpen className="w-3 h-3" />
+                <BookOpen className="w-3 h-3 text-[#D97706]" />
                 <span>Fabric Guide</span>
               </button>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-white">
+            <h2 className="font-cinzel text-3xl sm:text-4xl font-extrabold text-[#0F172A]">
               Explore Our <span className="gold-text">Store Collection</span>
             </h2>
-            <p className="text-slate-300 text-sm mt-1">
+            <p className="text-slate-600 text-xs sm:text-sm mt-1 font-semibold">
               Direct loom pricing with fast color guarantees & 20+ varieties per category in store.
             </p>
           </div>
@@ -78,24 +78,24 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
-              placeholder="Search bedsheets, curtains, mink blankets..."
+              placeholder="Search bedsheets, curtains, blankets..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-full bg-[#0b1833] border border-[#e6c265]/30 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-[#e6c265]"
+              className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white border border-slate-300 text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-[#D97706] shadow-sm"
             />
           </div>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none">
+        {/* Category Tabs - Mobile Swipe Carousel */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none snap-x">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 border ${
+              className={`px-4 py-2.5 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 border snap-start touch-target ${
                 selectedCategory === cat.id
-                  ? 'bg-gradient-to-r from-[#f7e6a1] via-[#e6c265] to-[#b88d2d] text-[#070d1a] border-transparent font-bold shadow-md'
-                  : 'bg-[#0b1833]/80 text-slate-300 border-[#e6c265]/20 hover:border-[#e6c265]/60 hover:text-white'
+                  ? 'bg-[#0F172A] text-white border-[#0F172A] shadow-md'
+                  : 'bg-white text-slate-700 border-slate-200 hover:border-[#D97706] hover:text-[#0F172A]'
               }`}
             >
               {cat.name}
@@ -104,15 +104,15 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
         </div>
 
         {/* Filter Controls Toolbar */}
-        <div className="p-4 rounded-2xl bg-[#0b1833]/90 border border-[#e6c265]/30 mb-8 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm mb-8 flex flex-wrap items-center justify-between gap-3 sm:gap-4 text-xs">
           {/* Material Filter */}
           <div className="flex items-center gap-2">
-            <SlidersHorizontal className="w-4 h-4 text-[#e6c265]" />
-            <span className="font-semibold text-slate-300">Material:</span>
+            <SlidersHorizontal className="w-4 h-4 text-[#D97706]" />
+            <span className="font-bold text-slate-700">Material:</span>
             <select
               value={selectedFabric}
               onChange={(e) => setSelectedFabric(e.target.value)}
-              className="bg-[#070d1a] border border-[#e6c265]/30 text-white rounded-lg px-3 py-1.5 focus:outline-none focus:border-[#e6c265]"
+              className="bg-[#F8FAFC] border border-slate-300 text-slate-800 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-[#D97706] font-semibold"
             >
               {FABRIC_TYPES.map((f) => (
                 <option key={f} value={f}>{f}</option>
@@ -122,11 +122,11 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
 
           {/* Price Range Filter */}
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-300">Price Range:</span>
+            <span className="font-bold text-slate-700">Price:</span>
             <select
               value={priceFilter}
               onChange={(e) => setPriceFilter(e.target.value)}
-              className="bg-[#070d1a] border border-[#e6c265]/30 text-white rounded-lg px-3 py-1.5 focus:outline-none focus:border-[#e6c265]"
+              className="bg-[#F8FAFC] border border-slate-300 text-slate-800 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-[#D97706] font-semibold"
             >
               <option value="all">All Prices</option>
               <option value="under-1000">Under ₹1,000</option>
@@ -137,12 +137,12 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
 
           {/* Sort By */}
           <div className="flex items-center gap-2">
-            <ArrowUpDown className="w-4 h-4 text-[#e6c265]" />
-            <span className="font-semibold text-slate-300">Sort By:</span>
+            <ArrowUpDown className="w-4 h-4 text-[#D97706]" />
+            <span className="font-bold text-slate-700">Sort:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-[#070d1a] border border-[#e6c265]/30 text-white rounded-lg px-3 py-1.5 focus:outline-none focus:border-[#e6c265]"
+              className="bg-[#F8FAFC] border border-slate-300 text-slate-800 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-[#D97706] font-semibold"
             >
               <option value="popular">Most Popular</option>
               <option value="price-low">Price: Low to High</option>
@@ -152,8 +152,8 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
           </div>
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Product Grid - Responsive Mobile & Desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {filteredProducts.map((product) => {
             const currentSize = selectedSizes[product.id] || product.sizes[0];
             const isWishlisted = wishlist.some((item) => item.id === product.id);
@@ -161,99 +161,99 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
             return (
               <div
                 key={product.id}
-                className="glass-card overflow-hidden flex flex-col group relative"
+                className="glass-card overflow-hidden flex flex-col group relative bg-white border-2 border-slate-200 hover:border-[#D97706] shadow-sm hover:shadow-xl transition-all duration-300 rounded-2xl"
               >
                 {/* Tag & Wishlist Button */}
-                <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full bg-[#070d1a]/90 backdrop-blur-md border border-[#e6c265]/50 text-[10px] font-extrabold text-[#f7e6a1] tracking-wider uppercase">
+                <div className="absolute top-3 left-3 right-3 z-10 flex items-center justify-between pointer-events-none">
+                  <span className="px-3 py-1 rounded-full bg-[#0F172A]/90 backdrop-blur-md text-[10px] font-extrabold text-white tracking-wider uppercase shadow pointer-events-auto">
                     {product.tag}
                   </span>
 
                   <button
                     onClick={() => onToggleWishlist(product)}
-                    className={`p-2 rounded-full backdrop-blur-md border transition-colors ${
+                    className={`p-2 rounded-full backdrop-blur-md border transition-colors shadow pointer-events-auto touch-target ${
                       isWishlisted
-                        ? 'bg-red-500/20 border-red-500 text-red-400'
-                        : 'bg-[#070d1a]/80 border-white/20 text-slate-300 hover:text-red-400'
+                        ? 'bg-red-50 border-red-300 text-red-600'
+                        : 'bg-white/95 border-slate-200 text-slate-600 hover:text-red-600'
                     }`}
                     title="Save to Wishlist"
                   >
-                    <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-red-400' : ''}`} />
+                    <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-red-600' : ''}`} />
                   </button>
                 </div>
 
                 {/* Product Image */}
-                <div className="relative h-64 overflow-hidden bg-slate-900">
+                <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-100">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#091326] via-transparent to-transparent opacity-80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
                   
                   {/* Quick Spec Button */}
                   <button
                     onClick={() => setActiveModalProduct(product)}
-                    className="absolute bottom-3 right-3 p-2 rounded-full bg-[#070d1a]/80 text-[#e6c265] hover:bg-[#e6c265] hover:text-black transition-colors border border-[#e6c265]/40"
+                    className="absolute bottom-3 right-3 p-2 rounded-full bg-white text-[#0F172A] hover:bg-[#0F172A] hover:text-white transition-colors border border-slate-200 shadow-md touch-target"
                     title="Quick Details"
                   >
                     <Eye className="w-4 h-4" />
                   </button>
 
                   {/* Rating Badge */}
-                  <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-[#070d1a]/80 px-2 py-1 rounded-md border border-white/10 text-[11px] font-bold text-white">
-                    <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-white/95 px-2 py-1 rounded-md border border-slate-200 text-[11px] font-bold text-slate-900 shadow">
+                    <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
                     <span>{product.rating}</span>
-                    <span className="text-slate-400 text-[10px]">({product.reviewsCount})</span>
+                    <span className="text-slate-500 text-[10px]">({product.reviewsCount})</span>
                   </div>
                 </div>
 
                 {/* Card Body */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3.5">
                   <div>
                     <div className="flex items-center justify-between text-[11px] mb-1">
-                      <span className="text-[#e6c265] uppercase tracking-wider font-semibold">
+                      <span className="text-[#B45309] uppercase tracking-wider font-extrabold">
                         {product.category.replace('-', ' ')}
                       </span>
                       {product.threadCount && (
-                        <span className="text-slate-400 text-[10px] bg-[#162d5a] px-2 py-0.5 rounded font-mono">
+                        <span className="text-slate-700 text-[10px] bg-slate-100 px-2 py-0.5 rounded font-mono font-bold">
                           {product.threadCount}
                         </span>
                       )}
                     </div>
 
-                    <h3 className="font-serif font-bold text-base text-white group-hover:text-[#e6c265] transition-colors leading-snug line-clamp-2">
+                    <h3 className="font-serif font-bold text-sm sm:text-base text-slate-900 group-hover:text-[#0F172A] transition-colors leading-snug line-clamp-2">
                       {product.name}
                     </h3>
 
                     {/* Price Block */}
-                    <div className="flex items-baseline gap-2 mt-2">
-                      <span className="font-serif font-extrabold text-lg text-[#f7e6a1]">
+                    <div className="flex items-baseline gap-2 mt-1.5">
+                      <span className="font-serif font-extrabold text-lg sm:text-xl text-[#0F172A]">
                         ₹{product.price}
                       </span>
                       <span className="text-xs text-slate-400 line-through">
                         ₹{product.mrp}
                       </span>
-                      <span className="text-[10px] font-extrabold text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-500/30">
+                      <span className="text-[10px] font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">
                         {product.discount}
                       </span>
                     </div>
 
-                    <p className="text-xs text-slate-300 mt-2 line-clamp-2 font-sans">
+                    <p className="text-xs text-slate-600 mt-1.5 line-clamp-2 font-sans font-medium">
                       {product.description}
                     </p>
                   </div>
 
                   {/* Color Swatches & More Varieties Button */}
-                  <div className="space-y-2 pt-1 border-t border-white/10">
+                  <div className="space-y-2 pt-1 border-t border-slate-100">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] text-slate-400 font-semibold uppercase">Color Swatches:</span>
+                      <span className="text-[10px] text-slate-500 font-bold uppercase">Color Swatches:</span>
                       {product.colors && (
                         <div className="flex items-center gap-1">
                           {product.colors.map((c, i) => (
                             <span
                               key={i}
-                              className="w-3.5 h-3.5 rounded-full border border-white/30"
+                              className="w-3.5 h-3.5 rounded-full border border-slate-300 shadow-sm"
                               style={{ backgroundColor: c }}
                             ></span>
                           ))}
@@ -264,25 +264,25 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                     {/* Prominent "More Colours / Varieties" Button */}
                     <button
                       onClick={() => handleInquireMoreVarieties(product)}
-                      className="w-full py-1.5 px-3 rounded-lg bg-[#070d1a] border border-[#e6c265]/40 hover:bg-[#e6c265] hover:text-[#091326] text-[#f7e6a1] text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors shadow-sm"
+                      className="w-full py-2 px-3 rounded-xl bg-[#F3EFE6] border border-amber-300/80 hover:bg-[#0F172A] hover:text-white text-[#0F172A] text-[11px] font-extrabold flex items-center justify-center gap-1.5 transition-colors shadow-sm active:scale-98"
                     >
-                      <Palette className="w-3.5 h-3.5 text-[#e6c265]" />
+                      <Palette className="w-3.5 h-3.5 text-[#D97706]" />
                       <span>{product.moreVarietiesCount || '20'}+ More Colours & Patterns</span>
                     </button>
                   </div>
 
                   {/* Size Options Pill */}
                   <div className="space-y-1.5">
-                    <label className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Select Size:</label>
+                    <label className="text-[10px] text-slate-500 uppercase tracking-wider font-bold">Select Size:</label>
                     <div className="flex flex-wrap gap-1.5">
                       {product.sizes.map((sz) => (
                         <button
                           key={sz}
                           onClick={() => handleSizeSelect(product.id, sz)}
-                          className={`text-[11px] px-2.5 py-1 rounded-md transition-colors border ${
+                          className={`text-[11px] px-2.5 py-1 rounded-md transition-colors border font-semibold ${
                             currentSize === sz
-                              ? 'bg-[#e6c265] text-[#070d1a] font-bold border-[#e6c265]'
-                              : 'bg-[#070d1a]/60 text-slate-300 border-white/10 hover:border-[#e6c265]/40'
+                              ? 'bg-[#0F172A] text-white border-[#0F172A]'
+                              : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-[#D97706]'
                           }`}
                         >
                           {sz}
@@ -292,20 +292,20 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="pt-3 border-t border-white/10 flex items-center gap-2">
+                  <div className="pt-2 border-t border-slate-100 flex items-center gap-2">
                     <button
                       onClick={() => onAddToCart({ ...product, selectedSize: currentSize })}
-                      className="flex-1 py-2 px-3 rounded-lg bg-[#162d5a] border border-[#e6c265]/40 hover:bg-[#203c75] text-[#f7e6a1] text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                      className="flex-1 py-2.5 px-3 rounded-xl bg-[#0F172A] border border-[#0F172A] hover:bg-[#1E293B] text-white text-xs font-bold flex items-center justify-center gap-1.5 transition-colors shadow touch-target"
                     >
                       <ShoppingBag className="w-3.5 h-3.5" />
                       <span>Add to Bag</span>
                     </button>
                     <button
                       onClick={() => handleQuickInquire(product)}
-                      className="p-2 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 border border-emerald-500/40 text-emerald-400 hover:text-white transition-colors"
+                      className="p-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-600 border border-emerald-300 text-emerald-800 hover:text-white transition-colors touch-target"
                       title="Direct WhatsApp Inquiry"
                     >
-                      <MessageCircle className="w-4 h-4" />
+                      <MessageCircle className="w-4 h-4 fill-emerald-800 text-emerald-50" />
                     </button>
                   </div>
                 </div>
@@ -315,10 +315,10 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="text-center py-16 p-8 rounded-2xl bg-[#0b1833] border border-[#e6c265]/20 max-w-md mx-auto space-y-3">
-            <Info className="w-8 h-8 text-[#e6c265] mx-auto" />
-            <p className="text-slate-200 font-medium">No matching items found.</p>
-            <p className="text-slate-400 text-xs">Try clearing filters or searching for another material or category.</p>
+          <div className="text-center py-16 p-8 rounded-2xl bg-white border border-slate-200 max-w-md mx-auto space-y-3 shadow-md">
+            <Info className="w-8 h-8 text-[#D97706] mx-auto" />
+            <p className="text-slate-800 font-bold">No matching items found.</p>
+            <p className="text-slate-500 text-xs">Try clearing filters or searching for another material or category.</p>
             <button
               onClick={() => {
                 setSelectedCategory('all');
@@ -336,11 +336,11 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
 
       {/* Quick Spec Modal */}
       {activeModalProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-[#0b1833] border-2 border-[#e6c265] rounded-3xl max-w-xl w-full p-6 relative overflow-hidden shadow-2xl space-y-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white border-2 border-[#D97706] rounded-3xl max-w-xl w-full p-6 relative overflow-hidden shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setActiveModalProduct(null)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold"
+              className="absolute top-4 right-4 text-slate-500 hover:text-black text-xl font-bold p-1"
             >
               ✕
             </button>
@@ -349,36 +349,36 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
               <img
                 src={activeModalProduct.image}
                 alt={activeModalProduct.name}
-                className="w-full h-60 object-cover rounded-2xl border border-[#e6c265]/40"
+                className="w-full h-56 sm:h-60 object-cover rounded-2xl border border-slate-200"
               />
               <div className="space-y-3">
                 <span className="badge-gold text-[10px]">{activeModalProduct.tag}</span>
-                <h3 className="font-serif font-bold text-xl text-white">{activeModalProduct.name}</h3>
+                <h3 className="font-serif font-bold text-lg sm:text-xl text-slate-900">{activeModalProduct.name}</h3>
                 
                 <div className="flex items-baseline gap-2">
-                  <span className="font-serif font-extrabold text-xl text-[#f7e6a1]">
+                  <span className="font-serif font-extrabold text-xl text-[#0F172A]">
                     ₹{activeModalProduct.price}
                   </span>
                   <span className="text-xs text-slate-400 line-through">
                     ₹{activeModalProduct.mrp}
                   </span>
-                  <span className="text-[10px] font-bold text-emerald-400">
+                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
                     {activeModalProduct.discount}
                   </span>
                 </div>
 
-                <p className="text-xs text-[#e6c265] font-semibold">{activeModalProduct.material} • {activeModalProduct.threadCount}</p>
-                <p className="text-xs text-slate-300 leading-relaxed">{activeModalProduct.description}</p>
+                <p className="text-xs text-[#B45309] font-bold">{activeModalProduct.material} • {activeModalProduct.threadCount}</p>
+                <p className="text-xs text-slate-600 leading-relaxed font-medium">{activeModalProduct.description}</p>
                 
                 {/* Available Color Swatches */}
                 {activeModalProduct.colors && (
                   <div className="space-y-1">
-                    <label className="text-[10px] text-slate-400 font-bold uppercase">Color Swatches:</label>
+                    <label className="text-[10px] text-slate-500 font-bold uppercase">Color Swatches:</label>
                     <div className="flex gap-2">
                       {activeModalProduct.colors.map((c, i) => (
                         <div
                           key={i}
-                          className="w-6 h-6 rounded-full border-2 border-white/40 cursor-pointer hover:scale-110 transition-transform"
+                          className="w-6 h-6 rounded-full border-2 border-slate-300 shadow-sm"
                           style={{ backgroundColor: c }}
                         ></div>
                       ))}
@@ -387,11 +387,11 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                 )}
 
                 <div className="space-y-1 pt-1">
-                  <span className="text-[11px] font-bold text-slate-200 uppercase">Highlights:</span>
-                  <ul className="text-xs text-slate-300 space-y-1">
+                  <span className="text-[11px] font-bold text-slate-800 uppercase">Highlights:</span>
+                  <ul className="text-xs text-slate-600 space-y-1 font-medium">
                     {activeModalProduct.features.map((f) => (
                       <li key={f} className="flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-emerald-400" />
+                        <Check className="w-3.5 h-3.5 text-emerald-600" />
                         <span>{f}</span>
                       </li>
                     ))}
@@ -400,7 +400,7 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
               </div>
             </div>
 
-            <div className="flex gap-3 pt-2 border-t border-white/10">
+            <div className="flex gap-3 pt-2 border-t border-slate-200">
               <button
                 onClick={() => {
                   onAddToCart({
@@ -420,7 +420,7 @@ export default function ProductCatalog({ onAddToCart, wishlist, onToggleWishlist
                 }}
                 className="btn-outline-gold text-xs"
               >
-                <Palette className="w-4 h-4 text-[#e6c265]" /> See 20+ Varieties
+                <Palette className="w-4 h-4 text-[#D97706]" /> See 20+ Varieties
               </button>
             </div>
           </div>

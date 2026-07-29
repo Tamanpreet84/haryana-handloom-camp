@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import InquiryDrawer from './components/InquiryDrawer';
 import FabricGuideModal from './components/FabricGuideModal';
 import FloatingWidgets from './components/FloatingWidgets';
+import MobileBottomNav from './components/MobileBottomNav';
 
 export default function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -61,7 +62,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#091326] text-white selection:bg-[#e6c265] selection:text-black font-sans">
+    <div className="min-h-screen flex flex-col bg-[#F8F6F0] text-slate-900 selection:bg-[#D97706] selection:text-white font-sans">
       <Navbar
         cartCount={cartItems.length}
         wishlistCount={wishlist.length}
@@ -84,6 +85,12 @@ export default function App() {
       </main>
 
       <Footer />
+
+      {/* Persistent Mobile Bottom Navigation Bar */}
+      <MobileBottomNav
+        cartCount={cartItems.length}
+        onOpenCart={() => setCartOpen(true)}
+      />
 
       <InquiryDrawer
         isOpen={cartOpen}
