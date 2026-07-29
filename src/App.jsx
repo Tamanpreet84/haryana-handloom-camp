@@ -1,117 +1,86 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { ShopProvider, useShop } from './context/ShopContext';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import FeaturesBanner from './components/FeaturesBanner';
-import ProductCatalog from './components/ProductCatalog';
-import ReviewsSection from './components/ReviewsSection';
-import FaqSection from './components/FaqSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import InquiryDrawer from './components/InquiryDrawer';
+import MobileBottomNav from './components/MobileBottomNav';
 import FabricGuideModal from './components/FabricGuideModal';
 import FloatingWidgets from './components/FloatingWidgets';
-import MobileBottomNav from './components/MobileBottomNav';
 
-export default function App() {
-  const [cartItems, setCartItems] = useState([]);
-  const [wishlist, setWishlist] = useState([]);
-  const [cartOpen, setCartOpen] = useState(false);
+// Pages
+import Home from './pages/Home';
+import CatalogPage from './pages/CatalogPage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import CartPage from './pages/CartPage';
+import WishlistPage from './pages/WishlistPage';
+import CheckoutPage from './pages/CheckoutPage';
+import OrderSuccessPage from './pages/OrderSuccessPage';
+import OrdersPage from './pages/OrdersPage';
+import AdminDashboardPage from './pages/AdminDashboardPage';
+import ProfilePage from './pages/ProfilePage';
+import NotFoundPage from './pages/NotFoundPage';
+
+// Scroll to top helper
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function MainLayout() {
   const [fabricGuideOpen, setFabricGuideOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
-
-  const showToast = (msg) => {
-    setToastMessage(msg);
-    setTimeout(() => {
-      setToastMessage('');
-    }, 3000);
-  };
-
-  const handleAddToCart = (productWithSize) => {
-    setCartItems((prev) => [...prev, productWithSize]);
-    setCartOpen(true);
-    showToast(`Added "${productWithSize.name}" to Inquiry Bag!`);
-  };
-
-  const handleRemoveItem = (index) => {
-    setCartItems((prev) => prev.filter((_, i) => i !== index));
-  };
-
-  const handleClearCart = () => {
-    setCartItems([]);
-  };
-
-  const handleToggleWishlist = (product) => {
-    const exists = wishlist.some((item) => item.id === product.id);
-    if (exists) {
-      setWishlist((prev) => prev.filter((item) => item.id !== product.id));
-      showToast(`Removed from Wishlist`);
-    } else {
-      setWishlist((prev) => [...prev, product]);
-      showToast(`Saved "${product.name}" to Wishlist!`);
-    }
-  };
-
-  const handleRemoveWishlist = (id) => {
-    setWishlist((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  const handleMoveWishlistToCart = (product) => {
-    setCartItems((prev) => [...prev, { ...product, selectedSize: product.sizes[0] }]);
-    setWishlist((prev) => prev.filter((item) => item.id !== product.id));
-    showToast(`Moved "${product.name}" to Inquiry Bag!`);
-  };
+  const { toast } = useShop();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8F6F0] text-slate-900 selection:bg-[#D97706] selection:text-white font-sans">
-      <Navbar
-        cartCount={cartItems.length}
-        wishlistCount={wishlist.length}
-        onOpenCart={() => setCartOpen(true)}
-        onOpenFabricGuide={() => setFabricGuideOpen(true)}
-      />
+    <div className="min-h-screen flex flex-col bg-[#F8F6F0] dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-[#D97706] selection:text-white font-sans transition-colors">
+      <ScrollToTop />
+      
+      <Navbar onOpenFabricGuide={() => setFabricGuideOpen(true)} />
 
-      <main className="flex-1">
-        <Hero />
-        <FeaturesBanner />
-        <ProductCatalog
-          onAddToCart={handleAddToCart}
-          wishlist={wishlist}
-          onToggleWishlist={handleToggleWishlist}
-          onOpenFabricGuide={() => setFabricGuideOpen(true)}
-        />
-        <ReviewsSection />
-        <FaqSection />
-        <ContactSection />
+      <main className="flex-1 pb-16 md:pb-0">
+        <Routes>
+          <Route path="/" element={<Home onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
+          <Route path="/catalog" element={<CatalogPage onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
+          <Route path="/product/:id" element={<ProductDetailPage onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/order-success/:orderId" element={<OrderSuccessPage />} />
+          <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/admin" element={<AdminDashboardPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
 
       <Footer />
 
-      {/* Persistent Mobile Bottom Navigation Bar */}
-      <MobileBottomNav
-        cartCount={cartItems.length}
-        onOpenCart={() => setCartOpen(true)}
-      />
+      {/* App-like Mobile Bottom Navigation */}
+      <MobileBottomNav />
 
-      <InquiryDrawer
-        isOpen={cartOpen}
-        onClose={() => setCartOpen(false)}
-        cartItems={cartItems}
-        onRemoveItem={handleRemoveItem}
-        onClearCart={handleClearCart}
-        wishlist={wishlist}
-        onRemoveWishlist={handleRemoveWishlist}
-        onMoveWishlistToCart={handleMoveWishlistToCart}
-      />
-
+      {/* Fabric Buying Guide Modal */}
       <FabricGuideModal
         isOpen={fabricGuideOpen}
         onClose={() => setFabricGuideOpen(false)}
       />
 
+      {/* Global Toast Notifications */}
       <FloatingWidgets
-        toastMessage={toastMessage}
-        onClearToast={() => setToastMessage('')}
+        toastMessage={toast?.message || ''}
+        onClearToast={() => {}}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ShopProvider>
+      <Router>
+        <MainLayout />
+      </Router>
+    </ShopProvider>
   );
 }
