@@ -1,716 +1,758 @@
+// Haryana Handloom Camp Store Data & High-Res Handloom Media Catalog
+
+export const STORE_DETAILS = {
+  name: "HARYANA HANDLOOM CAMP",
+  slogan: "WEAVE COMFORT INTO YOUR LIFE",
+  address: "NK Road, Nandyal, Pincode 518501 (Near Sai Baba Mandir)",
+  phones: [
+    { number: "9215211025", label: "Primary Store Inquiry" },
+    { number: "9215511025", label: "Secondary Store Contact" }
+  ],
+  workingHours: "9:00 AM - 9:30 PM (Mon - Sun)",
+  gstNumber: "37AAACH9821F1Z8"
+};
+
 export const CATEGORIES = [
-  { id: 'all', name: 'All Products', icon: 'Sparkles' },
-  { id: 'bed-sheets', name: 'Bed Sheets', icon: 'Bed' },
-  { id: 'cushion-covers', name: 'Cushion Covers', icon: 'Square' },
-  { id: 'curtains', name: 'Curtains', icon: 'Columns' },
-  { id: 'comforters', name: 'Comforters', icon: 'Box' },
-  { id: 'blankets', name: 'Mink Blankets', icon: 'Layers' },
-  { id: 'polar-blankets', name: 'Polar Fleeces', icon: 'Snowflake' },
-  { id: 'pillows', name: 'Pillows & Form', icon: 'Disc' },
+  { id: 'bed-sheets', name: 'Bed Sheets', count: 6, icon: '🛏️', description: '100% Pure Cotton & Rajasthani Print Glace Cotton Sheets' },
+  { id: 'cushion-covers', name: 'Cushion Covers', count: 4, icon: '🛋️', description: 'Velvet, Zari & Jacquard Embroidered Cushion Covers' },
+  { id: 'curtains', name: 'Curtains', count: 4, icon: '🪟', description: '90% Heavy Blackout & Sheer Sheen Door/Window Curtains' },
+  { id: 'comforters', name: 'Comforters & Duvets', count: 4, icon: '🪶', description: 'Ultra-Soft All-Season Cashmere Microfiber Comforters' },
+  { id: 'blankets', name: 'Mink & Polar Blankets', count: 4, icon: '❄️', description: 'Heavy Double-Ply Mink & Warm Polar Fleece Blankets' },
+  { id: 'pillows', name: 'Pillows & Memory Foam', count: 4, icon: '☁️', description: 'Orthopedic Microfiber & Ergonomic Neck Support Pillows' },
+  { id: 'sofa-covers', name: 'Sofa Covers & Protectors', count: 4, icon: '🛋️', description: 'Custom Elasticated 3+1+1 & Fitted Velvet Sofa Covers' }
 ];
 
 export const FABRIC_TYPES = [
-  'All Materials',
-  '100% Pure Cotton',
-  'Dutch Velvet & Zari',
-  'Polyester Jacquard',
-  'Microfiber Down',
-  'Korean Mink Plush',
-  'Merino Wool Blend',
-  'Organic Jute Blend'
-];
-
-export const STORE_DETAILS = {
-  name: 'HARYANA HANDLOOM CAMP',
-  tagline: 'Weave Comfort Into Your Life',
-  subtitle: 'PREMIUM HOME FURNISHING COLLECTION',
-  address: 'NK Road, Nandyal, Pincode 518501 (Near Sai Baba Mandir)',
-  city: 'Nandyal, Andhra Pradesh',
-  whatsapp: '919215211025',
-  phones: [
-    { label: 'Store Phone 1', number: '9215211025', formatted: '+91 9215211025', wa: '919215211025' },
-    { label: 'Store Phone 2', number: '9215511025', formatted: '+91 9215511025', wa: '919215511025' }
-  ],
-  hours: 'Monday - Sunday: 9:30 AM - 9:30 PM (Open All 7 Days)',
-  highlights: [
-    { title: 'BEST QUALITY', desc: '100% Handloom & Premium Checked Fabrics', icon: 'Award' },
-    { title: 'LATEST DESIGNS', desc: 'Exclusive Indian Traditional & Modern Prints', icon: 'Sparkles' },
-    { title: 'AFFORDABLE PRICES', desc: 'Direct Loom Pricing with No Middlemen', icon: 'IndianRupee' },
-    { title: 'ALL SIZES AVAILABLE', desc: 'Single, Double, King & Custom Tailoring', icon: 'Layers' }
-  ]
-};
-
-export const getWhatsAppUrl = (phoneIndex = 0, messageText = '') => {
-  const target = STORE_DETAILS.phones[phoneIndex] || STORE_DETAILS.phones[0];
-  const encoded = encodeURIComponent(messageText);
-  return `https://wa.me/${target.wa}?text=${encoded}`;
-};
-
-export const PRODUCTS = [
-  // 1. Bed Sheets - Exact Store Uploads
-  {
-    id: 'bs-01',
-    category: 'bed-sheets',
-    name: 'Light Blue & White Jaipuri Block Floral Bedsheet',
-    subtitle: 'Includes 2 Matching Pillow Covers',
-    tag: 'Bestseller',
-    material: '100% Pure Cotton',
-    threadCount: '300 TC Percale',
-    price: 849,
-    mrp: 1399,
-    discount: '39% OFF',
-    rating: 4.9,
-    reviewsCount: 168,
-    sizes: ['Single (60x90")', 'Double (90x100")', 'King (108x108")'],
-    colors: ['#38bdf8', '#60a5fa', '#3b82f6', '#ffffff'],
-    moreVarietiesCount: 24,
-    image: '/images/bedsheets/bs-light-blue-block.png',
-    description: 'Fresh light blue Jaipuri block floral lattice print on 100% pure breathable cotton. Includes matching pillowcases with fast-color guarantee.',
-    features: ['300 Thread Count', 'Color-Fast Guarantee', 'Breathable Pure Cotton', '2 Pillow Covers Included']
-  },
-  {
-    id: 'bs-02',
-    category: 'bed-sheets',
-    name: 'Teal Green Mandala Geometric Premium Bedsheet',
-    subtitle: 'Includes 2 Matching Pillow Covers',
-    tag: 'Store Original',
-    material: '100% Pure Cotton',
-    threadCount: '350 TC Glazed',
-    price: 949,
-    mrp: 1599,
-    discount: '40% OFF',
-    rating: 4.8,
-    reviewsCount: 142,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#0d9488', '#047857', '#0f766e', '#ccfbf1'],
-    moreVarietiesCount: 20,
-    image: '/images/bedsheets/bs-teal-mandala.png',
-    description: 'Vibrant emerald teal mandala geometric lattice motifs printed on heavyweight glazed cotton. Silky smooth touch for master bedrooms.',
-    features: ['350 Thread Count', 'Anti-Pilling Finish', 'Deep Pocket Fit', 'Machine Washable']
-  },
-  {
-    id: 'bs-03',
-    category: 'bed-sheets',
-    name: 'Beige & Crimson Leaf Heritage Printed Bedsheet',
-    subtitle: 'Includes 2 Matching Pillow Covers',
-    tag: 'Heritage Design',
-    material: '100% Pure Cotton',
-    threadCount: '300 TC Traditional',
-    price: 899,
-    mrp: 1499,
-    discount: '40% OFF',
-    rating: 4.9,
-    reviewsCount: 130,
-    sizes: ['Single (60x90")', 'Double (90x100")', 'King (108x108")'],
-    colors: ['#fef3c7', '#991b1b', '#78350f', '#f59e0b'],
-    moreVarietiesCount: 18,
-    image: '/images/bedsheets/bs-beige-crimson-leaf.png',
-    description: 'Classic warm beige backdrop adorned with rich crimson botanical leaf patterns and traditional border borders.',
-    features: ['100% Breathable Cotton', 'Fade Proof Dye', 'Includes 2 Pillow Covers', 'Soft Handfeel']
-  },
-  {
-    id: 'bs-04',
-    category: 'bed-sheets',
-    name: 'Royal Maroon Traditional Floral Glazed Bedsheet',
-    subtitle: 'Includes 2 Matching Pillow Covers',
-    tag: 'Royal Special',
-    material: '100% Pure Cotton',
-    threadCount: '400 TC Satin Weave',
-    price: 999,
-    mrp: 1699,
-    discount: '41% OFF',
-    rating: 5.0,
-    reviewsCount: 185,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#881337', '#701a75', '#4c0519', '#fda4af'],
-    moreVarietiesCount: 22,
-    image: '/images/bedsheets/bs-maroon-floral.png',
-    description: 'Deep royal maroon background embellished with vibrant pink floral blooms and golden yellow accents.',
-    features: ['400 Thread Count', 'Rich Maroon Glaze', 'Wrinkle Resistant', 'Double Bed Size']
-  },
-  {
-    id: 'bs-05',
-    category: 'bed-sheets',
-    name: 'Navy Blue & White Dual-Tone Geometric Bedsheet',
-    subtitle: 'Includes 2 Matching Pillow Covers',
-    tag: 'Modern Style',
-    material: '100% Pure Cotton',
-    threadCount: '300 TC Crisp Weave',
-    price: 879,
-    mrp: 1449,
-    discount: '39% OFF',
-    rating: 4.8,
-    reviewsCount: 115,
-    sizes: ['Single (60x90")', 'Double (90x100")', 'King (108x108")'],
-    colors: ['#1e3a8a', '#ffffff', '#0f172a', '#93c5fd'],
-    moreVarietiesCount: 16,
-    image: '/images/bedsheets/bs-navy-white-dual.png',
-    description: 'Contemporary navy blue and white dual tone geometric grid pattern. Perfect for modern bedroom interiors.',
-    features: ['Modern Grid Artwork', 'Cool Percale Weave', 'Color Lock Dye', 'Matching Pillow Covers']
-  },
-
-  // 2. Cushion Covers - Exact Store Uploads
-  {
-    id: 'cc-01',
-    category: 'cushion-covers',
-    name: 'Royal Crimson Velvet Zari Border Cushion Covers (Set of 5)',
-    subtitle: 'Intricate Gold Zari Central Medallion & Border',
-    tag: 'Store Original',
-    material: 'Dutch Velvet & Zari',
-    threadCount: 'Heavy Premium Velvet',
-    price: 699,
-    mrp: 1299,
-    discount: '46% OFF',
-    rating: 5.0,
-    reviewsCount: 184,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#881337', '#172554', '#042f2e', '#e6c265'],
-    moreVarietiesCount: 25,
-    image: '/images/cushion-covers/cc-crimson-velvet-zari.png',
-    description: 'Plush royal crimson Dutch velvet featuring metallic gold zari thread embroidery, ornate lace border, and heavy concealed zipper closures.',
-    features: ['Heavy Zari Lace Embroidery', 'Concealed Zipper Closure', 'Plush Dutch Velvet', 'Set of 5 Covers']
-  },
-  {
-    id: 'cc-02',
-    category: 'cushion-covers',
-    name: 'Vibrant Ethnic Owl & Elephant Digital Print Cushion Covers (Set of 5)',
-    subtitle: 'Playful Multi-Color Folk Art Motif',
-    tag: 'Bestseller',
-    material: '100% Pure Cotton',
-    threadCount: 'HD Digital Print',
-    price: 599,
-    mrp: 1099,
-    discount: '45% OFF',
-    rating: 4.9,
-    reviewsCount: 162,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#d97706', '#0284c7', '#dc2626', '#16a34a'],
-    moreVarietiesCount: 30,
-    image: '/images/cushion-covers/cc-vibrant-ethnic-digital.png',
-    description: 'Eye-catching folk art owl and elephant motifs in rich vibrant jewel tones. Perfect for brightening up living room couches.',
-    features: ['HD Digital Print', 'Fade-Proof Colors', 'Soft Cotton Blend', 'Set of 5 Covers']
-  },
-  {
-    id: 'cc-03',
-    category: 'cushion-covers',
-    name: 'Black Velvet 3D Hand-Appliqué Floral Stem Cushion Covers (Set of 5)',
-    subtitle: 'Textured Ribbed Velvet with Pop-Out Flowers',
-    tag: 'Luxury Grade',
-    material: 'Dutch Velvet & Zari',
-    threadCount: '3D Pop-Out Craft',
-    price: 749,
-    mrp: 1399,
-    discount: '46% OFF',
-    rating: 5.0,
-    reviewsCount: 140,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#0f172a', '#dc2626', '#f59e0b', '#059669'],
-    moreVarietiesCount: 20,
-    image: '/images/cushion-covers/cc-black-velvet-3d-stem.png',
-    description: 'Deep black ribbed velvet base with handcrafted 3D pop-out cloth flower stems in vivid crimson, mustard yellow, and teal.',
-    features: ['Handcrafted 3D Flowers', 'Heavy Ribbed Velvet', 'Concealed Zipper', 'Set of 5 Covers']
-  },
-  {
-    id: 'cc-04',
-    category: 'cushion-covers',
-    name: 'Off-White Punch Needle Tufted Woolen Floral Cushion Covers (Set of 5)',
-    subtitle: 'Tactile Textured Wool Embroidery',
-    tag: 'Artisan Crafted',
-    material: 'Merino Wool Blend',
-    threadCount: 'Tufted Punch Needle',
-    price: 649,
-    mrp: 1199,
-    discount: '46% OFF',
-    rating: 4.9,
-    reviewsCount: 128,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#f8fafc', '#d97706', '#0f766e', '#b91c1c'],
-    moreVarietiesCount: 15,
-    image: '/images/cushion-covers/cc-offwhite-punch-tufted.png',
-    description: 'Tactile punch needle tufted woolen flowers in mustard yellow, teal green, and poppy red on an off-white heavy canvas base.',
-    features: ['Punch Needle Embroidery', 'Heavy Duty Canvas', 'Soft Woolen Touch', 'Set of 5 Covers']
-  },
-  {
-    id: 'cc-05',
-    category: 'cushion-covers',
-    name: 'Quilted Beige Meadow Floral Embroidered Cushion Covers (Set of 5)',
-    subtitle: 'Diamond Quilted Silk Base with Botanical Embroidery',
-    tag: 'Elegant Choice',
-    material: 'Dutch Velvet & Zari',
-    threadCount: 'Diamond Quilted Base',
-    price: 799,
-    mrp: 1499,
-    discount: '47% OFF',
-    rating: 5.0,
-    reviewsCount: 155,
-    sizes: ['16x16 inches', '18x18 inches'],
-    colors: ['#fef3c7', '#78350f', '#059669', '#be123c'],
-    moreVarietiesCount: 18,
-    image: '/images/cushion-covers/cc-quilted-beige-meadow.png',
-    description: 'Diamond quilted cream-beige backdrop embellished with colorful botanical wildflower stem embroidery.',
-    features: ['Diamond Quilted Stitch', 'Botanical Embroidery', 'Hidden Zipper Border', 'Set of 5 Covers']
-  },
-
-  // 3. Curtains - Exact Store Uploads
-  {
-    id: 'cur-01',
-    category: 'curtains',
-    name: 'Ethnic Paisley Cream & Red Border Eyelet Curtains (Set of 2)',
-    subtitle: 'Traditional Indian Block Border Motif',
-    tag: 'Store Original',
-    material: '100% Pure Cotton',
-    threadCount: 'Heavy 350 GSM',
-    price: 999,
-    mrp: 1699,
-    discount: '41% OFF',
-    rating: 4.9,
-    reviewsCount: 156,
-    sizes: ['Window (5 ft)', 'Door (7 ft)', 'Long Door (9 ft)'],
-    colors: ['#fffbeb', '#991b1b', '#0f766e', '#d97706'],
-    moreVarietiesCount: 16,
-    image: '/images/curtains/curtain-ethnic-cream.png',
-    description: 'Elegant cream backdrop with vibrant crimson, teal, and mustard yellow ethnic paisley border prints. Brass eyelet grommets for smooth sliding.',
-    features: ['100% Cotton Weave', 'Rust-Free Grommets', 'Ethnic Paisley Border', 'Machine Washable']
-  },
-  {
-    id: 'cur-02',
-    category: 'curtains',
-    name: 'Emerald Green & Gold Royalty Damask Blackout Curtains (Set of 2)',
-    subtitle: '85% Light Blocking Woven Jacquard',
-    tag: 'Bestseller',
-    material: 'Polyester Jacquard',
-    threadCount: '3-Layer Woven Fabric',
-    price: 1199,
-    mrp: 1999,
-    discount: '40% OFF',
-    rating: 5.0,
-    reviewsCount: 210,
-    sizes: ['Window (5 ft)', 'Door (7 ft)', 'Long Door (9 ft)'],
-    colors: ['#047857', '#b45309', '#065f46', '#fef3c7'],
-    moreVarietiesCount: 22,
-    image: '/images/curtains/curtain-emerald-jacquard.png',
-    description: 'Luxurious emerald green woven jacquard drapes featuring metallic golden damask floral crests. 85% light blocking for cool indoor privacy.',
-    features: ['85% Light Blocking', 'Royal Gold Damask Motif', 'Heavy Drape Fall', 'Stainless Steel Grommets']
-  },
-  {
-    id: 'cur-03',
-    category: 'curtains',
-    name: 'Royal Blue Solid Heavy Satin Room Darkening Curtains (Set of 2)',
-    subtitle: 'Silky Smooth Satin Finish with Noise Insulation',
-    tag: 'Luxury Grade',
-    material: 'Polyester Jacquard',
-    threadCount: '400 GSM Satin',
-    price: 1099,
-    mrp: 1799,
-    discount: '39% OFF',
-    rating: 4.8,
-    reviewsCount: 135,
-    sizes: ['Window (5 ft)', 'Door (7 ft)', 'Long Door (9 ft)'],
-    colors: ['#1e3a8a', '#0f172a', '#3b82f6'],
-    moreVarietiesCount: 18,
-    image: '/images/curtains/curtain-royal-blue-solid.png',
-    description: 'Deep royal blue satin weave curtains offering excellent light control, heat reduction, and elegant fluid fall for living room glass doors.',
-    features: ['Silky Satin Sheen', 'Noise & Heat Insulation', 'Set of 2 Curtains', 'Wrinkle Resistant']
-  },
-  {
-    id: 'cur-04',
-    category: 'curtains',
-    name: 'Deep Maroon Tree Branch Silhouette Grommet Curtains (Set of 2)',
-    subtitle: 'Modern Botanical Silhouette Design',
-    tag: 'Modern Style',
-    material: 'Polyester Jacquard',
-    threadCount: 'Heavy Weave',
-    price: 1049,
-    mrp: 1749,
-    discount: '40% OFF',
-    rating: 4.9,
-    reviewsCount: 148,
-    sizes: ['Window (5 ft)', 'Door (7 ft)', 'Long Door (9 ft)'],
-    colors: ['#881337', '#4c0519', '#fef3c7'],
-    moreVarietiesCount: 14,
-    image: '/images/curtains/curtain-maroon-tree-branch.png',
-    description: 'Rich dark maroon background printed with golden beige tree branch silhouettes. Ideal for creating warm dining & living room ambience.',
-    features: ['Tree Branch Artwork', 'Heavy Fall Drape', 'Eyelet Ring Top', 'Easy Wash Care']
-  },
-
-  // 4. Comforters - Exact Store Uploads
-  {
-    id: 'com-01',
-    category: 'comforters',
-    name: 'Cashmere King Size Olive & Beige Floral Comforter Set',
-    subtitle: 'Includes Ruffle Pillowcase & Zipper Travel Case',
-    tag: 'Store Original',
-    material: 'Microfiber Down',
-    threadCount: '350 GSM Cashmere Touch',
-    price: 1599,
-    mrp: 2599,
-    discount: '38% OFF',
-    rating: 5.0,
-    reviewsCount: 178,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#78716c', '#65a30d', '#ca8a04', '#44403c'],
-    moreVarietiesCount: 15,
-    image: '/images/comforters/com-cashmere-olive-beige.jpg',
-    description: 'Luxurious Cashmere Touch King comforter set featuring soothing olive green leaves, white floral blossoms, beige striped borders, ruffled pillowcase, and matching storage case.',
-    features: ['Cashmere Soft Touch', '350 GSM Microfiber Fill', 'Matching Ruffled Pillowcase', 'Zippered Bag Packaging']
-  },
-  {
-    id: 'com-02',
-    category: 'comforters',
-    name: 'Cashmere King Size Sky Blue Blossom Comforter Set',
-    subtitle: 'Includes Ruffle Pillowcase & Zipper Travel Case',
-    tag: 'Bestseller',
-    material: 'Microfiber Down',
-    threadCount: '350 GSM Cashmere Touch',
-    price: 1599,
-    mrp: 2599,
-    discount: '38% OFF',
-    rating: 4.9,
-    reviewsCount: 194,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#38bdf8', '#0284c7', '#0369a1', '#e0f2fe'],
-    moreVarietiesCount: 18,
-    image: '/images/comforters/com-cashmere-sky-blue.jpg',
-    description: 'Refreshing sky blue background adorned with white cherry blossom prints, striped ruffled pillow cover, and heavy quilt stitch lines for year-round cooling comfort.',
-    features: ['350 GSM Thermal Insulation', 'Dust-Mite Resistant', 'Complete Packaged Set', 'Feather Soft Comfort']
-  },
-  {
-    id: 'com-03',
-    category: 'comforters',
-    name: 'Cashmere King Size Rose Pink Floral Comforter Set',
-    subtitle: 'Includes Ruffle Pillowcase & Zipper Travel Case',
-    tag: 'Luxury Grade',
-    material: 'Microfiber Down',
-    threadCount: '350 GSM Cashmere Touch',
-    price: 1599,
-    mrp: 2599,
-    discount: '38% OFF',
-    rating: 5.0,
-    reviewsCount: 160,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#f472b6', '#db2777', '#be123c', '#fce7f3'],
-    moreVarietiesCount: 16,
-    image: '/images/comforters/com-cashmere-rose-pink.jpg',
-    description: 'Charming blush rose pink background embellished with soft botanical flower clusters and matching ruffled pillow covers.',
-    features: ['Soft Rose Pink Shade', 'Cashmere Plush Fill', 'Included Storage Bag', 'All-Season Comfort']
-  },
-  {
-    id: 'com-04',
-    category: 'comforters',
-    name: 'Black & Gold Feather Metallic Print Luxury Duvet',
-    subtitle: 'High-Density Microfiber Fill Duvet Quilt',
-    tag: 'Modern Style',
-    material: 'Microfiber Down',
-    threadCount: '400 GSM Heavy Quilt',
-    price: 1799,
-    mrp: 2899,
-    discount: '38% OFF',
-    rating: 4.9,
-    reviewsCount: 145,
-    sizes: ['Double (90x100")', 'King (108x108")'],
-    colors: ['#0f172a', '#d97706', '#b45309'],
-    moreVarietiesCount: 12,
-    image: '/images/comforters/com-black-gold-feather.png',
-    description: 'Dramatic black backdrop embellished with glowing metallic gold feather graphics. Heavy 400 GSM fill for cold AC environments.',
-    features: ['Metallic Feather Print', '400 GSM Extra Insulation', 'Hypoallergenic Fill', 'Box Stitching']
-  },
-  {
-    id: 'com-05',
-    category: 'comforters',
-    name: 'Powder Blue Ribbed Texture Velvet AC Comforter',
-    subtitle: 'Plush Ribbed Velvet Touch Outer Shell',
-    tag: 'Ultra Soft',
-    material: 'Microfiber Down',
-    threadCount: '320 GSM Ribbed Velvet',
-    price: 1499,
-    mrp: 2399,
-    discount: '38% OFF',
-    rating: 4.8,
-    reviewsCount: 130,
-    sizes: ['Single (60x90")', 'Double (90x100")'],
-    colors: ['#93c5fd', '#60a5fa', '#1e40af'],
-    moreVarietiesCount: 14,
-    image: '/images/comforters/com-powder-blue-ribbed.png',
-    description: 'Ultra-gentle powder blue ribbed velvet outer shell stuffed with breathable microfiber down for snug cozy nights.',
-    features: ['Ribbed Velvet Texture', 'Breathable Down Fill', 'Super Lightweight', 'Easy Machine Wash']
-  },
-
-  // 5. Mink Blankets - Exact Store Uploads
-  {
-    id: 'blk-01',
-    category: 'blankets',
-    name: 'Crimson Red & Pink 3D Embossed Korean Mink Blanket',
-    subtitle: 'Ultra Plush Velvet Touch Single Ply',
-    tag: 'Store Original',
-    material: 'Korean Mink Plush',
-    threadCount: '3.5 KG Super Soft',
-    price: 1299,
-    mrp: 2199,
-    discount: '41% OFF',
-    rating: 4.9,
-    reviewsCount: 190,
-    sizes: ['Single Bed (150x220 cm)', 'Double Bed (200x240 cm)'],
-    colors: ['#881337', '#be123c', '#991b1b', '#fda4af'],
-    moreVarietiesCount: 25,
-    image: '/images/blankets/blk-crimson-floral-3d.png',
-    description: 'Vibrant crimson red and pink single ply Korean mink blanket featuring raised 3D floral wheel embossing and silky velvet binding borders.',
-    features: ['3D Embossed Floral Wheel', 'Velvet Touch Plush', 'Light Winter & AC Room', 'Shrink Resistant']
-  },
-  {
-    id: 'blk-02',
-    category: 'blankets',
-    name: 'Camel Brown Geometric Criss-Cross Single Mink Blanket',
-    subtitle: 'Modern Diamond Lattice & Rose Border',
-    tag: 'Bestseller',
-    material: 'Korean Mink Plush',
-    threadCount: '3.0 KG Mid-Weight',
-    price: 1099,
-    mrp: 1799,
-    discount: '39% OFF',
-    rating: 4.8,
-    reviewsCount: 165,
-    sizes: ['Single Bed (150x220 cm)', 'Double Bed (200x240 cm)'],
-    colors: ['#b45309', '#78350f', '#fef3c7', '#d97706'],
-    moreVarietiesCount: 20,
-    image: '/images/blankets/blk-camel-geometric.png',
-    description: 'Sophisticated warm camel brown mink blanket designed with a bold dark brown criss-cross lattice body and elegant floral side borders.',
-    features: ['Geometric Lattice Design', 'Silky Smooth Pile', 'Pre-shrunk Micro-Plush', 'Easy Machine Wash']
-  },
-  {
-    id: 'blk-03',
-    category: 'blankets',
-    name: 'Rich Brown & Coral Rose Leopard Border Heavy Double Mink Blanket',
-    subtitle: 'Double Ply Super Thermal Winter Blanket',
-    tag: 'Luxury Grade',
-    material: 'Korean Mink Plush',
-    threadCount: '4.8 KG Heavy Weight',
-    price: 1899,
-    mrp: 3199,
-    discount: '40% OFF',
-    rating: 5.0,
-    reviewsCount: 240,
-    sizes: ['Double Bed (200x240 cm)', 'King Size (220x250 cm)'],
-    colors: ['#451a03', '#ea580c', '#78350f', '#9a3412'],
-    moreVarietiesCount: 30,
-    image: '/images/blankets/blk-brown-rose-leopard.png',
-    description: 'Heavyweight double ply mink blanket featuring opulent coral rose center blooms framed with chic leopard print borders for maximum winter warmth.',
-    features: ['Double Ply Layer', 'Leopard Print Frame', 'Sub-Zero Winter Protection', 'Heavy Duty Finish']
-  },
-  {
-    id: 'blk-04',
-    category: 'blankets',
-    name: 'Maroon & Golden Orange Royal Damask 5.5 KG Heavyweight Mink Blanket',
-    subtitle: '5.5 KG Double Ply Royal Palace Collection',
-    tag: 'Winter Special',
-    material: 'Korean Mink Plush',
-    threadCount: '5.5 KG Ultra Heavy Weight',
-    price: 2199,
-    mrp: 3599,
-    discount: '39% OFF',
-    rating: 5.0,
-    reviewsCount: 215,
-    sizes: ['Double Bed (200x240 cm)', 'Super King (240x260 cm)'],
-    colors: ['#450a0a', '#c2410c', '#78350f', '#f59e0b'],
-    moreVarietiesCount: 28,
-    image: '/images/blankets/blk-maroon-damask-5.5kg.png',
-    description: 'Our heaviest 5.5 KG double ply mink blanket. Rich dark maroon background with glowing golden orange floral damask tapestries.',
-    features: ['5.5 KG Ultra Heavyweight', 'Double Ply Thermal Shield', 'Royal Damask Embroidery', 'Color Lock Tech']
-  },
-  {
-    id: 'blk-05',
-    category: 'blankets',
-    name: 'Pastel Blue & Pink Dreamcatcher Embossed Soft Mink AC Blanket',
-    subtitle: 'Lightweight All-Season Dreamcatcher Artwork',
-    tag: 'Trending',
-    material: 'Korean Mink Plush',
-    threadCount: '2.8 KG Light Weight',
-    price: 1399,
-    mrp: 2299,
-    discount: '39% OFF',
-    rating: 4.9,
-    reviewsCount: 142,
-    sizes: ['Double Bed (200x240 cm)'],
-    colors: ['#38bdf8', '#f472b6', '#bae6fd', '#fbcfe8'],
-    moreVarietiesCount: 18,
-    image: '/images/blankets/blk-pastel-dreamcatcher.png',
-    description: 'Aesthetic pastel sky blue and blush pink ombre mink blanket embossed with dreamy feather dreamcatcher artwork for year-round AC room comfort.',
-    features: ['Ombre Pastel Colors', 'Dreamcatcher Art', 'AC Room Comfort', 'Feather Soft Velvet']
-  },
-
-  // 6. Polar Fleeces - Exact Store Uploads
-  {
-    id: 'pb-01',
-    category: 'polar-blankets',
-    name: 'Royal Blue & White Checked Rose Print Polar Fleece Blanket',
-    subtitle: '280 GSM Compact & Super Soft Travel Fleece',
-    tag: 'Store Original',
-    material: 'Korean Mink Plush',
-    threadCount: '280 GSM Density',
-    price: 449,
-    mrp: 799,
-    discount: '43% OFF',
-    rating: 4.9,
-    reviewsCount: 175,
-    sizes: ['Single (54x90")', 'Double (80x90")'],
-    colors: ['#2563eb', '#1d4ed8', '#ffffff', '#dc2626'],
-    moreVarietiesCount: 20,
-    image: '/images/polar-fleeces/pb-blue-checked-rose.png',
-    description: 'Vibrant royal blue and white diamond checked background adorned with bright red rose prints and solid blue satin hem border. Super soft AC fleece.',
-    features: ['280 GSM Thermal Fleece', 'Lint-Free Coral Touch', 'Quick Dry & Light', 'Machine Washable']
-  },
-  {
-    id: 'pb-02',
-    category: 'polar-blankets',
-    name: 'Purple & Orange Floral Lattice Soft Polar Fleece Blanket',
-    subtitle: 'Plush All-Season AC Bedroom Blanket',
-    tag: 'Bestseller',
-    material: 'Korean Mink Plush',
-    threadCount: '300 GSM Soft Weave',
-    price: 499,
-    mrp: 899,
-    discount: '44% OFF',
-    rating: 4.8,
-    reviewsCount: 152,
-    sizes: ['Single (54x90")', 'Double (80x90")'],
-    colors: ['#7e22ce', '#ea580c', '#f59e0b', '#581c87'],
-    moreVarietiesCount: 18,
-    image: '/images/polar-fleeces/pb-purple-orange-floral.png',
-    description: 'Rich deep purple diamond lattice body covered with glowing orange marigold floral blooms and solid purple velvet binding.',
-    features: ['Plush Coral Texture', 'Vibrant Fast Colors', 'Feather Weight Warmth', 'Easy Travel Roll']
-  },
-  {
-    id: 'pb-03',
-    category: 'polar-blankets',
-    name: 'Navy Blue & Grey Heart Swirl Modern Polar Fleece Travel Blanket',
-    subtitle: 'Aesthetic Heart & Scroll Graphic Motif',
-    tag: 'Trending',
-    material: 'Korean Mink Plush',
-    threadCount: '320 GSM Coral Fleece',
-    price: 549,
-    mrp: 999,
-    discount: '45% OFF',
-    rating: 5.0,
-    reviewsCount: 138,
-    sizes: ['Single (60x90")', 'Double (80x90")'],
-    colors: ['#1e293b', '#64748b', '#0f172a', '#cbd5e1'],
-    moreVarietiesCount: 15,
-    image: '/images/polar-fleeces/pb-navy-grey-hearts.png',
-    description: 'Modern aesthetic navy blue, slate grey, and white heart swirl graphics with framed heart border hem. Ideal for sofa throw and train travel.',
-    features: ['Modern Graphic Pattern', 'Brushed Micro-Fleece', 'No Pilling or Fuzz', 'Wrinkle Free']
-  },
-
-  // 7. Pillows - Exact Store Uploads
-  {
-    id: 'pil-01',
-    category: 'pillows',
-    name: 'Pure White Microfiber Bounce Hotel Quality Pillow',
-    subtitle: 'Ultra Soft Conjugate Fiber Fill',
-    tag: 'Store Original',
-    material: 'Microfiber Down',
-    threadCount: '100% Breathable Shell',
-    price: 399,
-    mrp: 799,
-    discount: '50% OFF',
-    rating: 5.0,
-    reviewsCount: 210,
-    sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
-    colors: ['#ffffff'],
-    moreVarietiesCount: 10,
-    image: '/images/pillows/pil-white-plush-bounce.png',
-    description: 'Resilient pure white bounce sleeping pillow stuffed with hypoallergenic conjugate microfiber down fill. Ensures optimal neck & spine support.',
-    features: ['Conjugate Microfiber Fill', 'Anti-Allergic Shell', 'Restorable Fluff', '5-Star Hotel Softness']
-  },
-  {
-    id: 'pil-02',
-    category: 'pillows',
-    name: 'Charcoal Grey & White Dual-Tone Hotel Pillow Set (Pair of 2)',
-    subtitle: 'Modern 2-Tone Hotel Luxury Contour Pillows',
-    tag: 'Bestseller',
-    material: 'Microfiber Down',
-    threadCount: 'Dual-Layer Fabric',
-    price: 799,
-    mrp: 1399,
-    discount: '43% OFF',
-    rating: 4.9,
-    reviewsCount: 185,
-    sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
-    colors: ['#4b5563', '#ffffff', '#1f2937'],
-    moreVarietiesCount: 12,
-    image: '/images/pillows/pil-charcoal-duotone-set.png',
-    description: 'Ultra-modern charcoal grey and crisp white half-and-half dual tone hotel pillow set. High density rebound fill for back & side sleepers.',
-    features: ['Dual-Tone Aesthetic', 'Pair of 2 Pillows', 'Medium Firm Support', 'Breathable Casing']
-  },
-  {
-    id: 'pil-03',
-    category: 'pillows',
-    name: 'Royal Navy Blue Piped Cord Bounce Sleeping Pillow Set (Pair of 2)',
-    subtitle: 'Reinforced Piped Seam Bordering',
-    tag: 'Luxury Grade',
-    material: 'Microfiber Down',
-    threadCount: 'High Density Bounce',
-    price: 899,
-    mrp: 1499,
-    discount: '40% OFF',
-    rating: 5.0,
-    reviewsCount: 164,
-    sizes: ['Standard (17x27 inches)', 'King (20x30 inches)'],
-    colors: ['#1e3a8a', '#ffffff', '#0f172a'],
-    moreVarietiesCount: 15,
-    image: '/images/pillows/pil-navy-piped-pair.png',
-    description: 'Premium white hotel pillows framed with dark royal navy blue cording along the perimeter seams for extra structural bounce and shape retention.',
-    features: ['Navy Blue Piped Cord Border', 'High Shape Retention', 'Pair of 2 Pillows', 'Spine Support Alignment']
-  }
+  { id: 'all', name: 'All Fabrics' },
+  { id: 'cotton', name: '100% Pure Cotton' },
+  { id: 'velvet', name: 'Royal Velvet & Zari' },
+  { id: 'microfiber', name: 'Plush Microfiber' },
+  { id: 'mink', name: 'Korean Mink & Fleece' },
+  { id: 'memory-foam', name: 'Memory Foam' }
 ];
 
 export const REVIEWS = [
   {
     id: 1,
-    name: 'Suresh Kumar',
-    location: 'Nandyal Town',
+    name: "K. Venkata Subbaiah",
+    city: "Nandyal, Andhra Pradesh",
     rating: 5,
-    date: '2 weeks ago',
-    comment: 'Best handloom shop in Nandyal! Purchased 4 pure cotton king bedsheets and mink blankets for winter. Thread quality and color fastness are superb after washing.',
-    product: 'Royal Blue Checked Rose Polar Fleece'
+    date: "2 days ago",
+    comment: "Bought 3 double bed sheets and velvet cushion covers from Haryana Handloom Camp on NK Road. The cotton quality is amazing and colors haven't faded after washing!",
+    verified: true
   },
   {
     id: 2,
-    name: 'Lakshmi Prasanna',
-    location: 'Near NK Road',
+    name: "Sridevi Reddy",
+    city: "Nandyal town",
     rating: 5,
-    date: '1 month ago',
-    comment: 'Customized our full house curtains and velvet cushion covers through Haryana Handloom Camp. Store uncle guided us patiently with color matching. Highly recommended!',
-    product: 'Emerald Green & Gold Royalty Damask Curtains'
+    date: "1 week ago",
+    comment: "Best home furnishing shop near Sai Baba Mandir! The mink blanket is super heavy and warm. Owner was very polite and guided us on sizes.",
+    verified: true
   },
   {
     id: 3,
-    name: 'Ramesh Reddy',
-    location: 'Sanjeeva Nagar, Nandyal',
+    name: "Ramesh Babu",
+    city: "Kurnool District",
     rating: 5,
-    date: '3 weeks ago',
-    comment: 'Direct loom prices are genuine! Bought Korean 3D mink blanket and comforters. Very soft and warm for AC rooms.',
-    product: 'Korean 3D Embossed Mink Blanket'
+    date: "2 weeks ago",
+    comment: "Ordered blackout curtains and comforters for our new house. Complete light block and very premium stitching. Highly recommended!",
+    verified: true
   }
 ];
 
 export const FAQS = [
   {
-    q: 'Where is Haryana Handloom Camp located in Nandyal?',
-    a: 'We are located on NK Road, Nandyal (Pincode 518501), right near Sai Baba Mandir. You can tap the "Open Location" button in our contact section for turn-by-turn Google Maps navigation.'
+    question: "Where is Haryana Handloom Camp located in Nandyal?",
+    answer: "Our physical store is located at NK Road, Nandyal, Pincode 518501 (Near Sai Baba Mandir). You can visit us 7 days a week from 9:00 AM to 9:30 PM."
   },
   {
-    q: 'Do you offer custom sizing for curtains and mattress covers?',
-    a: 'Yes! We provide custom stitching and size alterations for curtains (5ft, 7ft, 9ft, 11ft) and elastic fitted bedsheets according to your specific window and mattress measurements.'
+    question: "Are your bedsheets 100% pure cotton?",
+    answer: "Yes! We stock authentic 100% Rajasthani handloom printed bedsheets (up to 450 Thread Count) that are pre-shrunk with colorfast dyes."
   },
   {
-    q: 'How do I place an inquiry or order on WhatsApp?',
-    a: 'Simply click "Add to Bag" on any items you like, open your Inquiry Bag, choose your preferred store representative number (9215211025 or 9215511025), and tap "Send Order via WhatsApp".'
+    question: "How can I order or inquire via WhatsApp?",
+    answer: "You can click any 'Inquire on WhatsApp' button on the website or message store owners directly at 9215211025 / 9215511025 with your selected items."
   },
   {
-    q: 'What payment modes are accepted at your store?',
-    a: 'We accept all major payment options: UPI (Google Pay, PhonePe, Paytm, BHIM), Cash, Debit/Credit Cards, and Direct Bank Transfer.'
-  },
-  {
-    q: 'Are your cotton bedsheets 100% color-fast and pre-shrunk?',
-    a: 'Absolutely. All our cotton bedsheets (250 TC to 500 TC) undergo strict fast-color processing and pre-shrinking to guarantee no shrinking or bleeding during machine washing.'
+    question: "Do you deliver home in Nandyal and nearby towns?",
+    answer: "Yes, we offer free home delivery across Nandyal town for orders over ₹999, as well as courier shipping across Andhra Pradesh."
   }
 ];
+
+export const PRODUCTS = [
+  // --- BED SHEETS (6 Products) ---
+  {
+    id: 'bs-001',
+    name: 'Haryana Royal Jaipuri Floral Cotton Double Bed Sheet',
+    category: 'bed-sheets',
+    price: 899,
+    mrp: 1499,
+    rating: 4.9,
+    reviewsCount: 42,
+    badge: 'Bestseller',
+    material: '100% Superfine Pure Cotton',
+    threadCount: '300 TC',
+    colors: ['Jaipuri Marigold Red', 'Deep Royal Blue', 'Earthy Ochre Yellow'],
+    sizes: ['Double King (90x108")', 'Queen (90x100")'],
+    images: [
+      '/images/bed-sheets/bs-jaipuri-cotton-red.png',
+      '/images/bed-sheets/bs-jaipuri-cotton-blue.png',
+      '/images/bed-sheets/bs-jaipuri-cotton-yellow.png'
+    ],
+    inStock: true,
+    description: 'Authentic 100% Rajasthani handloom printed double bedsheet crafted with 300 Thread Count long-staple cotton for zero shrinkage and silky breathable comfort.',
+    features: ['100% Breathable Cotton', 'Pre-shrunk Fast Colors', 'Includes 2 Matching Pillow Covers (18x28 inches)']
+  },
+  {
+    id: 'bs-002',
+    name: 'Luxury Royal Velvet Touch Micro-Cotton Bedsheet Set',
+    category: 'bed-sheets',
+    price: 1199,
+    mrp: 1899,
+    rating: 4.8,
+    reviewsCount: 29,
+    badge: 'Store Choice',
+    material: 'Ultra-Soft Glace Micro-Cotton',
+    threadCount: '400 TC',
+    colors: ['Plush Cream Gold', 'Emerald Green', 'Deep Wine Red'],
+    sizes: ['Super King (108x108")', 'Double King (90x108")'],
+    images: [
+      '/images/bed-sheets/bs-velvet-touch-cream.png',
+      '/images/bed-sheets/bs-velvet-touch-green.png',
+      '/images/bed-sheets/bs-velvet-touch-red.png'
+    ],
+    inStock: true,
+    description: 'Wrinkle-resistant premium glace cotton sheet with heavy satin borders for a royal hotel-like suite experience right in your bedroom.',
+    features: ['Wrinkle-Free Technology', 'Deep Pocket Corner Fit', 'Silky Velvet Touch Texture']
+  },
+  {
+    id: 'bs-003',
+    name: 'Haryana Heritage Handcrafted Striped Cotton Sheet',
+    category: 'bed-sheets',
+    price: 749,
+    mrp: 1299,
+    rating: 4.7,
+    reviewsCount: 18,
+    badge: 'Traditional',
+    material: 'Organic Handloom Cotton',
+    threadCount: '250 TC',
+    colors: ['Warm Terracotta Striped', 'Navy Blue Accent', 'Sage Green'],
+    sizes: ['Double (90x100")', 'Single (60x90")'],
+    images: [
+      '/images/bed-sheets/bs-heritage-striped.png',
+      '/images/bed-sheets/bs-jaipuri-cotton-blue.png'
+    ],
+    inStock: true,
+    description: 'Traditional Panipat loom woven heavy weave cotton bedsheet with reinforced edges designed for everyday durability and rustic elegance.',
+    features: ['Durable Loom Weave', 'Machine Washable', '2 Pillow Covers Included']
+  },
+  {
+    id: 'bs-004',
+    name: 'Modern Geometric Satin Striped Hotel Bedsheet',
+    category: 'bed-sheets',
+    price: 999,
+    mrp: 1699,
+    rating: 4.9,
+    reviewsCount: 34,
+    badge: 'Luxury',
+    material: 'Pure Cotton Satin Weave',
+    threadCount: '350 TC',
+    colors: ['Pristine Pearl White', 'Satin Champagne Gold'],
+    sizes: ['Super King (108x108")'],
+    images: [
+      '/images/bed-sheets/bs-satin-striped-white.png',
+      '/images/bed-sheets/bs-velvet-touch-cream.png'
+    ],
+    inStock: true,
+    description: 'Pure white 1cm satin striped luxury hotel sheet engineered to maintain crisp white brightness even after 100+ commercial washes.',
+    features: ['5-Star Hotel Grade', 'Hypoallergenic Finish', 'Extra Soft Touch']
+  },
+  {
+    id: 'bs-005',
+    name: 'Traditional Panipat Checked Heavy Cotton Bedsheet',
+    category: 'bed-sheets',
+    price: 699,
+    mrp: 1199,
+    rating: 4.6,
+    reviewsCount: 22,
+    badge: 'Value Pack',
+    material: '100% Handloom Cotton',
+    threadCount: '210 TC',
+    colors: ['Classic Multi-Check Red', 'Classic Navy Check'],
+    sizes: ['Double (90x100")'],
+    images: [
+      '/images/bed-sheets/bs-heritage-striped.png',
+      '/images/bed-sheets/bs-jaipuri-cotton-red.png'
+    ],
+    inStock: true,
+    description: 'Heavy duty Panipat cotton weave with vibrant checks. Cool in summer and comfortable year round.',
+    features: ['Thick Heavy Gauge Weave', 'Vibrant Fast Dyes', '2 Pillow Cases']
+  },
+  {
+    id: 'bs-006',
+    name: 'Embroidery Border Premium Percale Double Sheet',
+    category: 'bed-sheets',
+    price: 1299,
+    mrp: 2199,
+    rating: 4.9,
+    reviewsCount: 15,
+    badge: 'Premium',
+    material: '100% Egyptian Percale Cotton',
+    threadCount: '450 TC',
+    colors: ['Ivory Gold Embroidery', 'Pastel Pink Embroidery'],
+    sizes: ['King (108x108")'],
+    images: [
+      '/images/bed-sheets/bs-velvet-touch-cream.png',
+      '/images/bed-sheets/bs-velvet-touch-red.png'
+    ],
+    inStock: true,
+    description: 'Ultra-luxurious 450 TC Egyptian cotton bedsheet featuring delicate hand-embroidered borders for wedding & festive trousseaus.',
+    features: ['450 Thread Count', 'Intricate Hand Zari Stitching', 'Gift Box Packaging']
+  },
+
+  // --- CUSHION COVERS (4 Products) ---
+  {
+    id: 'cc-001',
+    name: 'Royal Crimson Velvet Zari Border Cushion Covers (Set of 5)',
+    category: 'cushion-covers',
+    price: 699,
+    mrp: 1199,
+    rating: 4.9,
+    reviewsCount: 56,
+    badge: 'Hot Seller',
+    material: 'Heavy Dutch Velvet with Gold Zari',
+    threadCount: 'N/A',
+    colors: ['Deep Royal Crimson', 'Midnight Navy Blue', 'Golden Mustard'],
+    sizes: ['16x16 inches (Standard)', '18x18 inches (Large)'],
+    images: [
+      '/images/cushion-covers/cc-crimson-velvet-zari.png',
+      '/images/cushion-covers/cc-navy-velvet-zari.png',
+      '/images/cushion-covers/cc-golden-velvet-zari.png'
+    ],
+    inStock: true,
+    description: 'Exquisite set of 5 heavy velvet cushion covers accented with intricate golden zari threadwork borders and concealed zip closures.',
+    features: ['Set of 5 Covers', 'Heavy Plush Velvet', 'Hidden Zipper Closure']
+  },
+  {
+    id: 'cc-002',
+    name: 'Handloom Cotton Jacquard Geometric Cushion Cover Set',
+    category: 'cushion-covers',
+    price: 549,
+    mrp: 899,
+    rating: 4.7,
+    reviewsCount: 31,
+    badge: 'Trending',
+    material: 'Woven Cotton Jacquard',
+    threadCount: 'N/A',
+    colors: ['Boho Beige & Black', 'Teal & Gold Pattern'],
+    sizes: ['16x16 inches'],
+    images: [
+      '/images/cushion-covers/cc-golden-velvet-zari.png',
+      '/images/cushion-covers/cc-navy-velvet-zari.png'
+    ],
+    inStock: true,
+    description: 'Bohemian handwoven jacquard textured cushion covers designed to elevate modern living room sofas with artisanal charm.',
+    features: ['Set of 5 Covers', 'Textured 3D Weave', 'Machine Washable']
+  },
+  {
+    id: 'cc-003',
+    name: 'Silk Brocade Heritage Motif Decorative Cushion Covers',
+    category: 'cushion-covers',
+    price: 799,
+    mrp: 1399,
+    rating: 4.8,
+    reviewsCount: 24,
+    badge: 'Festive Special',
+    material: 'Art Silk Brocade',
+    threadCount: 'N/A',
+    colors: ['Maroon Gold Brocade', 'Royal Blue Brocade'],
+    sizes: ['16x16 inches'],
+    images: [
+      '/images/cushion-covers/cc-crimson-velvet-zari.png',
+      '/images/cushion-covers/cc-navy-velvet-zari.png'
+    ],
+    inStock: true,
+    description: 'Traditional South Indian motif silk brocade cushion set designed for festive celebrations and wedding living decor.',
+    features: ['Set of 5 Covers', 'Glossy Silk Sheen', 'Piped Edge Finish']
+  },
+  {
+    id: 'cc-004',
+    name: 'Minimalist Linen Cotton Solid Color Cushion Set',
+    category: 'cushion-covers',
+    price: 499,
+    mrp: 799,
+    rating: 4.6,
+    reviewsCount: 19,
+    badge: 'Minimalist',
+    material: 'Linen Cotton Blend',
+    threadCount: 'N/A',
+    colors: ['Pastel Sage Green', 'Soft Cream Beige'],
+    sizes: ['16x16 inches'],
+    images: [
+      '/images/cushion-covers/cc-golden-velvet-zari.png',
+      '/images/cushion-covers/cc-crimson-velvet-zari.png'
+    ],
+    inStock: true,
+    description: 'Breathable organic linen cotton cushion covers with understated natural texture for clean scandinavian interiors.',
+    features: ['Set of 5 Covers', 'Soft Washed Linen', 'Eco-friendly Dyes']
+  },
+
+  // --- CURTAINS (4 Products) ---
+  {
+    id: 'cur-001',
+    name: 'Haryana Heavy Blackout Thermal Insulated Window Curtains',
+    category: 'curtains',
+    price: 1199,
+    mrp: 1999,
+    rating: 4.9,
+    reviewsCount: 68,
+    badge: 'Top Rated',
+    material: '3-Layer Triple Weave Polyester',
+    threadCount: 'N/A',
+    colors: ['Slate Grey Blackout', 'Royal Navy Blackout', 'Warm Beige Blackout'],
+    sizes: ['Door (7ft x 4ft)', 'Long Door (9ft x 4ft)', 'Window (5ft x 4ft)'],
+    images: [
+      '/images/curtains/cur-slate-grey-blackout.png',
+      '/images/curtains/cur-navy-blackout.png',
+      '/images/curtains/cur-warm-beige-blackout.png'
+    ],
+    inStock: true,
+    description: 'Blocks 90%+ sun light and cuts outside noise. Heavy thermal layer helps keep rooms cool during hot Andhra summers.',
+    features: ['Pack of 2 Curtains', 'Rust-Free Metal Grommet Eyelets', 'Noise Reduction & Heat Blocking']
+  },
+  {
+    id: 'cur-002',
+    name: 'Sheer Sheen Sheer Linen Door Curtains',
+    category: 'curtains',
+    price: 699,
+    mrp: 1199,
+    rating: 4.7,
+    reviewsCount: 41,
+    badge: 'Elegant',
+    material: 'Faux Linen Sheer Fabric',
+    threadCount: 'N/A',
+    colors: ['Snow White Sheer', 'Soft Gold Sheer'],
+    sizes: ['Door (7ft x 4ft)', 'Long Door (9ft x 4ft)'],
+    images: [
+      '/images/curtains/cur-warm-beige-blackout.png',
+      '/images/curtains/cur-slate-grey-blackout.png'
+    ],
+    inStock: true,
+    description: 'Translucent semi-sheer curtains that filter sunlight gently, creating a bright and airy atmosphere in living spaces.',
+    features: ['Pack of 2 Curtains', 'Soft Light Diffusion', 'Steel Eyelet Rings']
+  },
+  {
+    id: 'cur-003',
+    name: 'Velvet Touch Heavy Room Darkening Door Curtains',
+    category: 'curtains',
+    price: 1499,
+    mrp: 2499,
+    rating: 4.9,
+    reviewsCount: 23,
+    badge: 'Luxury Suite',
+    material: 'Heavy Micro Velvet',
+    threadCount: 'N/A',
+    colors: ['Wine Red Velvet', 'Emerald Green Velvet'],
+    sizes: ['Door (7ft x 4ft)', 'Long Door (9ft x 4ft)'],
+    images: [
+      '/images/curtains/cur-navy-blackout.png',
+      '/images/curtains/cur-slate-grey-blackout.png'
+    ],
+    inStock: true,
+    description: 'Ultra-luxurious heavy velvet room darkening curtains designed for home theaters, grand living halls, and master bedrooms.',
+    features: ['Pack of 2 Curtains', 'Plush Matte Velvet Finish', 'Maximum Fall & Drape']
+  },
+  {
+    id: 'cur-004',
+    name: 'Printed Floral Modern Eyelet Window Curtains',
+    category: 'curtains',
+    price: 849,
+    mrp: 1399,
+    rating: 4.6,
+    reviewsCount: 17,
+    badge: 'Fresh Design',
+    material: 'Poly-Cotton Jacquard',
+    threadCount: 'N/A',
+    colors: ['Teal Floral Print', 'Pastel Peach Floral'],
+    sizes: ['Door (7ft x 4ft)', 'Window (5ft x 4ft)'],
+    images: [
+      '/images/curtains/cur-warm-beige-blackout.png',
+      '/images/curtains/cur-slate-grey-blackout.png'
+    ],
+    inStock: true,
+    description: 'Vibrant modern botanical floral curtains to add fresh color and privacy to home study rooms and windows.',
+    features: ['Pack of 2 Curtains', 'Fade Resistant Print', 'Pre-fitted Stainless Steel Eyelets']
+  },
+
+  // --- COMFORTERS & DUVETS (4 Products) ---
+  {
+    id: 'com-001',
+    name: 'Reversible Plush All-Season Microfiber Double Comforter',
+    category: 'comforters',
+    price: 1799,
+    mrp: 2999,
+    rating: 4.9,
+    reviewsCount: 52,
+    badge: 'Bestseller',
+    material: 'Microfiber Shell (300 GSM Hypoallergenic Fill)',
+    threadCount: 'N/A',
+    colors: ['Navy & Slate Grey Dual', 'Maroon & Cream Dual', 'Teal & Beige Dual'],
+    sizes: ['Double King (90x100")', 'Single (60x90")'],
+    images: [
+      '/images/comforters/com-navy-slate-dual.png',
+      '/images/comforters/com-maroon-cream-dual.png',
+      '/images/comforters/com-teal-beige-dual.png'
+    ],
+    inStock: true,
+    description: 'Ultra-lightweight yet cozy 300 GSM siliconized microfiber filled comforter with diamond box stitching that prevents fill shifting.',
+    features: ['Reversible Dual Color Design', '300 GSM Hollow Fiber Filling', 'Hypoallergenic & Dust Mite Proof']
+  },
+  {
+    id: 'com-002',
+    name: 'Haryana Ultra Heavy Winter Double Ply Cashmere Quilt',
+    category: 'comforters',
+    price: 2499,
+    mrp: 3999,
+    rating: 4.8,
+    reviewsCount: 38,
+    badge: 'Heavy Winter',
+    material: 'Cashmere Touch Flannel Fleece',
+    threadCount: 'N/A',
+    colors: ['Burgundy Velvet Quilt', 'Royal Blue Fleece Quilt'],
+    sizes: ['Double King (90x108")'],
+    images: [
+      '/images/comforters/com-maroon-cream-dual.png',
+      '/images/comforters/com-navy-slate-dual.png'
+    ],
+    inStock: true,
+    description: 'Designed for extreme AC cooling or winter nights. Features plush fleece on both sides with high density thermal insulation.',
+    features: ['Heavy AC / Winter Weight', 'Plush Cashmere Texture', 'Machine Washable']
+  },
+  {
+    id: 'com-003',
+    name: '100% Organic Cotton Shell Summer AC Duvet',
+    category: 'comforters',
+    price: 1599,
+    mrp: 2499,
+    rating: 4.7,
+    reviewsCount: 26,
+    badge: 'Summer Choice',
+    material: '100% Breathable Cotton Shell (150 GSM)',
+    threadCount: 'N/A',
+    colors: ['Pastel Blue', 'Cloud White'],
+    sizes: ['Double King (90x100")'],
+    images: [
+      '/images/comforters/com-teal-beige-dual.png',
+      '/images/comforters/com-navy-slate-dual.png'
+    ],
+    inStock: true,
+    description: 'Lightweight 150 GSM organic cotton shell summer duvet for AC bedrooms during warm weather without overheating.',
+    features: ['100% Cotton Outer Cover', 'Sweat Free Breathable Fill', 'Corner Duvet Loops']
+  },
+  {
+    id: 'com-004',
+    name: 'Embossed Velvet Luxury King Comforter Set with Pillows',
+    category: 'comforters',
+    price: 2999,
+    mrp: 4999,
+    rating: 4.9,
+    reviewsCount: 14,
+    badge: 'Bridal Set',
+    material: 'Embossed Royal Velvet (350 GSM)',
+    threadCount: 'N/A',
+    colors: ['Gold Velvet Embossed', 'Deep Red Embossed'],
+    sizes: ['Super King (100x108")'],
+    images: [
+      '/images/comforters/com-maroon-cream-dual.png',
+      '/images/comforters/com-navy-slate-dual.png'
+    ],
+    inStock: true,
+    description: 'Grand royal wedding trousseau comforter set with 3D embossed floral velvet top and matching velvet pillow shams.',
+    features: ['Comforter + 2 Pillow Shams', '3D Embossed Royal Pattern', 'Gift Case Included']
+  },
+
+  // --- MINK & POLAR BLANKETS (4 Products) ---
+  {
+    id: 'blk-001',
+    name: 'Haryana Double-Ply Heavy Embossed Korean Mink Blanket',
+    category: 'blankets',
+    price: 2199,
+    mrp: 3499,
+    rating: 4.9,
+    reviewsCount: 74,
+    badge: 'Winter Bestseller',
+    material: 'Ultra Soft Korean Mink Micro-Flannel',
+    threadCount: 'N/A',
+    colors: ['Floral Royal Maroon', 'Floral Sapphire Blue', 'Floral Emerald Green'],
+    sizes: ['Double King (90x100" - 4kg)', 'Single (60x90" - 2.5kg)'],
+    images: [
+      '/images/blankets/blk-mink-maroon.png',
+      '/images/blankets/blk-mink-blue.png',
+      '/images/blankets/blk-mink-green.png'
+    ],
+    inStock: true,
+    description: 'Heavy 4kg double-ply Korean style mink blanket with deep embossed floral carvings for supreme warmth during cold nights.',
+    features: ['Double Ply 4kg Heavyweight', 'Super Soft Silk-Like Mink Fur', 'Satin Border Binding']
+  },
+  {
+    id: 'blk-002',
+    name: 'Super Soft Lightweight Polar Fleece AC Blanket',
+    category: 'blankets',
+    price: 699,
+    mrp: 1199,
+    rating: 4.8,
+    reviewsCount: 45,
+    badge: 'AC Blanket',
+    material: 'Anti-Pill Polar Fleece (280 GSM)',
+    threadCount: 'N/A',
+    colors: ['Camel Brown Polar', 'Navy Blue Polar'],
+    sizes: ['Double (90x100")', 'Single (60x90")'],
+    images: [
+      '/images/blankets/blk-polar-camel.png',
+      '/images/blankets/blk-mink-blue.png'
+    ],
+    inStock: true,
+    description: 'Feather-light anti-pilling polar fleece blanket designed for year-round AC use, travel, and guest room bedding.',
+    features: ['Anti-Pill Fleece Finish', 'Compact Travel Friendly', 'Easy Machine Wash']
+  },
+  {
+    id: 'blk-003',
+    name: 'Single Ply Soft Mink Blanket with Satin Border',
+    category: 'blankets',
+    price: 1399,
+    mrp: 2199,
+    rating: 4.7,
+    reviewsCount: 28,
+    badge: 'Mild Winter',
+    material: '100% Microfiber Mink (2kg)',
+    threadCount: 'N/A',
+    colors: ['Rose Gold Floral', 'Deep Wine Red'],
+    sizes: ['Double (90x100")'],
+    images: [
+      '/images/blankets/blk-mink-maroon.png',
+      '/images/blankets/blk-mink-green.png'
+    ],
+    inStock: true,
+    description: 'Medium weight 2kg single ply mink blanket ideal for Andhra Pradesh climate and mild winter months.',
+    features: ['Medium 2kg Weight', 'Ultra Silky Touch', 'Non-Shedding Fur']
+  },
+  {
+    id: 'blk-004',
+    name: 'Sherpa Lambswool Plush Double Layer Blanket',
+    category: 'blankets',
+    price: 2599,
+    mrp: 4199,
+    rating: 4.9,
+    reviewsCount: 19,
+    badge: 'Ultra Warm',
+    material: 'Fleece Front & Sherpa Fleece Back',
+    threadCount: 'N/A',
+    colors: ['Charcoal Grey Sherpa', 'Navy Blue Sherpa'],
+    sizes: ['Double King (90x100")'],
+    images: [
+      '/images/blankets/blk-polar-camel.png',
+      '/images/blankets/blk-mink-blue.png'
+    ],
+    inStock: true,
+    description: 'Dual layer blanket featuring soft velvety fleece on top and thick fluffy white sherpa lambswool lining inside.',
+    features: ['Thick Faux Sherpa Lining', 'Extreme Comfort & Warmth', 'Gift Box Ribbon Wrapped']
+  },
+
+  // --- PILLOWS & MEMORY FOAM (4 Products) ---
+  {
+    id: 'pil-001',
+    name: 'Haryana Orthopedic Memory Foam Contour Neck Pillow',
+    category: 'pillows',
+    price: 999,
+    mrp: 1699,
+    rating: 4.9,
+    reviewsCount: 63,
+    badge: 'Doctor Recommended',
+    material: 'High-Density Visco Elastic Memory Foam',
+    threadCount: 'N/A',
+    colors: ['White Mesh Cover', 'Slate Grey Cover'],
+    sizes: ['Standard Ergonomic (24x14x4.5")'],
+    images: [
+      '/images/pillows/pil-memory-foam-neck.png',
+      '/images/pillows/pil-microfiber-plush.png'
+    ],
+    inStock: true,
+    description: 'Ergonomically contoured cervical memory foam pillow designed to align spinal curve and provide instant neck pain relief.',
+    features: ['Cervical Spine Support', 'Cooling Gel Infused Foam', 'Removable Zippered Breathable Cover']
+  },
+  {
+    id: 'pil-002',
+    name: 'Ultra-Soft Virgin Microfiber Hotel Plush Pillows (Pair of 2)',
+    category: 'pillows',
+    price: 799,
+    mrp: 1399,
+    rating: 4.8,
+    reviewsCount: 47,
+    badge: 'Pair Pack',
+    material: '100% Conjugated Virgin Microfiber',
+    threadCount: '300 TC Outer Shell',
+    colors: ['Crisp White with Gold Piping'],
+    sizes: ['Standard (18x28 inches)'],
+    images: [
+      '/images/pillows/pil-microfiber-plush.png',
+      '/images/pillows/pil-memory-foam-neck.png'
+    ],
+    inStock: true,
+    description: 'Set of 2 fluffy down-alternative microfiber sleeping pillows with 300 TC cotton shell for 5-star hotel comfort.',
+    features: ['Pack of 2 Pillows', 'Down Alternative Virgin Fill', 'Retains Bounce & Shape']
+  },
+  {
+    id: 'pil-003',
+    name: 'Cooling Gel Infused Breathable Memory Foam Pillow',
+    category: 'pillows',
+    price: 1299,
+    mrp: 2199,
+    rating: 4.9,
+    reviewsCount: 22,
+    badge: 'Cooling Tech',
+    material: 'Cooling Hydro-Gel Memory Foam',
+    threadCount: 'N/A',
+    colors: ['Ice Blue Mesh Cover'],
+    sizes: ['King Size (26x16x5")'],
+    images: [
+      '/images/pillows/pil-memory-foam-neck.png',
+      '/images/pillows/pil-microfiber-plush.png'
+    ],
+    inStock: true,
+    description: 'Features an active cooling gel pad layer on top of premium memory foam to dissipate body heat during sleep.',
+    features: ['Active Heat Dissipation', 'Ideal for Hot Sleepers', 'Washable Bamboo Outer Shell']
+  },
+  {
+    id: 'pil-004',
+    name: 'Firm Support Fiber Bolster Pillow for Back & Knee',
+    category: 'pillows',
+    price: 649,
+    mrp: 999,
+    rating: 4.6,
+    reviewsCount: 16,
+    badge: 'Multi-Purpose',
+    material: 'High-Resilience Hollow Fiber Fill',
+    threadCount: '250 TC',
+    colors: ['Ivory White'],
+    sizes: ['Long Bolster (9x30 inches)'],
+    images: [
+      '/images/pillows/pil-microfiber-plush.png',
+      '/images/pillows/pil-memory-foam-neck.png'
+    ],
+    inStock: true,
+    description: 'Cylindrical bolster pillow for back support while sitting on bed or placement under knees for posture alignment.',
+    features: ['Long Bolster Shape', 'High Density Bounce', '100% Cotton Outer Cover']
+  },
+
+  // --- SOFA COVERS (4 Products) ---
+  {
+    id: 'sof-001',
+    name: 'Haryana Universal Elasticated Velvet Fitted Sofa Cover Set',
+    category: 'sofa-covers',
+    price: 1699,
+    mrp: 2799,
+    rating: 4.9,
+    reviewsCount: 39,
+    badge: 'Top Fit',
+    material: 'High-Stretch Dutch Spandex Velvet',
+    threadCount: 'N/A',
+    colors: ['Plush Maroon', 'Royal Blue', 'Chocolate Brown'],
+    sizes: ['3+1+1 Seater Complete Set', '3-Seater Single Sofa'],
+    images: [
+      '/images/cushion-covers/cc-crimson-velvet-zari.png',
+      '/images/cushion-covers/cc-navy-velvet-zari.png'
+    ],
+    inStock: true,
+    description: 'Full 360-degree stretchable velvet sofa cover set designed to protect living room furniture from dust, spills, and pet scratches.',
+    features: ['Complete 3+1+1 Cover Set', '360° Elastic Bottom Border', 'Includes Foam Fixation Sticks']
+  },
+  {
+    id: 'sof-002',
+    name: 'Heavy Jacquard Floral Quilted Sofa Protector Mat',
+    category: 'sofa-covers',
+    price: 1299,
+    mrp: 1999,
+    rating: 4.7,
+    reviewsCount: 27,
+    badge: 'Easy Wash',
+    material: 'Heavy Cotton Jacquard Quilted',
+    threadCount: 'N/A',
+    colors: ['Gold Floral Jacquard', 'Navy Floral Jacquard'],
+    sizes: ['3+1+1 Seater Cover Set'],
+    images: [
+      '/images/cushion-covers/cc-golden-velvet-zari.png',
+      '/images/cushion-covers/cc-navy-velvet-zari.png'
+    ],
+    inStock: true,
+    description: 'Heavy quilted cotton jacquard sofa mats with anti-slip backing that drape over sofa seats and armrests effortlessly.',
+    features: ['Non-Slip Rubberized Backing', 'Thick Quilted Cushioning', 'Machine Washable']
+  },
+  {
+    id: 'sof-003',
+    name: 'Waterproof Pet Proof Sofa Protector Cover Sheet',
+    category: 'sofa-covers',
+    price: 1499,
+    mrp: 2399,
+    rating: 4.8,
+    reviewsCount: 21,
+    badge: 'Waterproof',
+    material: 'Waterproof Microfiber Layered',
+    threadCount: 'N/A',
+    colors: ['Dark Charcoal Grey', 'Warm Tan Beige'],
+    sizes: ['3-Seater Sofa Shield'],
+    images: [
+      '/images/cushion-covers/cc-crimson-velvet-zari.png',
+      '/images/cushion-covers/cc-golden-velvet-zari.png'
+    ],
+    inStock: true,
+    description: '100% liquid and spill-proof sofa protector mat ideal for homes with pets or children.',
+    features: ['100% Liquid & Stain Barrier', 'Side Storage Pockets', 'Reversible Dual Colors']
+  },
+  {
+    id: 'sof-004',
+    name: 'Handloom Cotton Woven Throw Blanket Sofa Towel',
+    category: 'sofa-covers',
+    price: 899,
+    mrp: 1499,
+    rating: 4.6,
+    reviewsCount: 15,
+    badge: 'Artisanal',
+    material: '100% Woven Handloom Cotton',
+    threadCount: 'N/A',
+    colors: ['Tasseled Natural Beige', 'Indigo Woven Blue'],
+    sizes: ['Large Throw (70x90 inches)'],
+    images: [
+      '/images/bed-sheets/bs-heritage-striped.png',
+      '/images/cushion-covers/cc-navy-velvet-zari.png'
+    ],
+    inStock: true,
+    description: 'Artisanal handwoven cotton sofa throw towel with fringed tassels for casual drape styling and everyday furniture protection.',
+    features: ['Handcrafted Fringe Tassels', 'Multipurpose Throw / Sofa Mat', '100% Pure Cotton']
+  }
+];
+
+// Helper to get formatted WhatsApp URL for instant store inquiry or order notification
+export function getWhatsAppUrl(phoneIndex = 0, message = '') {
+  const phone = STORE_DETAILS.phones[phoneIndex].number;
+  const defaultMsg = message || `Hello ${STORE_DETAILS.name}! I am interested in purchasing handloom products from your store.`;
+  return `https://wa.me/91${phone}?text=${encodeURIComponent(defaultMsg)}`;
+}
+
+// Helper to generate instant order alert WhatsApp URL to store owners (9215211025 / 9215511025)
+export function getOrderWhatsAppUrl(order, phoneIndex = 0) {
+  const phone = STORE_DETAILS.phones[phoneIndex].number;
+  const itemsText = order.items.map((it, i) => `${i + 1}. *${it.name}* (${it.selectedSize}) x${it.quantity} - ₹${it.price * it.quantity}`).join('\n');
+  
+  const text = `🛍️ *NEW ORDER ALERT - HARYANA HANDLOOM CAMP*\n\n` +
+    `📌 *Order ID*: ${order.orderId}\n` +
+    `👤 *Customer*: ${order.shippingAddress?.fullName || 'Customer'}\n` +
+    `📞 *Phone*: ${order.shippingAddress?.phone || '9215211025'}\n` +
+    `📍 *Delivery Address*: ${order.shippingAddress?.street}, ${order.shippingAddress?.city} (${order.shippingAddress?.pincode})\n\n` +
+    `📦 *ITEMS ORDERED*:\n${itemsText}\n\n` +
+    `💰 *GRAND TOTAL*: ₹${order.totalAmount}\n` +
+    `💳 *Payment Method*: ${order.paymentMethod || 'Razorpay UPI'}\n\n` +
+    `Please confirm dispatch! Thank you for shopping with Haryana Handloom Camp.`;
+
+  return `https://wa.me/91${phone}?text=${encodeURIComponent(text)}`;
+}
