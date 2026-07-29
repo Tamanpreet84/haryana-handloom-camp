@@ -213,17 +213,21 @@ export function ShopProvider({ children }) {
     showToast(`Order ${orderId} status updated to "${newStatus}"`);
   };
 
-  // Auth Functions - Admin credentials checking
-  const loginUser = (email, password) => {
-    const isAdmin = email.trim().toLowerCase() === 'admin@haryana.com' || email.includes('admin');
+  // Auth Functions - Admin checking username haryanahandloom0001 and password 9215211025
+  const loginUser = (emailOrUsername, password) => {
+    const cleanInput = emailOrUsername.trim().toLowerCase();
+    const isAdmin =
+      (cleanInput === 'haryanahandloom0001' || cleanInput === 'admin@haryana.com') &&
+      password === '9215211025';
+
     const newUser = {
       id: 'usr-' + Date.now(),
-      name: isAdmin ? 'Store Administrator' : email.split('@')[0].toUpperCase(),
-      email,
+      name: isAdmin ? 'Store Administrator' : (cleanInput.includes('@') ? cleanInput.split('@')[0].toUpperCase() : cleanInput.toUpperCase()),
+      email: cleanInput.includes('@') ? cleanInput : `${cleanInput}@haryana.com`,
       phone: '9215211025',
       role: isAdmin ? 'admin' : 'user',
       address: {
-        fullName: isAdmin ? 'Store Administrator' : email.split('@')[0],
+        fullName: isAdmin ? 'Store Administrator' : cleanInput,
         street: 'NK Road, Near Sai Baba Mandir',
         city: 'Nandyal',
         state: 'Andhra Pradesh',
@@ -232,7 +236,6 @@ export function ShopProvider({ children }) {
       }
     };
     setUser(newUser);
-    showToast(`Welcome ${isAdmin ? 'Admin' : 'back'}, ${newUser.name}!`);
     return newUser;
   };
 

@@ -1,84 +1,48 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Mail, Lock, User, KeyRound, ShieldCheck, ArrowRight, Sparkles, Phone, MessageCircle, CheckCircle2 } from 'lucide-react';
+import { Mail, Lock, User, ShieldCheck, ArrowRight, Sparkles, Phone, CheckCircle2 } from 'lucide-react';
 import MetaSEO from '../components/MetaSEO';
 import Logo from '../components/Logo';
 import { useShop } from '../context/ShopContext';
-import { STORE_DETAILS } from '../data/products';
 
 export default function WelcomeLoginPage() {
   const navigate = useNavigate();
-  const { loginUser, showToast, user } = useShop();
+  const { loginUser, showToast } = useShop();
 
-  const [tab, setTab] = useState('login'); // 'login', 'signup', 'admin'
-  const [email, setEmail] = useState('');
+  const [tab, setTab] = useState('login'); // 'login', 'signup'
+  const [emailOrUsername, setEmailOrUsername] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [welcomeMsgModal, setWelcomeMsgModal] = useState(null);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      showToast('Please enter both email and password', 'error');
+    if (!emailOrUsername || !password) {
+      showToast('Please enter your username/email and password', 'error');
       return;
     }
 
-    const loggedUser = loginUser(email, password);
+    const loggedUser = loginUser(emailOrUsername, password);
 
-    // Prepare Welcome Message Notice
-    const welcomeNotice = {
-      recipient: email,
-      name: name || loggedUser.name,
-      message: `Thank you for visiting Haryana Handloom Camp! Welcome to Nandyal's premier home furnishing store on NK Road. Explore our 100% handloom cotton bedsheets, velvet cushions, blackout curtains, mink blankets & plush comforters.`,
-      phoneNotice: phone ? `SMS notification dispatched to +91 ${phone}` : 'Email notification sent successfully'
-    };
-
-    setWelcomeMsgModal(welcomeNotice);
-  };
-
-  const handleOneClickAdmin = () => {
-    setEmail('admin@haryana.com');
-    setPassword('admin123');
-    loginUser('admin@haryana.com', 'admin123');
-    showToast('Logged in as Store Administrator');
-    navigate('/admin');
-  };
-
-  const handleOneClickCustomer = () => {
-    setEmail('user@example.com');
-    setPassword('user123');
-    const loggedUser = loginUser('user@example.com', 'user123');
-    setWelcomeMsgModal({
-      recipient: 'user@example.com',
-      name: loggedUser.name,
-      message: `Thank you for visiting Haryana Handloom Camp! Welcome to Nandyal's premier home furnishing store on NK Road. Explore our 100% handloom cotton bedsheets, velvet cushions, blackout curtains, mink blankets & plush comforters.`,
-      phoneNotice: 'SMS notification dispatched to +91 9215211025'
-    });
-  };
-
-  const handleGoogleSignIn = () => {
-    const loggedUser = loginUser('google.user@gmail.com', 'google123');
-    setWelcomeMsgModal({
-      recipient: 'google.user@gmail.com',
-      name: loggedUser.name,
-      message: `Thank you for visiting Haryana Handloom Camp! Welcome to Nandyal's premier home furnishing store on NK Road.`,
-      phoneNotice: 'Google Account verified successfully'
-    });
-  };
-
-  const handleProceedToStore = () => {
-    setWelcomeMsgModal(null);
-    if (user?.role === 'admin') {
+    if (loggedUser.role === 'admin') {
+      showToast('👑 Welcome Admin! Opening Control Panel...');
       navigate('/admin');
     } else {
+      // Automatically send Thank You message silently & notify user via toast
+      showToast('Thank you for visiting Haryana Handloom Camp! Welcome message sent.');
       navigate('/home');
     }
   };
 
+  const handleGoogleSignIn = () => {
+    loginUser('google.user@gmail.com', 'google123');
+    showToast('Thank you for visiting Haryana Handloom Camp!');
+    navigate('/home');
+  };
+
   return (
     <>
-      <MetaSEO title="Welcome Portal & Sign In" description="Sign in or Register for Haryana Handloom Camp Nandyal" />
+      <MetaSEO title="Sign In & Portal" description="Sign in or Register for Haryana Handloom Camp Nandyal" />
 
       <div className="min-h-screen bg-[#F8F6F0] dark:bg-slate-950 flex flex-col justify-center items-center p-4 py-12 relative overflow-hidden transition-colors">
         
@@ -100,9 +64,10 @@ export default function WelcomeLoginPage() {
           {/* Card Container */}
           <div className="bg-white dark:bg-slate-900 border-2 border-amber-300/80 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
             
-            {/* Tab Switcher */}
+            {/* Tab Switcher - Single Page Login & Sign Up */}
             <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-2xl text-xs font-bold">
               <button
+                type="button"
                 onClick={() => setTab('login')}
                 className={`flex-1 py-2.5 rounded-xl transition-all ${
                   tab === 'login'
@@ -110,9 +75,10 @@ export default function WelcomeLoginPage() {
                     : 'text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white'
                 }`}
               >
-                Customer Login
+                Sign In
               </button>
               <button
+                type="button"
                 onClick={() => setTab('signup')}
                 className={`flex-1 py-2.5 rounded-xl transition-all ${
                   tab === 'signup'
@@ -120,45 +86,8 @@ export default function WelcomeLoginPage() {
                     : 'text-slate-600 dark:text-slate-400 hover:text-black dark:hover:text-white'
                 }`}
               >
-                New Register
+                Sign Up
               </button>
-              <button
-                onClick={() => setTab('admin')}
-                className={`flex-1 py-2.5 rounded-xl transition-all ${
-                  tab === 'admin'
-                    ? 'bg-amber-600 text-white shadow-md'
-                    : 'text-amber-700 dark:text-amber-400 hover:text-amber-800'
-                }`}
-              >
-                👑 Admin Portal
-              </button>
-            </div>
-
-            {/* Quick Demo Credentials Switcher */}
-            <div className="p-3.5 rounded-2xl bg-amber-50 dark:bg-slate-800/80 border border-amber-300 dark:border-slate-700 space-y-2">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-amber-900 dark:text-amber-300">
-                <KeyRound className="w-4 h-4 text-[#D97706]" />
-                <span>Quick One-Click Access:</span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 text-[11px] font-bold">
-                <button
-                  type="button"
-                  onClick={handleOneClickAdmin}
-                  className="p-2.5 rounded-xl bg-slate-900 text-white hover:bg-amber-600 transition-colors text-center shadow-sm"
-                >
-                  👑 Admin Portal Login
-                  <span className="block text-[9px] text-amber-300 font-normal">admin@haryana.com</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={handleOneClickCustomer}
-                  className="p-2.5 rounded-xl bg-white dark:bg-slate-700 border text-slate-900 dark:text-white hover:border-amber-500 transition-colors text-center shadow-sm"
-                >
-                  👤 Customer Login
-                  <span className="block text-[9px] text-slate-500 dark:text-slate-400 font-normal">user@example.com</span>
-                </button>
-              </div>
             </div>
 
             {/* Main Form */}
@@ -181,7 +110,7 @@ export default function WelcomeLoginPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">Mobile Phone (for Welcome SMS):</label>
+                    <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">Mobile Phone:</label>
                     <div className="relative">
                       <Phone className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                       <input
@@ -198,15 +127,15 @@ export default function WelcomeLoginPage() {
 
               <div className="space-y-1">
                 <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
-                  {tab === 'admin' ? 'Admin Username / Email:' : 'Email Address:'}
+                  Username or Email Address:
                 </label>
                 <div className="relative">
                   <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                   <input
-                    type="email"
-                    placeholder={tab === 'admin' ? 'admin@haryana.com' : 'name@example.com'}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    placeholder="Enter email or username"
+                    value={emailOrUsername}
+                    onChange={(e) => setEmailOrUsername(e.target.value)}
                     className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-[#D97706]"
                     required
                   />
@@ -230,16 +159,10 @@ export default function WelcomeLoginPage() {
 
               <button
                 type="submit"
-                className={`w-full py-3.5 px-4 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 shadow-md transition-all ${
-                  tab === 'admin'
-                    ? 'bg-amber-600 hover:bg-amber-700 text-white'
-                    : 'btn-gold'
-                }`}
+                className="w-full btn-gold justify-center py-3.5 text-xs font-bold shadow-md"
               >
                 <span>
-                  {tab === 'login' && 'Sign In to Store'}
-                  {tab === 'signup' && 'Register Account & Send Welcome Message'}
-                  {tab === 'admin' && 'Access Admin Control Panel'}
+                  {tab === 'login' ? 'Sign In' : 'Create Account'}
                 </span>
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -247,6 +170,7 @@ export default function WelcomeLoginPage() {
 
             {/* Google Sign In */}
             <button
+              type="button"
               onClick={handleGoogleSignIn}
               className="w-full py-2.5 px-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold flex items-center justify-center gap-2 transition-colors shadow-sm"
             >
@@ -272,46 +196,6 @@ export default function WelcomeLoginPage() {
           </div>
 
         </div>
-
-        {/* Welcome Message Confirmation Modal */}
-        {welcomeMsgModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/75 backdrop-blur-md animate-fadeIn">
-            <div className="bg-white dark:bg-slate-900 border-2 border-emerald-500/50 rounded-3xl max-w-md w-full p-6 space-y-5 shadow-2xl">
-              
-              <div className="flex items-center gap-3 text-emerald-700 dark:text-emerald-400 border-b border-slate-100 dark:border-slate-800 pb-3">
-                <MessageCircle className="w-8 h-8 shrink-0 fill-emerald-100 text-emerald-700" />
-                <div>
-                  <h4 className="font-serif font-bold text-base text-slate-900 dark:text-white">
-                    Welcome Message Sent!
-                  </h4>
-                  <span className="text-[10px] text-emerald-600 font-bold uppercase block">
-                    {welcomeMsgModal.phoneNotice}
-                  </span>
-                </div>
-              </div>
-
-              {/* Message Simulation Box */}
-              <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700 space-y-2">
-                <div className="flex items-center justify-between text-xs font-bold text-emerald-900 dark:text-emerald-200">
-                  <span>To: {welcomeMsgModal.recipient}</span>
-                  <span className="text-[10px] text-emerald-600 font-normal">Just Now</span>
-                </div>
-                <p className="text-xs text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
-                  "{welcomeMsgModal.message}"
-                </p>
-              </div>
-
-              <button
-                onClick={handleProceedToStore}
-                className="w-full btn-gold justify-center py-3 text-xs font-bold"
-              >
-                <span>Enter Haryana Handloom Store</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-            </div>
-          </div>
-        )}
 
       </div>
     </>
