@@ -36,7 +36,7 @@ export default function MetaSEO({ title, description, keywords, schemaType = 'Lo
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: STORE_DETAILS.name,
-      description: STORE_DETAILS.subtitle,
+      description: STORE_DETAILS.slogan,
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'NK Road, Near Sai Baba Mandir',

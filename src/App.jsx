@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ShopProvider, useShop } from './context/ShopContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -32,35 +32,22 @@ function ScrollToTop() {
 
 function MainLayout() {
   const [fabricGuideOpen, setFabricGuideOpen] = useState(false);
-  const { toast, user } = useShop();
+  const { toast } = useShop();
   const location = useLocation();
 
-  // Hide Navbar and Footer ONLY on dedicated /login route when not logged in
-  const isLoginPage = location.pathname === '/login' && !user;
+  // Hide header and footer ONLY on dedicated /login route
+  const isLoginPage = location.pathname === '/login';
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8F6F0] dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-[#D97706] selection:text-white font-sans transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#F8F6F0] dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-[#D97706] selection:text-[#0F172A] font-sans transition-colors">
       <ScrollToTop />
       
       {!isLoginPage && <Navbar onOpenFabricGuide={() => setFabricGuideOpen(true)} />}
 
       <main className="flex-1 pb-16 md:pb-0">
         <Routes>
-          {/* Root path '/' opens WelcomeLoginPage if guest, or Home if logged in */}
-          <Route
-            path="/"
-            element={
-              user ? (
-                user.role === 'admin' ? (
-                  <Navigate to="/admin" replace />
-                ) : (
-                  <Home onOpenFabricGuide={() => setFabricGuideOpen(true)} />
-                )
-              ) : (
-                <WelcomeLoginPage />
-              )
-            }
-          />
+          {/* Main Root Path '/' renders the Full Store Home Page! */}
+          <Route path="/" element={<Home onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
           <Route path="/login" element={<WelcomeLoginPage />} />
           <Route path="/home" element={<Home onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
           <Route path="/catalog" element={<CatalogPage onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
