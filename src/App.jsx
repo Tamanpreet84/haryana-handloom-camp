@@ -8,6 +8,7 @@ import FabricGuideModal from './components/FabricGuideModal';
 import FloatingWidgets from './components/FloatingWidgets';
 
 // Pages
+import WelcomeLoginPage from './pages/WelcomeLoginPage';
 import Home from './pages/Home';
 import CatalogPage from './pages/CatalogPage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -32,16 +33,21 @@ function ScrollToTop() {
 function MainLayout() {
   const [fabricGuideOpen, setFabricGuideOpen] = useState(false);
   const { toast } = useShop();
+  const location = useLocation();
+
+  const isLoginPage = location.pathname === '/login';
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F6F0] dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-[#D97706] selection:text-white font-sans transition-colors">
       <ScrollToTop />
       
-      <Navbar onOpenFabricGuide={() => setFabricGuideOpen(true)} />
+      {!isLoginPage && <Navbar onOpenFabricGuide={() => setFabricGuideOpen(true)} />}
 
       <main className="flex-1 pb-16 md:pb-0">
         <Routes>
           <Route path="/" element={<Home onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
+          <Route path="/login" element={<WelcomeLoginPage />} />
+          <Route path="/home" element={<Home onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
           <Route path="/catalog" element={<CatalogPage onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
           <Route path="/product/:id" element={<ProductDetailPage onOpenFabricGuide={() => setFabricGuideOpen(true)} />} />
           <Route path="/cart" element={<CartPage />} />
@@ -55,10 +61,10 @@ function MainLayout() {
         </Routes>
       </main>
 
-      <Footer />
+      {!isLoginPage && <Footer />}
 
       {/* App-like Mobile Bottom Navigation */}
-      <MobileBottomNav />
+      {!isLoginPage && <MobileBottomNav />}
 
       {/* Fabric Buying Guide Modal */}
       <FabricGuideModal
