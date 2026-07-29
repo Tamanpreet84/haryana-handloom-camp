@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Mail, Lock, User, ArrowRight, Phone } from 'lucide-react';
 import MetaSEO from '../components/MetaSEO';
@@ -7,13 +7,24 @@ import { useShop } from '../context/ShopContext';
 
 export default function WelcomeLoginPage() {
   const navigate = useNavigate();
-  const { loginUser, showToast } = useShop();
+  const { loginUser, showToast, user } = useShop();
 
   const [tab, setTab] = useState('login'); // 'login', 'signup'
   const [emailOrUsername, setEmailOrUsername] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+
+  // Auto redirect if user is already logged in
+  useEffect(() => {
+    if (user) {
+      if (user.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/home');
+      }
+    }
+  }, [user, navigate]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -28,14 +39,12 @@ export default function WelcomeLoginPage() {
       showToast('👑 Welcome Admin! Opening Control Panel...');
       navigate('/admin');
     } else {
-      // Backend silent dispatch notification - no mailto app popups!
       showToast('Thank you for exploring Haryana Handloom Camp!');
       navigate('/home');
     }
   };
 
   const handleGoogleSignIn = () => {
-    // Automatic direct Google login using active browser email session with zero prompts
     loginUser('google.user@gmail.com', 'google123');
     showToast('Thank you for exploring Haryana Handloom Camp!');
     navigate('/home');
