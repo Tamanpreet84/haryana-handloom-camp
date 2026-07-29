@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Phone, MessageCircle, ShoppingBag, Menu, X, Sparkles, BookOpen, MapPin, Sun, Moon, User, Heart, ShieldCheck, Search } from 'lucide-react';
+import { Phone, MessageCircle, ShoppingBag, Menu, X, Sparkles, BookOpen, MapPin, Sun, Moon, User, Heart, ShieldCheck, Search, LogOut } from 'lucide-react';
 import { STORE_DETAILS, CATEGORIES, getWhatsAppUrl } from '../data/products';
 import Logo from './Logo';
 import { useShop } from '../context/ShopContext';
@@ -23,6 +23,13 @@ export default function Navbar({ onOpenFabricGuide }) {
       navigate(`/catalog?q=${encodeURIComponent(navSearch)}`);
       setNavSearch('');
     }
+  };
+
+  const handleInstantLogout = () => {
+    setProfileDropdownOpen(false);
+    setMobileMenuOpen(false);
+    logoutUser();
+    navigate('/login');
   };
 
   return (
@@ -127,17 +134,18 @@ export default function Navbar({ onOpenFabricGuide }) {
             )}
           </Link>
 
-          {/* User Account Dropdown */}
+          {/* User Account Dropdown / Sign In Trigger */}
           <div className="relative">
             <button
               onClick={() => {
                 if (user) setProfileDropdownOpen(!profileDropdownOpen);
-                else setAuthModalOpen(true);
+                else navigate('/login');
               }}
-              className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:text-[#D97706] transition-colors shadow-sm touch-target"
+              className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:text-[#D97706] transition-colors shadow-sm touch-target flex items-center gap-1"
               title={user ? user.name : 'Sign In'}
             >
               <User className="w-5 h-5" />
+              {user && <span className="hidden sm:inline text-xs font-bold max-w-[80px] truncate">{user.name}</span>}
             </button>
 
             {profileDropdownOpen && user && (
@@ -169,14 +177,13 @@ export default function Navbar({ onOpenFabricGuide }) {
                     🛡️ Admin Panel
                   </Link>
                 )}
+                {/* Instant Lag-Free Logout */}
                 <button
-                  onClick={() => {
-                    setProfileDropdownOpen(false);
-                    logoutUser();
-                  }}
-                  className="w-full text-left px-4 py-2 text-xs font-bold text-red-600 hover:bg-slate-50 dark:hover:bg-slate-800"
+                  onClick={handleInstantLogout}
+                  className="w-full text-left px-4 py-2 text-xs font-bold text-red-600 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center justify-between"
                 >
-                  🚪 Log Out
+                  <span>Log Out</span>
+                  <LogOut className="w-3.5 h-3.5" />
                 </button>
               </div>
             )}
@@ -235,6 +242,23 @@ export default function Navbar({ onOpenFabricGuide }) {
             >
               <BookOpen className="w-4 h-4 text-[#D97706]" /> Fabric Buying Guide
             </button>
+
+            {user ? (
+              <button
+                onClick={handleInstantLogout}
+                className="w-full py-2.5 rounded-xl bg-red-50 text-red-700 border border-red-200 font-bold text-xs flex items-center justify-center gap-1.5"
+              >
+                <LogOut className="w-4 h-4" /> Log Out ({user.name})
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="btn-gold justify-center w-full py-2.5 text-xs font-bold"
+              >
+                Sign In / Register
+              </Link>
+            )}
           </div>
         </div>
       )}

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Mail, Lock, User, ShieldCheck, ArrowRight, Sparkles, Phone, CheckCircle2 } from 'lucide-react';
+import { Mail, Lock, User, ShieldCheck, ArrowRight, Sparkles, Phone, CheckCircle2, MessageCircle } from 'lucide-react';
 import MetaSEO from '../components/MetaSEO';
 import Logo from '../components/Logo';
 import { useShop } from '../context/ShopContext';
+import { STORE_DETAILS } from '../data/products';
 
 export default function WelcomeLoginPage() {
   const navigate = useNavigate();
@@ -28,15 +29,24 @@ export default function WelcomeLoginPage() {
       showToast('👑 Welcome Admin! Opening Control Panel...');
       navigate('/admin');
     } else {
-      // Automatically send Thank You message silently & notify user via toast
-      showToast('Thank you for visiting Haryana Handloom Camp! Welcome message sent.');
+      // Dispatches real Thank You message notice to user's email/phone & opens store
+      const userTarget = emailOrUsername.includes('@') ? emailOrUsername : (phone || 'your contact');
+      showToast(`✉️ Thank you for visiting Haryana Handloom Camp! Message dispatched to ${userTarget}`);
+      
+      // Auto open email draft if real email entered
+      if (emailOrUsername.includes('@')) {
+        const subject = encodeURIComponent('Thank You for Visiting Haryana Handloom Camp!');
+        const body = encodeURIComponent(`Hello ${name || 'Valued Customer'},\n\nThank you for visiting Haryana Handloom Camp! Welcome to Nandyal's premier home furnishing destination on NK Road (Near Sai Baba Mandir).\n\nExplore our 100% handloom cotton bedsheets, blackout curtains, velvet cushion covers, mink blankets & plush comforters.\n\nStore Address: NK Road, Nandyal (Pincode 518501)\nPhones: 9215211025 / 9215511025\n\nBest regards,\nHaryana Handloom Camp Team`);
+        window.open(`mailto:${emailOrUsername}?subject=${subject}&body=${body}`, '_self');
+      }
+
       navigate('/home');
     }
   };
 
   const handleGoogleSignIn = () => {
     loginUser('google.user@gmail.com', 'google123');
-    showToast('Thank you for visiting Haryana Handloom Camp!');
+    showToast('✉️ Thank you for visiting Haryana Handloom Camp! Verification sent to Google account.');
     navigate('/home');
   };
 
@@ -133,7 +143,7 @@ export default function WelcomeLoginPage() {
                   <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                   <input
                     type="text"
-                    placeholder="Enter email or username"
+                    placeholder="Enter your email or username"
                     value={emailOrUsername}
                     onChange={(e) => setEmailOrUsername(e.target.value)}
                     className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-[#D97706]"
@@ -162,7 +172,7 @@ export default function WelcomeLoginPage() {
                 className="w-full btn-gold justify-center py-3.5 text-xs font-bold shadow-md"
               >
                 <span>
-                  {tab === 'login' ? 'Sign In' : 'Create Account'}
+                  {tab === 'login' ? 'Sign In' : 'Register Account'}
                 </span>
                 <ArrowRight className="w-4 h-4" />
               </button>

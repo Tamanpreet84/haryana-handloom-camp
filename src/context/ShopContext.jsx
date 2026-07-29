@@ -73,7 +73,7 @@ export function ShopProvider({ children }) {
     setToast({ message, type });
     setTimeout(() => {
       setToast(null);
-    }, 3000);
+    }, 4000);
   };
 
   // Sync theme with DOM & localStorage
@@ -213,7 +213,7 @@ export function ShopProvider({ children }) {
     showToast(`Order ${orderId} status updated to "${newStatus}"`);
   };
 
-  // Auth Functions - Admin checking username haryanahandloom0001 and password 9215211025
+  // Auth Functions - Instant Lag-Free Logout & Admin credentials checking
   const loginUser = (emailOrUsername, password) => {
     const cleanInput = emailOrUsername.trim().toLowerCase();
     const isAdmin =
@@ -236,11 +236,13 @@ export function ShopProvider({ children }) {
       }
     };
     setUser(newUser);
+    localStorage.setItem('hhc_user', JSON.stringify(newUser));
     return newUser;
   };
 
   const logoutUser = () => {
     setUser(null);
+    localStorage.removeItem('hhc_user');
     showToast('Logged out successfully');
   };
 
