@@ -6,45 +6,61 @@ const ShopContext = createContext();
 export const useShop = () => useContext(ShopContext);
 
 export function ShopProvider({ children }) {
+  // Safe helper to read & parse localStorage
+  const safeGetLocalStorage = (key, fallback) => {
+    try {
+      const saved = localStorage.getItem(key);
+      if (!saved) return fallback;
+      return JSON.parse(saved);
+    } catch (e) {
+      console.warn(`Failed to parse localStorage key ${key}, resetting to fallback.`, e);
+      return fallback;
+    }
+  };
+
   // Theme state: default to 'light'
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('hhc_theme') || 'light';
+    try {
+      return localStorage.getItem('hhc_theme') || 'light';
+    } catch (e) {
+      return 'light';
+    }
   });
 
   // User Auth State - Default to Guest (null) unless saved
-  const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem('hhc_user');
-    return saved ? JSON.parse(saved) : null;
-  });
+  const [user, setUser] = useState(() => safeGetLocalStorage('hhc_user', null));
 
   // Persistent Cart
-  const [cart, setCart] = useState(() => {
-    const saved = localStorage.getItem('hhc_cart');
-    return saved ? JSON.parse(saved) : [
+  const [cart, setCart] = useState(() =>
+    safeGetLocalStorage('hhc_cart', [
       {
         ...PRODUCTS[0],
         selectedSize: 'Double (90x100")',
         quantity: 1
       }
-    ];
-  });
+    ])
+  );
 
   // Persistent Wishlist
-  const [wishlist, setWishlist] = useState(() => {
-    const saved = localStorage.getItem('hhc_wishlist');
-    return saved ? JSON.parse(saved) : [PRODUCTS[1], PRODUCTS[3]];
-  });
+  const [wishlist, setWishlist] = useState(() =>
+    safeGetLocalStorage('hhc_wishlist', [PRODUCTS[1], PRODUCTS[3]])
+  );
 
   // Orders History
-  const [orders, setOrders] = useState(() => {
-    const saved = localStorage.getItem('hhc_orders');
-    return saved ? JSON.parse(saved) : [
+  const [orders, setOrders] = useState(() =>
+    safeGetLocalStorage('hhc_orders', [
       {
         orderId: 'HHC-98241',
         date: '2026-07-28',
         status: 'Delivered',
         items: [
-          { name: 'Royal Crimson Velvet Zari Border Cushion Covers (Set of 5)', price: 699, quantity: 1, selectedSize: '16x16 inches', image: '/images/cushion-covers/cc-crimson-velvet-zari.png' }
+          {
+            name: 'Royal Crimson Velvet Zari Border Cushion Covers (Set of 5)',
+            price: 699,
+            quantity: 1,
+            selectedSize: '16x16 inches',
+            image: '/images/cushion-covers/cc-crimson-velvet-zari.png'
+          }
         ],
         totalAmount: 699,
         paymentId: 'pay_Nz9281741',
@@ -56,8 +72,8 @@ export function ShopProvider({ children }) {
           pincode: '518501'
         }
       }
-    ];
-  });
+    ])
+  );
 
   // Coupon State
   const [appliedCoupon, setAppliedCoupon] = useState(null);
@@ -76,9 +92,11 @@ export function ShopProvider({ children }) {
     }, 4000);
   };
 
-  // Sync theme with DOM & localStorage
+  // Sync theme with DOM & localStorage safely
   useEffect(() => {
-    localStorage.setItem('hhc_theme', theme);
+    try {
+      localStorage.setItem('hhc_theme', theme);
+    } catch (e) {}
     const root = document.documentElement;
     if (theme === 'dark') {
       root.classList.add('dark');
@@ -89,25 +107,33 @@ export function ShopProvider({ children }) {
     }
   }, [theme]);
 
-  // Sync state to localStorage
+  // Sync state to localStorage safely
   useEffect(() => {
-    localStorage.setItem('hhc_cart', JSON.stringify(cart));
+    try {
+      localStorage.setItem('hhc_cart', JSON.stringify(cart));
+    } catch (e) {}
   }, [cart]);
 
   useEffect(() => {
-    localStorage.setItem('hhc_wishlist', JSON.stringify(wishlist));
+    try {
+      localStorage.setItem('hhc_wishlist', JSON.stringify(wishlist));
+    } catch (e) {}
   }, [wishlist]);
 
   useEffect(() => {
-    localStorage.setItem('hhc_orders', JSON.stringify(orders));
+    try {
+      localStorage.setItem('hhc_orders', JSON.stringify(orders));
+    } catch (e) {}
   }, [orders]);
 
   useEffect(() => {
-    if (user) {
-      localStorage.setItem('hhc_user', JSON.stringify(user));
-    } else {
-      localStorage.removeItem('hhc_user');
-    }
+    try {
+      if (user) {
+        localStorage.setItem('hhc_user', JSON.stringify(user));
+      } else {
+        localStorage.removeItem('hhc_user');
+      }
+    } catch (e) {}
   }, [user]);
 
   // Toggle Theme
@@ -236,13 +262,17 @@ export function ShopProvider({ children }) {
       }
     };
     setUser(newUser);
-    localStorage.setItem('hhc_user', JSON.stringify(newUser));
+    try {
+      localStorage.setItem('hhc_user', JSON.stringify(newUser));
+    } catch (e) {}
     return newUser;
   };
 
   const logoutUser = () => {
     setUser(null);
-    localStorage.removeItem('hhc_user');
+    try {
+      localStorage.removeItem('hhc_user');
+    } catch (e) {}
     showToast('Logged out successfully');
   };
 
