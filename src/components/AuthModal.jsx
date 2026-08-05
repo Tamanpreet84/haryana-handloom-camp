@@ -29,9 +29,9 @@ export default function AuthModal({ isOpen, onClose }) {
   };
 
   const handleFillAdmin = () => {
-    setEmail('admin@haryana.com');
-    setPassword('admin123');
-    loginUser('admin@haryana.com', 'admin123');
+    setEmail('haryanahandloom0001');
+    setPassword('9215211025');
+    loginUser('haryanahandloom0001', '9215211025');
     onClose();
   };
 
@@ -89,7 +89,7 @@ export default function AuthModal({ isOpen, onClose }) {
               className="p-2 rounded-xl bg-slate-900 text-white hover:bg-amber-600 transition-colors text-center shadow-sm"
             >
               👑 Login as Admin
-              <span className="block text-[9px] text-amber-300 font-normal">admin@haryana.com</span>
+              <span className="block text-[9px] text-amber-300 font-normal">haryanahandloom0001</span>
             </button>
             <button
               onClick={handleFillUser}
@@ -120,12 +120,12 @@ export default function AuthModal({ isOpen, onClose }) {
           )}
 
           <div className="space-y-1">
-            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">Email Address:</label>
+            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">Email / Username:</label>
             <div className="relative">
               <Mail className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
-                type="email"
-                placeholder="admin@haryana.com or name@example.com"
+                type="text"
+                placeholder="haryanahandloom0001 or user@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-xs focus:outline-none focus:border-[#D97706]"
