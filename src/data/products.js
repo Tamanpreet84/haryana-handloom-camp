@@ -3,13 +3,20 @@
 export const STORE_DETAILS = {
   name: "HARYANA HANDLOOM CAMP",
   slogan: "WEAVE COMFORT INTO YOUR LIFE",
+  subtitle: "WEAVE COMFORT INTO YOUR LIFE",
   address: "NK Road, Nandyal, Pincode 518501 (Near Sai Baba Mandir)",
   phones: [
     { number: "9215211025", label: "Primary Store Inquiry" },
     { number: "9215511025", label: "Secondary Store Contact" }
   ],
   workingHours: "9:00 AM - 9:30 PM (Mon - Sun)",
-  gstNumber: "37AAACH9821F1Z8"
+  gstNumber: "37AAACH9821F1Z8",
+  highlights: [
+    { title: "BEST QUALITY", desc: "100% pure cotton, high thread count, color-fast & pre-shrunk handloom fabrics." },
+    { title: "LATEST DESIGNS", desc: "Exclusive Jaipuri floral prints, royal velvet zari borders & modern 3D mink patterns." },
+    { title: "AFFORDABLE PRICES", desc: "Direct loom pricing & wholesale discounts for Nandyal families and bulk buyers." },
+    { title: "ALL SIZES AVAILABLE", desc: "Single, Queen, Double King (90x108\"), and custom fitted elasticated covers." }
+  ]
 };
 
 export const CATEGORIES = [
